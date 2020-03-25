@@ -23,6 +23,13 @@ export default class NavBar extends Component {
               <div className="dropdown__hover">Contact</div>
             </div>{" "}
           </Link>
+          <Link to="/cart">
+            <div className="dropdown">
+              <div className="dropdown__hover">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+          </Link>{" "}
         </section>
       </nav>
     );
