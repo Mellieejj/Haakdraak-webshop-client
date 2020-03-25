@@ -17,10 +17,10 @@ export default class Footer extends Component {
             style={{ marginLeft: "220px", marginTop: "10px" }}
           >
             <Link to="http://www.facebook.com/haakdraakie">
-              <i class="fab fa-facebook-square fa-3x"></i>
+              <i className="fab fa-facebook-square fa-3x"></i>
             </Link>{" "}
             <Link to="http://www.instagram.com/haakdraakie">
-              <i class="fab fa-instagram fa-3x"></i>
+              <i className="fab fa-instagram fa-3x"></i>
             </Link>
           </div>
           <div
