@@ -1,11 +1,19 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import NavBar from "./components/NavBar";
+
+import "./App.css";
 
 function App() {
   return (
+    // <Provider>
     <div className="App">
-   Hello
+      <Route path="/" component={NavBar} />
+      
     </div>
+    // </Provider>
   );
 }
 
