@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import NavBar from "./components/NavBar";
-
+import Home from "./components/Homepage";
 import "./App.css";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     // <Provider>
     <div className="wrapper">
       <Route path="/" component={NavBar} />
-      
+      <Route exact path="/" component={Home} />
     </div>
     // </Provider>
   );
