@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   return (
     // <Provider>
-    <div className="App">
+    <div className="wrapper">
       <Route path="/" component={NavBar} />
       
     </div>

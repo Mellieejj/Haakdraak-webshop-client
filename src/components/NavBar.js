@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 export default class NavBar extends Component {
   render() {
     return (
-      <nav>
+      <nav className="main-nav">
         <img src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
         <h1>HaakDraak</h1>
-        <section>
-          <div class="dropdown">
-            <Link to="/">
-              <div class="dropdown__hover">Home</div>
-            </Link>
-          </div>
-          <div class="dropdown">
-            <Link to="/producten">
-              <div class="dropdown__hover">Producten</div>
-            </Link>
-          </div>
-          <div class="dropdown">
-            <Link to="/contact">
-              <div class="dropdown__hover">Contact</div>
-            </Link>
-          </div>
+        <section className="nav">
+          <Link to="/">
+            <div className="dropdown">
+              <div className="dropdown__hover">Home</div>
+            </div>
+          </Link>
+          <Link to="/producten">
+            <div className="dropdown">
+              <div className="dropdown__hover">Producten</div>
+            </div>{" "}
+          </Link>
+          <Link to="/contact">
+            <div className="dropdown">
+              <div className="dropdown__hover">Contact</div>
+            </div>{" "}
+          </Link>
         </section>
       </nav>
     );

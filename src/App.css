@@ -1,38 +1,323 @@
-.App {
+/* CSS Variables */
+
+:root {
+  --link: #32a093;
+  --bezocht: #288176;
+  --aanwijzen: #a3fff9;
+  --blauw: #32a093;
+  --grijs: #555555;
+  --wit: #ffffff;
+  --dark: #333;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Patrick Hand;
+  font-size: 20px;
+  color: var(--grijs);
+}
+
+body {
+  background: var(--blauw);
+  line-height: 1.4;
+}
+
+h1 {
+  font-family: Chewy;
+  font-size: 60px;
+  color: var(--blauw);
+}
+
+h2 {
+  font-family: Chewy;
+  font-size: 36px;
+  color: var(--blauw);
+}
+
+h3 {
+  font-family: Chewy;
+  font-size: 24px;
+  color: var(--grijs);
+}
+
+h4 {
+  font-family: Chewy;
+  font-size: 18px;
+  color: var(--blauw);
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+p {
+  font-size: 20px;
+  font-family: Patrick Hand;
+}
+
+.tijdelijk {
+  color: red;
+  font-weight: bold;
+}
+
+.btn {
+  background: var(--dark);
+  color: var(--wit);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  margin: 0 auto;
+  background: var(--blauw);
+  max-width: 955px;
+}
+
+
+/* Navigation */
+
+.nav {
+  margin-top: 37px;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline;
+  z-index: 10;
+}
+
+.dropdown__hover {
+  display: inline-block;
+  padding: 10px;
+  background: var(--wit);
+  color: var(--grijs);
+  cursor: pointer;
   text-align: center;
+  border: none;
+  font-family: Patrick Hand;
+  font-size: 24px;
+  min-width: 150px;
+  margin-left: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dropdown__hover:hover {
+  background: var(--blauw);
+  color: var(--wit);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dropdown__hover:hover a {
+  color: var(--wit);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dropdown__menu {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  margin: 10px;
+  min-width: 150px;
+  background: var(--wit);
+  color: var(--grijs);
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+}
+
+.dropdown:hover .dropdown__menu {
+  display: block;
+}
+
+.dropdown__menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  border-top: solid 1px #e0e0e0;
+  color: var(--grijs);
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: var(--grijs);
+}
+
+.dropdown a:hover {
+  background: var(--blauw);
+  color: var(--wit);
+}
+
+.main-nav {
+  width: 100%;
+  height: 127px;
+  width: 955px;
+  background: var(--wit);
+}
+
+.main-nav h1 {
+  float: left;
+  margin: 25px 10px 25px 0px;
+}
+
+.main-nav img {
+  float: left;
+  margin: 17px 0px 17px 17px;
+}
+
+
+/* top container */
+
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 'foto foto' 'foto foto';
+}
+
+
+/* Showcase */
+
+.foto {
+  grid-area: foto;
+  min-height: 400px;
+  background: url("http://www.haakdraak.nl/afbeeldingen/48-2.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-shadow: var(--shadow);
 }
 
-.App-link {
-  color: #61dafb;
+.foto h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--wit);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.foto p {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: var(--wit);
+  text-align: center;
+}
+
+.productnaam {
+  background: var(--wit);
+  text-align: center;
+}
+
+
+/* boxes */
+
+.boxes {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+iframe {
+  margin-left: 15%;
+  margin-right: 15%;
+  border: none;
+  width: 70%;
+  height: 920px;
+}
+
+.boxes-info {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: 'box-1 box-2' 'box-contact box-contact' 'box-contact box-contact';
+}
+
+.box {
+  background: var(--wit);
+  text-align: left;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.box-1 {
+  grid-area: box-1;
+}
+
+.box a {
+  color: var(--blauw);
+}
+
+.box-2 {
+  grid-area: box-2;
+}
+
+.box-contact {
+  grid-area: box-contact;
+}
+
+.product {
+  max-height: 325px;
+  padding-left: 10px;
+  background: var(--wit);
+  box-shadow: var(--shadow);
+}
+
+.product img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.prijs {
+  font-size: 18px;
+  margin-top: 0px;
+}
+
+.boxes a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  align-items: start;
+  justify-items: center;
+}
+
+.grid img {
+  border: none;
+  box-shadow: var(--shadow);
+  max-width: 100%;
+}
+
+.grid img:nth-child(2) {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.foot-nav {
+  height: 100px;
+  width: 955px;
+  background: var(--wit);
+  margin: 25px auto;
+  box-shadow: var(--shadow);
+  display: flex;
+}
+
+.foot-nav p {
+  margin-left: 10px;
+  margin-right: 225px;
+}
+
+.foot-nav a {
+  color: var(--grijs);
+  text-decoration: none;
 }
