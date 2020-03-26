@@ -70,7 +70,7 @@ export default class CheckoutForm extends Component {
                     <input
                       type="text"
                       name="postcode"
-                      pattern="[0-9]{4}[A_Z]{2}"
+                      // pattern="[0-9]{4}[A_Z]{2}"
                       value={this.props.values.postcode}
                       onChange={this.props.onChange}
                     />

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {connect} from "react-redux"
-import CheckoutForm from "./CheckoutForm"
+import { connect } from "react-redux";
+import { createOrder } from "../actions/orderActions";
+import CheckoutForm from "./CheckoutForm";
 
 class CheckoutFormContainer extends Component {
   state = {
@@ -23,8 +24,10 @@ class CheckoutFormContainer extends Component {
   onSubmit = event => {
     event.preventDefault();
 
-    //action to backend moet hier nog tussen
-    console.log("submit");
+    this.props.createOrder({
+      form: this.state,
+      items: this.props.cartItems
+    });
 
     this.setState({
       firstName: "",
@@ -51,9 +54,8 @@ class CheckoutFormContainer extends Component {
     });
   };
 
-  
   render() {
-    console.log("state", this.state)
+    console.log("state", this.state);
     return (
       <CheckoutForm
         onSubmit={this.onSubmit}
@@ -65,4 +67,4 @@ class CheckoutFormContainer extends Component {
   }
 }
 
-export default connect()(CheckoutFormContainer);
+export default connect(null, { createOrder })(CheckoutFormContainer);

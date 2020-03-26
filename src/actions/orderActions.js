@@ -17,6 +17,7 @@ export const createOrder = data => (dispatch, getState) => {
     .send(data)
     .then(response => {
       const action = newOrder(response.body);
+      console.log(action)
       dispatch(action);
     })
     .catch(console.error);
