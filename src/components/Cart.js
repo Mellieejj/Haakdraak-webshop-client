@@ -2,6 +2,15 @@ import React, { Component } from "react";
 
 export default class Cart extends Component {
   render() {
+    //total price of cart items
+    const totalPrice = this.props.cartItems
+      ? this.props.cartItems.reduce((prevValue, currentValue) => {
+          const numberPrice = parseFloat(currentValue.price);
+          const priceQuantity = numberPrice * currentValue.quantity;
+          return (Number(priceQuantity) + Number(prevValue)).toFixed(2)
+        }, 0)
+      : null;
+
     return (
       <div className="box">
         <h3>Your Cart</h3>
@@ -28,6 +37,13 @@ export default class Cart extends Component {
                 );
               })}
             </tbody>
+            <tfoot>
+              <tr>
+                <td>Totaal:</td>
+                <td>€ {totalPrice}</td>
+                <td>total items</td>
+              </tr>
+            </tfoot>
           </table>
         )}
       </div>
