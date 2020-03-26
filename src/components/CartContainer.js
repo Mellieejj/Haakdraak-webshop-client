@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Cart from "./Cart"
-import CheckoutForm from "./CheckoutForm"
+import CheckoutFormContainer from "./CheckoutFormContainer";
 
 class CartContainer extends Component {
   render(){
     return (
       <div className="boxes" style={{marginTop: "25px"}}>
         <Cart cartItems={this.props.cart} />
-        <CheckoutForm />
+        <CheckoutFormContainer />
       </div>
     )
   }
