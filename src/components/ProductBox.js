@@ -9,7 +9,11 @@ export default class ProductBox extends Component {
             <div className="product" key={product.id}>
               <img src={product.img} alt="" />
               <h4>{product.name}</h4>
-              <p className="prijs">€ {product.price}</p>
+              <p className="prijs">€ {product.price}
+              {" "} <button id="addToCart" onClick={() => this.props.clickHandler(product.id)}>
+                  <i className="fas fa-cart-plus"></i>
+                </button></p>
+              
             </div>
           );
         })}

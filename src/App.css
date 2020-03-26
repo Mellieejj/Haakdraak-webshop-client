@@ -257,7 +257,7 @@ iframe {
 }
 
 .product {
-  max-height: 325px;
+  max-height: 500px;
   padding-left: 10px;
   background: var(--wit);
   box-shadow: var(--shadow);
@@ -270,9 +270,19 @@ iframe {
   margin-top: 10px;
 }
 
+.product h4 {
+  margin-left: 20px;
+}
+
 .prijs {
   font-size: 18px;
   margin-top: 0px;
+  margin-left: 20px;
+}
+
+.prijs button {
+  float: right;
+  margin-right: 25px;
 }
 
 .boxes a {
