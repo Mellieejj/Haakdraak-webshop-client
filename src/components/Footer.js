@@ -14,7 +14,7 @@ export default class Footer extends Component {
           </div>
           <div
             className="foot"
-            style={{ marginLeft: "220px", marginTop: "10px" }}
+            style={{ marginLeft: "325px", marginTop: "10px" }}
           >
             <Link to="http://www.facebook.com/haakdraakie">
               <i className="fab fa-facebook-square fa-3x"></i>

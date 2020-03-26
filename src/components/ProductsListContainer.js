@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../actions/productActions";
 
+import ProductBox from "./ProductBox";
+
 class ProductListContainer extends Component {
   componentDidMount() {
     this.props.getProducts();
@@ -12,10 +14,10 @@ class ProductListContainer extends Component {
         <section className="top-product">
           <div className="productnaam">
             <h2>Producten</h2>
-            {this.props.products.map(product => {
-              return <p>{product.name}</p>;
-            })}
+
+            
           </div>
+          <ProductBox products={this.props.products} />
         </section>
       </div>
     );
