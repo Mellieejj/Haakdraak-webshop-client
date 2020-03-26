@@ -29,7 +29,7 @@ export const getProducts = () => (dispatch, getState) => {
 export const CART_ADDED = "CART_ADDED"
 
 export function cartAdd(id) {
-  console.log("cartAdd id: ", id);
+  // console.log("cartAdd id: ", id);
   return {
     type: CART_ADDED,
     payload: id
