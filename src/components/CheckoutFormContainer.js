@@ -50,6 +50,8 @@ class CheckoutFormContainer extends Component {
       opmerkingen: ""
     });
   };
+
+  
   render() {
     console.log("state", this.state)
     return (

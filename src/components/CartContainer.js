@@ -8,7 +8,7 @@ class CartContainer extends Component {
     return (
       <div className="boxes" style={{marginTop: "25px"}}>
         <Cart cartItems={this.props.cart} />
-        <CheckoutFormContainer />
+        <CheckoutFormContainer cartItems={this.props.cart} />
       </div>
     )
   }
