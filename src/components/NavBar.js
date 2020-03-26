@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class NavBar extends Component {
+class NavBar extends Component {
   render() {
+    const countCart = this.props.cart.reduce((lastValue, newValue) => {
+      return lastValue + newValue.quantity;
+    }, 0);
+
+    // console.log("cart count", count);
+
     return (
       <nav className="main-nav">
         <img src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
@@ -26,8 +33,8 @@ export default class NavBar extends Component {
           <Link to="/cart">
             <div className="dropdown">
               <div className="dropdown__hover">
-                <i className="fas fa-shopping-cart"></i>
-              </div>
+               <i className="fas fa-shopping-cart"></i>{" "} {countCart} 
+              </div> 
             </div>
           </Link>{" "}
         </section>
@@ -35,3 +42,11 @@ export default class NavBar extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    cart: state.products.cart
+  };
+}
+
+export default connect(mapStateToProps)(NavBar);
