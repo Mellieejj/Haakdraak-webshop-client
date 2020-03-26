@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 
 class NavBar extends Component {
   render() {
-    const count = this.props.cart.reduce((acc, curr) => {
-      return acc + curr.quantity;
+    const countCart = this.props.cart.reduce((lastValue, newValue) => {
+      return lastValue + newValue.quantity;
     }, 0);
 
-    console.log("cart count", count);
+    // console.log("cart count", count);
 
     return (
       <nav className="main-nav">
@@ -33,7 +33,7 @@ class NavBar extends Component {
           <Link to="/cart">
             <div className="dropdown">
               <div className="dropdown__hover">
-               <i className="fas fa-shopping-cart"></i>{" "} {count} 
+               <i className="fas fa-shopping-cart"></i>{" "} {countCart} 
               </div> 
             </div>
           </Link>{" "}
