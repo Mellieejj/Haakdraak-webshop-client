@@ -7,9 +7,13 @@ export default class Cart extends Component {
       ? this.props.cartItems.reduce((prevValue, currentValue) => {
           const numberPrice = parseFloat(currentValue.price);
           const priceQuantity = numberPrice * currentValue.quantity;
-          return (Number(priceQuantity) + Number(prevValue)).toFixed(2)
+          return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
         }, 0)
       : null;
+    // total items of cart
+    const countCart = this.props.cartItems.reduce((lastValue, newValue) => {
+      return lastValue + newValue.quantity;
+    }, 0);
 
     return (
       <div className="box">
@@ -41,7 +45,7 @@ export default class Cart extends Component {
               <tr>
                 <td>Totaal:</td>
                 <td>€ {totalPrice}</td>
-                <td>total items</td>
+                <td>{countCart}</td>
               </tr>
             </tfoot>
           </table>
