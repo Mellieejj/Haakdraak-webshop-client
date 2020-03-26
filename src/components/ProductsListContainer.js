@@ -10,9 +10,8 @@ class ProductListContainer extends Component {
   }
 
   clickHandler = id => {
-    this.props.cartAdd(id)
-  }
-
+    this.props.cartAdd(id);
+  };
 
   render() {
     return (
@@ -20,10 +19,11 @@ class ProductListContainer extends Component {
         <section className="top-product">
           <div className="productnaam">
             <h2>Producten</h2>
-
-            
           </div>
-          <ProductBox products={this.props.products} clickHandler={this.clickHandler} />
+          <ProductBox
+            products={this.props.products}
+            clickHandler={this.clickHandler}
+          />
         </section>
       </div>
     );
@@ -31,7 +31,7 @@ class ProductListContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.products);
+  // console.log(state.products);
   return {
     products: state.products.products
   };
