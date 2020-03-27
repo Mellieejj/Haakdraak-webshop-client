@@ -17,38 +17,58 @@ export default class Cart extends Component {
 
     return (
       <div className="box">
-        <h3>Your Cart</h3>
+        <h2>Winkelwagen</h2>
 
         {this.props.cartItems.length === 0 ? (
-          <p>Er zijn geen producten toegevoegd aan u winkelwagen!</p>
+          <p>Er zijn geen producten toegevoegd aan uw winkelwagen!</p>
         ) : (
-          <table>
-            <thead>
-              <tr>
-                <td>Product</td>
-                <td>Prijs</td>
-                <td>Aantal</td>
-              </tr>
-            </thead>
-            <tbody>
-              {this.props.cartItems.map(item => {
-                return (
-                  <tr key={item.id}>
-                    <td>{item.name}</td>
-                    <td>€ {item.price}</td>
-                    <td>{item.quantity}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td>Totaal:</td>
-                <td>€ {totalPrice}</td>
-                <td>{countCart}</td>
-              </tr>
-            </tfoot>
-          </table>
+          <div>
+            <table className="cart">
+              <thead>
+                <tr>
+                  <td>Product</td>
+                  <td>Prijs</td>
+                  <td>Aantal</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                {this.props.cartItems.map(item => {
+                  return (
+                    <tr key={item.id}>
+                      <td>{item.name}</td>
+                      <td>€ {item.price}</td>
+                      <td>{item.quantity}</td>
+                      <td>
+                        <i
+                          onClick={() => this.props.addToCart(item.id)}
+                          className="fas fa-plus-circle"
+                        ></i>{" "}
+                        <i
+                          onClick={() => this.props.subtractFromCart(item.id)}
+                          className="fas fa-minus-circle"
+                        ></i>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Totaal:</td>
+                  <td>€ {totalPrice}</td>
+                  <td>{countCart}</td>
+                </tr>
+              </tfoot>
+            </table>
+            <div
+              style={{ float: "right" }}
+              className="formButton"
+              onClick={() => this.props.clearCart()}
+            >
+              <i class="fas fa-times"></i> Leeg wagentje
+            </div>
+          </div>
         )}
       </div>
     );
