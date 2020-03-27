@@ -1,7 +1,8 @@
 import {
   ALL_PRODUCTS,
   CART_ADDED,
-  CART_SUBTRACTED
+  CART_SUBTRACTED,
+  CLEAR_CART
 } from "../actions/productActions";
 
 const initialState = { products: [], cart: [] };
@@ -58,6 +59,13 @@ export default function(state = initialState, action = {}) {
           };
         }
       }
+    }
+
+    case CLEAR_CART: {
+      return {
+        ...state,
+        cart: []
+      };
     }
 
     default:

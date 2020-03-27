@@ -106,7 +106,7 @@ export default class CheckoutForm extends Component {
                   <td>
                     <button type="submit">Bestel</button>{" "}
                     <button onClick={() => this.props.reset}>
-                      <i class="fas fa-exclamation-triangle"></i>Wis alles
+                    <i class="fas fa-times"></i>{" "} Wis alles
                     </button>
                   </td>
                 </tr>

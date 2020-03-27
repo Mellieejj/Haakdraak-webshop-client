@@ -282,9 +282,14 @@ iframe {
 }
 
 .prijs i {
+  padding: 10px;
   float: right;
-  margin-top: 10px;
   margin-right: 35px;
+}
+
+.prijs i:hover {
+  background: var(--blauw);
+  color: var(--wit);
 }
 
 .boxes a {
@@ -346,4 +351,13 @@ table {
 
 .cart tfoot {
   border-top: 1px solid var(--grijs);
+}
+
+.cart i {
+  padding: 5px;
+}
+
+.cart i:hover {
+  background: var(--blauw);
+  color: var(--wit);
 }
