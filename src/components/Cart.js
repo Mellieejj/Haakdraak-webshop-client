@@ -62,8 +62,8 @@ export default class Cart extends Component {
               </tfoot>
             </table>
             <div
-              style={{ float: "right", marginTop: "10px", color: "#32a093" }}
-              className="dropdown__hover"
+              style={{ float: "right" }}
+              className="formButton"
               onClick={() => this.props.clearCart()}
             >
               <i class="fas fa-times"></i> Leeg wagentje

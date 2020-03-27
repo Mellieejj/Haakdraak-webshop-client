@@ -339,3 +339,22 @@ table {
   background: var(--blauw);
   color: var(--wit);
 }
+
+.formButton {
+  display: inline-block;
+  padding: 10px;
+  background: var(--wit);
+  color: var(--grijs);
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  font-family: Patrick Hand;
+  font-size: 20px;
+  min-width: 150px;
+  margin-top: 25px;
+}
+
+.formButton:hover {
+  background: var(--blauw);
+  color: var(--wit);
+}
