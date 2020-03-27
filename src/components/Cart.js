@@ -17,17 +17,18 @@ export default class Cart extends Component {
 
     return (
       <div className="box">
-        <h3>Your Cart</h3>
+        <h3>Winkelwagen</h3>
 
         {this.props.cartItems.length === 0 ? (
-          <p>Er zijn geen producten toegevoegd aan u winkelwagen!</p>
+          <p>Er zijn geen producten toegevoegd aan uw winkelwagen!</p>
         ) : (
-          <table>
+          <table className="cart">
             <thead>
               <tr>
                 <td>Product</td>
                 <td>Prijs</td>
                 <td>Aantal</td>
+                <td></td>
               </tr>
             </thead>
             <tbody>
@@ -37,6 +38,17 @@ export default class Cart extends Component {
                     <td>{item.name}</td>
                     <td>€ {item.price}</td>
                     <td>{item.quantity}</td>
+                    <td>
+                      {" "}
+                      <i
+                        onClick={() => this.props.addToCart(item.id)}
+                        className="fas fa-plus-circle"
+                      ></i>{" "}
+                      <i
+                        onClick={() => this.props.subtractFromCart(item.id)}
+                        className="fas fa-minus-circle"
+                      ></i>
+                    </td>
                   </tr>
                 );
               })}

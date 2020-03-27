@@ -39,6 +39,7 @@ h3 {
   font-family: Chewy;
   font-size: 24px;
   color: var(--grijs);
+  text-align: center;
 }
 
 h4 {
@@ -276,13 +277,14 @@ iframe {
 
 .prijs {
   font-size: 18px;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-left: 20px;
 }
 
-.prijs button {
+.prijs i {
   float: right;
-  margin-right: 25px;
+  margin-top: 10px;
+  margin-right: 35px;
 }
 
 .boxes a {
@@ -325,4 +327,23 @@ iframe {
 .foot-nav a {
   color: var(--grijs);
   text-decoration: none;
+}
+
+table {
+  font-family: Patrick Hand;
+  font-size: 22px;
+  border-collapse: collapse;
+  margin: auto;
+}
+.cart thead {
+  font-weight: bold;
+  border: 1px solid var(--grijs);
+}
+.cart td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cart tfoot {
+  border-top: 1px solid var(--grijs);
 }

@@ -33,7 +33,7 @@ class NavBar extends Component {
           <Link to="/cart">
             <div className="dropdown">
               <div className="dropdown__hover">
-               <i className="fas fa-shopping-cart"></i>{" "} {countCart} 
+               <i className="fas fa-shopping-bag"></i>{" "} {countCart} 
               </div> 
             </div>
           </Link>{" "}
