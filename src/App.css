@@ -118,31 +118,6 @@ img {
   color: var(--wit);
 }
 
-.dropdown__menu {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: 0;
-  margin: 10px;
-  min-width: 150px;
-  background: var(--wit);
-  color: var(--grijs);
-  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
-  font-size: 24px;
-}
-
-.dropdown:hover .dropdown__menu {
-  display: block;
-}
-
-.dropdown__menu a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  border-top: solid 1px #e0e0e0;
-  color: var(--grijs);
-}
-
 .dropdown a {
   text-decoration: none;
   color: var(--grijs);
@@ -336,14 +311,17 @@ iframe {
 
 table {
   font-family: Patrick Hand;
-  font-size: 22px;
+  font-size: 20px;
   border-collapse: collapse;
   margin: auto;
 }
+
 .cart thead {
   font-weight: bold;
+  color: var(--blauw);
   border: 1px solid var(--grijs);
 }
+
 .cart td {
   padding-left: 15px;
   padding-right: 15px;

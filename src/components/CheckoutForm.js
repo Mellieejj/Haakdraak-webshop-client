@@ -4,7 +4,7 @@ export default class CheckoutForm extends Component {
   render() {
     return (
       <div className="box">
-        <h3>Bestel Formulier</h3>
+        <h2>Bestel Formulier</h2>
         <div>
           <form onSubmit={this.props.onSubmit}>
             <table>
@@ -106,7 +106,7 @@ export default class CheckoutForm extends Component {
                   <td>
                     <button type="submit">Bestel</button>{" "}
                     <button onClick={() => this.props.reset}>
-                    <i class="fas fa-times"></i>{" "} Wis alles
+                      <i class="fas fa-times"></i> Wis alles
                     </button>
                   </td>
                 </tr>

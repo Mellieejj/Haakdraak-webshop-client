@@ -17,7 +17,7 @@ export default class Cart extends Component {
 
     return (
       <div className="box">
-        <h3>Winkelwagen</h3>
+        <h2>Winkelwagen</h2>
 
         {this.props.cartItems.length === 0 ? (
           <p>Er zijn geen producten toegevoegd aan uw winkelwagen!</p>
@@ -62,11 +62,11 @@ export default class Cart extends Component {
               </tfoot>
             </table>
             <div
-              style={{ float: "right", marginTop: "10px", fontWeight: "bold" }}
+              style={{ float: "right", marginTop: "10px", color: "#32a093" }}
               className="dropdown__hover"
               onClick={() => this.props.clearCart()}
             >
-              <i class="fas fa-times"></i>{" "} Leeg wagentje
+              <i class="fas fa-times"></i> Leeg wagentje
             </div>
           </div>
         )}
