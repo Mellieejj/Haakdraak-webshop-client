@@ -19,6 +19,8 @@ class ProductDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log("productdetailscontainer", state.product.categorie);
+
   return {
     product: state.product
   };

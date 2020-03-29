@@ -109,7 +109,7 @@ export default class CheckoutForm extends Component {
               Bestel
             </button>{" "}
             <button className="formButton" onClick={() => this.props.reset}>
-              <i class="fas fa-times"></i> Wis alles
+              <i className="fas fa-times"></i> Wis alles
             </button>
           </form>
         </div>
