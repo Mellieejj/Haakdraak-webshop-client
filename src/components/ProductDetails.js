@@ -19,7 +19,14 @@ export default class ProductDetails extends Component {
 
         <div className="box" key={this.props.product.id}>
           <img src={this.props.product.img} alt="" />
-          <p>€ {this.props.product.price}</p>
+          <p>
+            € {this.props.product.price}{" "}
+            <i
+              id="addToCart"
+              onClick={() => this.props.clickHandler(this.props.product.id)}
+              className="fas fa-cart-plus fa-lg"
+            ></i>
+          </p>
           <p>Op voorraad: {this.props.product.stock}</p>
           {this.props.product.stock === 0 ? (
             <p>

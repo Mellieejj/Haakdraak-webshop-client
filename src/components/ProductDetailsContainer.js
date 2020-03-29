@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadProduct } from "../actions/productActions";
+import { loadProduct, cartAdd } from "../actions/productActions";
 
 import ProductDetails from "./ProductDetails";
 
@@ -9,12 +9,20 @@ class ProductDetailsContainer extends Component {
     this.props.loadProduct(this.props.match.params.productId);
   }
 
+  clickHandler = id => {
+    this.props.cartAdd(id);
+  };
+  
   render() {
     console.log("hallo", this.props.history);
 
     return (
       <div>
-        <ProductDetails product={this.props.product} history={this.props.history} />
+        <ProductDetails
+          product={this.props.product}
+          history={this.props.history}
+          clickHandler={this.clickHandler}
+        />
       </div>
     );
   }
@@ -28,7 +36,7 @@ function mapStateToProps(state) {
   };
 }
 
-const mapDispatchToProps = { loadProduct };
+const mapDispatchToProps = { loadProduct, cartAdd };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
