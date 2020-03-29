@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
+
 
 export default class ProductBox extends Component {
   render() {
@@ -7,8 +9,8 @@ export default class ProductBox extends Component {
         {this.props.products.map(product => {
           return (
             <div className="product" key={product.id}>
-              <img src={product.img} alt="" />
-              <h4>{product.name}</h4>
+              <Link to={`/producten/${product.id}`}><img src={product.img} alt="" />
+              <h4>{product.name}</h4></Link>
               <p className="prijs">
                 € {product.price}{" "}
                 <i

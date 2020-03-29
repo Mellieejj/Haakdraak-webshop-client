@@ -17,6 +17,7 @@ function App() {
       <div className="wrapper">
         <Route path="/" component={NavBar} />
         <Route exact path="/producten" component={ProductsListContainer} />
+        <Route exact path="/producten/:productId" component={"hello"} />
         <Route exact path="/cart" component={CartContainer} />
         <Route exact path="/" component={Home} />
         <Route path="/" component={Footer} />
