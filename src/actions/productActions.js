@@ -26,24 +26,24 @@ export const getProducts = () => (dispatch, getState) => {
   }
 };
 
-export const ONE_PRODUCT = "ONE_PRODUCT"
+export const ONE_PRODUCT = "ONE_PRODUCT";
 
-function productFetched = product => {
+const productFetched = product => {
   return {
     type: ONE_PRODUCT,
     payload: product
-  }
-}
+  };
+};
 
 export const loadProduct = productId => dispatch => {
   request
-  .get(`${baseUrl}/products/${productId}`)
-  .send(productId)
-  .then(response => {
-    dispatch(productFetched(response.body))
-  })
-  .catch(console.error)
-}
+    .get(`${baseUrl}/products/${productId}`)
+    .send(productId)
+    .then(response => {
+      dispatch(productFetched(response.body));
+    })
+    .catch(console.error);
+};
 
 export const CART_ADDED = "CART_ADDED";
 
