@@ -2,11 +2,21 @@ import React, { Component } from "react";
 
 export default class ProductDetails extends Component {
   render() {
+    console.log("hello", this.props.history);
+
     return (
       <section className="top-product">
+        <div
+          style={{ float: "left", marginTop: "auto" }}
+          className="formButton"
+          onClick={() => this.props.history.goBack()}
+        >
+          <i className="far fa-hand-point-left"></i>Terug
+        </div>
         <div className="productnaam">
           <h2>{this.props.product.name}</h2>
         </div>
+
         <div className="box" key={this.props.product.id}>
           <img src={this.props.product.img} alt="" />
           <p>€ {this.props.product.price}</p>

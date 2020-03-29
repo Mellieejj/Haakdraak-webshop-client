@@ -10,9 +10,11 @@ class ProductDetailsContainer extends Component {
   }
 
   render() {
+    console.log("hallo", this.props.history);
+
     return (
       <div>
-        <ProductDetails product={this.props.product} />
+        <ProductDetails product={this.props.product} history={this.props.history} />
       </div>
     );
   }
