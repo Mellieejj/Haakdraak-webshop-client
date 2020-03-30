@@ -325,6 +325,7 @@ table {
 .cart td {
   padding-left: 15px;
   padding-right: 15px;
+  max-width: 6rem;
 }
 
 .cart tfoot {

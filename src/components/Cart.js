@@ -66,7 +66,7 @@ export default class Cart extends Component {
               className="formButton"
               onClick={() => this.props.clearCart()}
             >
-              <i class="fas fa-times"></i> Leeg wagentje
+              <i className="fas fa-times"></i> Leeg wagentje
             </div>
           </div>
         )}

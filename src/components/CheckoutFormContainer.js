@@ -55,7 +55,6 @@ class CheckoutFormContainer extends Component {
   };
 
   render() {
-    console.log("state", this.state);
     return (
       <CheckoutForm
         onSubmit={this.onSubmit}
