@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 export default class CheckoutForm extends Component {
   render() {
-    console.log("errors checkoutform:", this.props.errors);
-
     return (
       <div className="box">
         <h2>Bestel Formulier</h2>

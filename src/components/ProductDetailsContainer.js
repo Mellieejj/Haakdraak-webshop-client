@@ -14,8 +14,6 @@ class ProductDetailsContainer extends Component {
   };
 
   render() {
-    console.log("hallo", this.props.history);
-
     return (
       <div>
         <ProductDetails
@@ -29,8 +27,7 @@ class ProductDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("productdetailscontainer", state.product);
-
+  // console.log("productdetailscontainer", state.product);
   return {
     product: state.product
   };

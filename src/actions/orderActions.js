@@ -6,7 +6,6 @@ const baseUrl = "http://localhost:4000";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 
 export const displayError = payload => {
-  // console.log(payload);
   return {
     type: ERROR_MESSAGE,
     payload
@@ -44,7 +43,6 @@ export function createOrder(data) {
         )
       );
     } catch (error) {
-      // console.log(error.response.body.message);
       if (error.response) {
         const errorMessage = displayError(error.response.body.message);
 

@@ -18,8 +18,6 @@ class CartContainer extends Component {
   };
 
   render() {
-    console.log("render", this.props.errors);
-
     return (
       <div className="boxes" style={{ marginTop: "25px" }}>
         <Cart
@@ -27,7 +25,6 @@ class CartContainer extends Component {
           addToCart={this.addToCartHandler}
           subtractFromCart={this.subtractFromCartHandler}
           clearCart={this.props.clearCart}
-          
         />
         <CheckoutFormContainer
           cartItems={this.props.cart}
@@ -39,7 +36,7 @@ class CartContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("cartContainer", state.errors);
+  // console.log("cartContainer", state.errors);
   return {
     cart: state.products.cart,
     errors: state.errors

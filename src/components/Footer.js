@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class Footer extends Component {
   render() {
@@ -16,12 +15,20 @@ export default class Footer extends Component {
             className="foot"
             style={{ marginLeft: "325px", marginTop: "10px" }}
           >
-            <Link to="http://www.facebook.com/haakdraakie">
+            <a
+              target="_blank"
+              href="http://www.facebook.com/haakdraakie"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-facebook-square fa-3x"></i>
-            </Link>{" "}
-            <Link to="http://www.instagram.com/haakdraakie">
+            </a>{" "}
+            <a
+              target="_blank"
+              href="http://www.instagram.com/haakdraakie"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-instagram fa-3x"></i>
-            </Link>
+            </a>
           </div>
           <div
             className="foot"

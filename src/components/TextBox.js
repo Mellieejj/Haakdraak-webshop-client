@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class TextBox extends Component {
   render() {
@@ -14,9 +13,15 @@ export default class TextBox extends Component {
         </p>
         <p>
           Veel van mijn creaties kun je hier op de site terug vinden. Op{" "}
-          <Link to="http://www.instagram.com/haakdraakie">instagram</Link> staan
-          nog meer foto's van mijn gehaakte beestenboel en bestellingen van
-          andere klanten. Deze kunnen ook speciaal voor je gehaakt worden.
+          <a
+            target="_blank"
+            href="http://www.instagram.com/haakdraakie"
+            rel="noopener noreferrer"
+          >
+            instagram
+          </a>{" "}
+          staan nog meer foto's van mijn gehaakte beestenboel en bestellingen
+          van andere klanten. Deze kunnen ook speciaal voor je gehaakt worden.
         </p>
         <p>
           Heb je zelf een idee, of heb je iets leuks voorbij zien komen wat niet
