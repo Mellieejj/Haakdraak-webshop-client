@@ -6,6 +6,7 @@ export default class CheckoutForm extends Component {
       <div className="box">
         <h2>Bestel Formulier</h2>
         <div>
+          {this.props.errors ? <p className="error">{this.props.errors}</p> : null}
           <form onSubmit={this.props.onSubmit}>
             <table>
               <tbody>

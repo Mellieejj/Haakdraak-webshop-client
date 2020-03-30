@@ -13,9 +13,9 @@ class CartContainer extends Component {
     this.props.cartSubtract(id);
   };
 
-  clearCart =() => {
-    this.props.clearCart()
-  }
+  clearCart = () => {
+    this.props.clearCart();
+  };
 
   render() {
     return (
@@ -26,16 +26,21 @@ class CartContainer extends Component {
           subtractFromCart={this.subtractFromCartHandler}
           clearCart={this.props.clearCart}
         />
-        <CheckoutFormContainer cartItems={this.props.cart} />
+        <CheckoutFormContainer
+          cartItems={this.props.cart}
+          errors={this.props.errors}
+          clearCart={this.props.clearCart}
+        />
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  // console.log(state.products);
+  // console.log("cartContainer", state.errors);
   return {
-    cart: state.products.cart
+    cart: state.products.cart,
+    errors: state.errors
   };
 }
 

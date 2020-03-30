@@ -31,7 +31,6 @@ class ProductListContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.products.cart);
   return {
     products: state.products.products
   };

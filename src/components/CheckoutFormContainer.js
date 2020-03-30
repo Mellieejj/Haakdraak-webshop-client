@@ -39,6 +39,8 @@ class CheckoutFormContainer extends Component {
       city: "",
       opmerkingen: ""
     });
+
+    this.props.clearCart()
   };
 
   reset = () => {
@@ -61,6 +63,7 @@ class CheckoutFormContainer extends Component {
         onChange={this.onChange}
         values={this.state}
         reset={this.props.reset}
+        errors={this.props.errors}
       />
     );
   }

@@ -360,6 +360,11 @@ table {
   color: var(--wit);
 }
 
+.error {
+  color: #ff4d4d;
+  font-size: 24px;
+}
+
 .formButton {
   display: inline-block;
   padding: 10px;
