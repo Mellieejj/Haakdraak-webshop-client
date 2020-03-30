@@ -12,7 +12,7 @@ class ProductDetailsContainer extends Component {
   clickHandler = id => {
     this.props.cartAdd(id);
   };
-  
+
   render() {
     console.log("hallo", this.props.history);
 
@@ -29,7 +29,7 @@ class ProductDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("productdetailscontainer", state.product.categorie);
+  console.log("productdetailscontainer", state.product);
 
   return {
     product: state.product

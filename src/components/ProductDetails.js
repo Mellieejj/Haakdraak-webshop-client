@@ -1,9 +1,41 @@
 import React, { Component } from "react";
 
-export default class ProductDetails extends Component {
-  render() {
-    console.log("hello", this.props.history);
+const BackArrow = props => (
+  <div
+    onClick={props.previousImage}
+    style={{ fontSize: "2em", marginRight: "12px" }}
+  >
+    <i className="fa fa-angle-left" aria-hidden="true"></i>
+  </div>
+);
 
+const NextArrow = props => (
+  <div
+    onClick={props.nextImage}
+    style={{ fontSize: "2em", marginLeft: "12px" }}
+  >
+    <i className="fa fa-angle-right" aria-hidden="true"></i>
+  </div>
+);
+
+export default class ProductDetails extends Component {
+  state = {
+    slideCount: 0
+  };
+
+  nextImage = () => {
+    this.setState({
+      slideCount: this.state.slideCount + 1
+    });
+  };
+
+  previousImage = () => {
+    this.setState({
+      slideCount: this.state.slideCount - 1
+    });
+  };
+
+  render() {
     return (
       <section className="top-product">
         <div
@@ -18,7 +50,32 @@ export default class ProductDetails extends Component {
         </div>
 
         <div className="box" key={this.props.product.id}>
-          <img src={this.props.product.img} alt="" />
+          {this.props.product.images
+            ? this.props.product.images.map((image, i) => {
+                if (
+                  this.props.product.images.indexOf(image) ===
+                  this.state.slideCount
+                ) {
+                  return (
+                    <div key={image.id}>
+                      <img src={image.url} alt="" />
+                    </div>
+                  );
+                }
+                return "";
+              })
+            : null}
+          {this.state.slideCount !== 0 ? (
+            <BackArrow previousImage={this.previousImage} />
+          ) : (
+            ""
+          )}
+          {this.props.product.images ? (
+            this.state.slideCount !== this.props.product.images.length - 1 ? (
+              <NextArrow nextImage={this.nextImage} />
+            ) : null
+          ) : null}
+
           <p>
             € {this.props.product.price}{" "}
             <i

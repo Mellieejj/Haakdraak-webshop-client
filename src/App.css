@@ -240,6 +240,8 @@ iframe {
 }
 
 .product img {
+  max-width: 174px;
+  max-height: 235px;
   display: block;
   margin-left: auto;
   margin-right: auto;
