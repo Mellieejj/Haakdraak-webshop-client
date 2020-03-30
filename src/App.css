@@ -216,6 +216,20 @@ iframe {
   box-shadow: var(--shadow);
 }
 
+.box img {
+  max-height: 500px;
+}
+
+.box i {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.box i:hover {
+  background: var(--blauw);
+  color: var(--wit);
+}
+
 .box-1 {
   grid-area: box-1;
 }
@@ -248,6 +262,9 @@ iframe {
   margin-top: 10px;
 }
 
+.kopjes {
+  font-weight: bold;
+}
 .product h4 {
   margin-left: 20px;
 }
