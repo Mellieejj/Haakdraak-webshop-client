@@ -61,6 +61,7 @@ class CheckoutFormContainer extends Component {
         onChange={this.onChange}
         values={this.state}
         reset={this.props.reset}
+        errors={this.props.errors}
       />
     );
   }

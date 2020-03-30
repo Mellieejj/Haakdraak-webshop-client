@@ -1,6 +1,26 @@
-import request from "superagent"
+import request from "superagent";
 
-const baseUrl = "http://localhost:4000"
+const baseUrl = "http://localhost:4000";
+
+//add error
+export const ERROR_MESSAGE = "ERROR_MESSAGE";
+
+export const displayError = payload => {
+  // console.log(payload);
+  return {
+    type: ERROR_MESSAGE,
+    payload
+  };
+};
+
+//remove error message
+export const REMOVE_ERROR = "REMOVE_ERROR";
+
+export const removeError = () => {
+  return {
+    type: REMOVE_ERROR
+  };
+};
 
 export const NEW_ORDER = "NEW_ORDER";
 
@@ -11,14 +31,27 @@ function newOrder(payload) {
   };
 }
 
-export const createOrder = data => (dispatch, getState) => {
-  request
-    .post(`${baseUrl}/orders`)
-    .send(data)
-    .then(response => {
+export function createOrder(data) {
+  return async function(dispatch, getState) {
+    try {
+      const response = await request.post(`${baseUrl}/orders`).send(data);
       const action = newOrder(response.body);
-      console.log(action)
-      dispatch(action);
-    })
-    .catch(console.error);
-};
+      await dispatch(action);
+      dispatch(removeError());
+      dispatch(
+        displayError(
+          "Uw bestelling is geplaatst, ik neem zo snel mogelijk contact op!"
+        )
+      );
+    } catch (error) {
+      // console.log(error.response.body.message);
+      if (error.response) {
+        const errorMessage = displayError(error.response.body.message);
+
+        dispatch(errorMessage);
+      } else {
+        console.error(error);
+      }
+    }
+  };
+}
