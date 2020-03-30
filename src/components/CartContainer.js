@@ -29,6 +29,7 @@ class CartContainer extends Component {
         <CheckoutFormContainer
           cartItems={this.props.cart}
           errors={this.props.errors}
+          clearCart={this.props.clearCart}
         />
       </div>
     );
