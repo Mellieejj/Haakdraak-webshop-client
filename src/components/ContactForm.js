@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import emailjs from "emailjs-com";
 
 export default class ContactForm extends Component {
+
+
   sendEmail = event => {
     event.preventDefault();
     emailjs
@@ -13,7 +15,7 @@ export default class ContactForm extends Component {
       )
       .then(
         result => {
-          console.log(result.text);
+          console.log("SUCCESS!", result.status, result.text);
         },
         error => {
           console.log(error.text);
@@ -32,7 +34,12 @@ export default class ContactForm extends Component {
           <label>Message</label>
           <textarea name="message" />
           <div
-            class="g-recaptcha"
+            style={{
+              height: "500px",
+              width: "500px",
+              backgroundColor: "purple"
+            }}
+            className="g-recaptcha"
             data-sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
           ></div>
           <input type="submit" value="Send" />
