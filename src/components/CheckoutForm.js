@@ -6,7 +6,9 @@ export default class CheckoutForm extends Component {
       <div className="box">
         <h2>Bestel Formulier</h2>
         <div>
-          {this.props.errors ? <p className="error">{this.props.errors}</p> : null}
+          {this.props.errors ? (
+            <p className="error">{this.props.errors}</p>
+          ) : null}
           <form onSubmit={this.props.onSubmit}>
             <table>
               <tbody>
@@ -113,6 +115,15 @@ export default class CheckoutForm extends Component {
               <i className="fas fa-times"></i> Wis alles
             </button>
           </form>
+          {/* <div
+            style={{
+              backgroudColor: "purple",
+              height: "200px",
+              width: "200px"
+            }}
+            className="g-recaptcha"
+            data-sitekey="6LfwkeUUAAAAAEh1d4t9raRkM4oie6emRi4fiIDI"
+          ></div> */}
         </div>
       </div>
     );

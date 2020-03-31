@@ -14,8 +14,6 @@ export default function(state = initialState, action = {}) {
     }
 
     case CART_ADDED: {
-      // return {...state, cart:[...state.cart, action.payload]}
-
       const productId = action.payload;
       const productCart = state.cart.find(p => p.id === productId);
 
