@@ -9,6 +9,7 @@ import Home from "./components/Homepage";
 import ProductsListContainer from "./components/ProductsListContainer";
 import ProductDetailsContainer from "./components/ProductDetailsContainer";
 import CartContainer from "./components/CartContainer";
+import ContactForm from "./components/ContactForm";
 
 import "./App.css";
 
@@ -24,6 +25,7 @@ function App() {
           component={ProductDetailsContainer}
         />
         <Route exact path="/cart" component={CartContainer} />
+        <Route exact path="/contact" component={ContactForm} />
         <Route exact path="/" component={Home} />
         <Route path="/" component={Footer} />
       </div>
