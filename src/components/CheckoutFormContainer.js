@@ -26,6 +26,14 @@ class CheckoutFormContainer extends Component {
     event.preventDefault();
     const { cartItems } = this.props;
 
+    const totalPrice = this.props.cartItems
+    ? this.props.cartItems.reduce((prevValue, currentValue) => {
+        const numberPrice = parseFloat(currentValue.price);
+        const priceQuantity = numberPrice * currentValue.quantity;
+        return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
+      }, 0)
+    : null;
+
     this.props.createOrder({
       form: this.state,
       items: this.props.cartItems
@@ -35,7 +43,8 @@ class CheckoutFormContainer extends Component {
       ...this.state,
       cartItems: cartItems
         .map(item => item.name + " " + item.quantity + "x")
-        .join("<br />")
+        .join("<br />"),
+      totalPrice
     };
 
     emailjs
