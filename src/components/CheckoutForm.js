@@ -1,6 +1,25 @@
 import React, { Component } from "react";
+import { ReCaptcha } from "react-recaptcha-google";
 
 export default class CheckoutForm extends Component {
+  componentDidMount() {
+    if (this.captchaDemo) {
+      console.log("started, just a second...");
+      this.captchaDemo.reset();
+    }
+  }
+
+  onLoadRecaptcha() {
+    if (this.captchaDemo) {
+      this.captchaDemo.reset();
+    }
+  }
+
+  verifyCallback(recaptchaToken) {
+    // Here you will get the final recaptchaToken!!!
+    console.log(recaptchaToken, "<= your recaptcha token");
+  }
+
   render() {
     return (
       <div className="box">
@@ -104,26 +123,25 @@ export default class CheckoutForm extends Component {
                 </tr>
               </tbody>
             </table>
-            <button
+            <ReCaptcha
+              ref={el => {
+                this.captchaDemo = el;
+              }}
+              size="normal"
+              render="explicit"
+              sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
+              onloadCallback={this.onLoadRecaptcha}
+              verifyCallback={this.verifyCallback}
+            />
+            <input
               style={{ marginLeft: "125px" }}
               className="formButton"
               type="submit"
-            >
-              Bestel
-            </button>{" "}
+              value="Bestel" />
             <button className="formButton" onClick={() => this.props.reset}>
               <i className="fas fa-times"></i> Wis alles
             </button>
           </form>
-          {/* <div
-            style={{
-              backgroudColor: "purple",
-              height: "200px",
-              width: "200px"
-            }}
-            className="g-recaptcha"
-            data-sitekey="6LfwkeUUAAAAAEh1d4t9raRkM4oie6emRi4fiIDI"
-          ></div> */}
         </div>
       </div>
     );

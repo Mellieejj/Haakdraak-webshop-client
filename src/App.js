@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
+import { loadReCaptcha } from "react-recaptcha-google";
 import store from "./store";
 
 import NavBar from "./components/NavBar";
@@ -13,24 +14,30 @@ import ContactForm from "./components/ContactForm";
 
 import "./App.css";
 
-function App() {
-  return (
-    <Provider store={store}>
-      <div className="wrapper">
-        <Route path="/" component={NavBar} />
-        <Route exact path="/producten" component={ProductsListContainer} />
-        <Route
-          exact
-          path="/producten/:productId"
-          component={ProductDetailsContainer}
-        />
-        <Route exact path="/cart" component={CartContainer} />
-        <Route exact path="/contact" component={ContactForm} />
-        <Route exact path="/" component={Home} />
-        <Route path="/" component={Footer} />
-      </div>
-    </Provider>
-  );
+class App extends Component {
+  componentDidMount() {
+    loadReCaptcha();
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="wrapper">
+          <Route path="/" component={NavBar} />
+          <Route exact path="/producten" component={ProductsListContainer} />
+          <Route
+            exact
+            path="/producten/:productId"
+            component={ProductDetailsContainer}
+          />
+          <Route exact path="/cart" component={CartContainer} />
+          <Route exact path="/contact" component={ContactForm} />
+          <Route exact path="/" component={Home} />
+          <Route path="/" component={Footer} />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
