@@ -18,6 +18,7 @@ export default class CheckoutForm extends Component {
   verifyCallback(recaptchaToken) {
     // Here you will get the final recaptchaToken!!!
     console.log(recaptchaToken, "<= your recaptcha token");
+    this.setState("recaptchaResponse", recaptchaToken);
   }
 
   render() {
@@ -137,7 +138,8 @@ export default class CheckoutForm extends Component {
               style={{ marginLeft: "125px" }}
               className="formButton"
               type="submit"
-              value="Bestel" />
+              value="Bestel"
+            />
             <button className="formButton" onClick={() => this.props.reset}>
               <i className="fas fa-times"></i> Wis alles
             </button>
