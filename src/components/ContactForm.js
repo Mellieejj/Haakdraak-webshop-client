@@ -1,7 +1,27 @@
 import React, { Component } from "react";
 import emailjs from "emailjs-com";
+import { ReCaptcha } from "react-recaptcha-google";
 
 export default class ContactForm extends Component {
+  componentDidMount() {
+    if (this.captchaDemo) {
+      console.log("started, just a second...");
+      this.captchaDemo.reset();
+    }
+  }
+
+  onLoadRecaptcha() {
+    if (this.captchaDemo) {
+      this.captchaDemo.reset();
+    }
+  }
+
+  verifyCallback(recaptchaToken) {
+    // Here you will get the final recaptchaToken!!!
+    console.log(recaptchaToken, "<= your recaptcha token");
+    this.setState("recaptchaResponse", recaptchaToken);
+  }
+
   sendEmail = event => {
     event.preventDefault();
     emailjs
@@ -31,11 +51,18 @@ export default class ContactForm extends Component {
           <input type="email" name="user_email" />
           <label>Message</label>
           <textarea name="message" />
-          <div
-            className="g-recaptcha"
-            data-sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
-          ></div>
+          <ReCaptcha
+            ref={el => {
+              this.captchaDemo = el;
+            }}
+            size="normal"
+            render="explicit"
+            sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
+            onloadCallback={this.onLoadRecaptcha}
+            verifyCallback={this.verifyCallback}
+          />
           <input type="submit" value="Send" />
+          <input type="reset" value="Reset" />
         </form>
       </div>
     );
