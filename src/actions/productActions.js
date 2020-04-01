@@ -71,3 +71,13 @@ export function clearCart() {
     type: CLEAR_CART
   };
 }
+
+//filter
+export const FITLER_SEARCH = "FITLER_SEARCH"
+
+export function filterSearch(filterCategorie) {
+  return {
+    type: FITLER_SEARCH,
+    payload: filterCategorie
+  };
+}

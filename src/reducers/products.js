@@ -2,15 +2,29 @@ import {
   ALL_PRODUCTS,
   CART_ADDED,
   CART_SUBTRACTED,
-  CLEAR_CART
+  CLEAR_CART,
+  FITLER_SEARCH
 } from "../actions/productActions";
 
-const initialState = { products: [], cart: [] };
+const initialState = { products: [], cart: [], filter:[]};
 
 export default function(state = initialState, action = {}) {
   switch (action.type) {
     case ALL_PRODUCTS: {
       return { ...state, products: action.payload };
+    }
+
+    case FITLER_SEARCH: {
+      const filterCategorie = action.payload;
+
+      console.log("filterCat", filterCategorie);
+      return {
+        ...state,
+        filter: state.products.filter(product => {
+          console.log("product Cat", product.categorie);
+          return product.categorie.name.includes(filterCategorie);
+        })
+      };
     }
 
     case CART_ADDED: {
