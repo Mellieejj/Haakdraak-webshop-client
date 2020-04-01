@@ -44,26 +44,72 @@ export default class ContactForm extends Component {
   render() {
     return (
       <div className="box">
-        <form className="contact-form" onSubmit={this.sendEmail}>
-          <label>Name</label>
-          <input type="text" name="user_name" />
-          <label>Email</label>
-          <input type="email" name="user_email" />
-          <label>Message</label>
-          <textarea name="message" />
-          <ReCaptcha
-            ref={el => {
-              this.captchaDemo = el;
-            }}
-            size="normal"
-            render="explicit"
-            sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
-            onloadCallback={this.onLoadRecaptcha}
-            verifyCallback={this.verifyCallback}
-          />
-          <input type="submit" value="Send" />
-          <input type="reset" value="Reset" />
-        </form>
+        <h3>Contact Formulier</h3>
+        <div>
+          <form className="contact-form" onSubmit={this.sendEmail}>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Naam: </td>
+                  <td>
+                    <input type="text" name="user_name" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Email: </td>
+                  <td>
+                    <input type="email" name="user_email" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Vraag / Bestelling: </td>
+                  <td>
+                    <input type="radio" name="vraag-order" value="vraag" />
+                    Vraag
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <input type="radio" name="vraag-order" value="bestelling" />
+                    Bestelling
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bericht:</td>
+                  <td>
+                    <textarea name="message" />
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td>
+                    <ReCaptcha
+                      ref={el => {
+                        this.captchaDemo = el;
+                      }}
+                      size="normal"
+                      render="explicit"
+                      sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
+                      onloadCallback={this.onLoadRecaptcha}
+                      verifyCallback={this.verifyCallback}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="reset" value="Reset" />
+                  </td>
+                  <td>
+                    <input type="submit" value="Send" />
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </form>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { ReCaptcha } from "react-recaptcha-google";
+import OrderInfo from "./OrderInfo";
+import SendInfo from "./SendInfo";
 
 export default class CheckoutForm extends Component {
   componentDidMount() {
@@ -24,7 +26,7 @@ export default class CheckoutForm extends Component {
   render() {
     return (
       <div className="box">
-        <h2>Bestel Formulier</h2>
+        <h3>Bestel Formulier</h3>
         <div>
           {this.props.errors ? (
             <p className="error">{this.props.errors}</p>
@@ -130,7 +132,7 @@ export default class CheckoutForm extends Component {
               }}
               size="normal"
               render="explicit"
-              sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
+              sitekey="6LfwkeUUAAAAAEh1d4t9raRkM4oie6emRi4fiIDI"
               onloadCallback={this.onLoadRecaptcha}
               verifyCallback={this.verifyCallback}
             />
@@ -145,6 +147,8 @@ export default class CheckoutForm extends Component {
             </button>
           </form>
         </div>
+        <OrderInfo />
+        <SendInfo />
       </div>
     );
   }

@@ -17,8 +17,7 @@ export default class Cart extends Component {
 
     return (
       <div className="box">
-        <h2>Winkelwagen</h2>
-
+        <h3>Winkelwagen</h3>
         {this.props.cartItems.length === 0 ? (
           <p>Er zijn geen producten toegevoegd aan uw winkelwagen!</p>
         ) : (
