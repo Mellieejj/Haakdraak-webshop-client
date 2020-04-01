@@ -7,7 +7,7 @@ export default class ContactContainer extends Component {
     return (
       <div>
         <section className="top-product">
-          <div className="productnaam">
+          <div className="pagina-naam">
             <h2>Contact</h2>
           </div>
         </section>

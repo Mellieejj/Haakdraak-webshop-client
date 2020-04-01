@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default class ProductBox extends Component {
   render() {
     return (
-      <section className="boxes">
+      <section className="product-boxes">
         {this.props.products.map(product => {
           return (
             <div className="product" key={product.id}>
