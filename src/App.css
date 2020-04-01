@@ -383,3 +383,7 @@ table {
   background: var(--blauw);
   color: var(--wit);
 }
+
+.info {
+  font-weight: bold;
+}

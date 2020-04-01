@@ -10,7 +10,7 @@ import Home from "./components/Homepage";
 import ProductsListContainer from "./components/ProductsListContainer";
 import ProductDetailsContainer from "./components/ProductDetailsContainer";
 import CartContainer from "./components/CartContainer";
-import ContactForm from "./components/ContactForm";
+import ContactContainer from "./components/ContactContainer";
 
 import "./App.css";
 
@@ -31,7 +31,7 @@ class App extends Component {
             component={ProductDetailsContainer}
           />
           <Route exact path="/cart" component={CartContainer} />
-          <Route exact path="/contact" component={ContactForm} />
+          <Route exact path="/contact" component={ContactContainer} />
           <Route exact path="/" component={Home} />
           <Route path="/" component={Footer} />
         </div>

@@ -7,9 +7,12 @@ export default class TextBox extends Component {
         <h3>Welkom!</h3>
         <p>Gehaakte knuffels, kraamcadeautjes en meer.</p>
         <p>
-          Alle producten op deze site zijn voorbeelden van de gehaakte producten
-          die ik al eerder gemaakt heb. Alles wordt op bestelling gemaakt en kan
-          dus naar eigen wensen aangepast worden.
+          Ik vind haken naast mijn sportieve hobby een heerlijke ontspanning.
+          Lekker op de bank met een haakwerkje. Ik haak van alles van rammelaars
+          tot knuffels en mutsen, kleedjes en omslagdoeken. Alle producten op
+          deze site zijn voorbeelden van de gehaakte producten die ik al eerder
+          gemaakt heb. Alles wordt op bestelling gemaakt en kan dus naar eigen
+          wensen en ideeën aangepast worden.
         </p>
         <p>
           Veel van mijn creaties kun je hier op de site terug vinden. Op{" "}
