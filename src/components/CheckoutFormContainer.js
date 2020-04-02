@@ -27,12 +27,12 @@ class CheckoutFormContainer extends Component {
     const { cartItems } = this.props;
 
     const totalPrice = this.props.cartItems
-    ? this.props.cartItems.reduce((prevValue, currentValue) => {
-        const numberPrice = parseFloat(currentValue.price);
-        const priceQuantity = numberPrice * currentValue.quantity;
-        return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
-      }, 0)
-    : null;
+      ? this.props.cartItems.reduce((prevValue, currentValue) => {
+          const numberPrice = parseFloat(currentValue.price);
+          const priceQuantity = numberPrice * currentValue.quantity;
+          return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
+        }, 0)
+      : null;
 
     this.props.createOrder({
       form: this.state,
@@ -91,6 +91,8 @@ class CheckoutFormContainer extends Component {
   };
 
   render() {
+    console.log(this.props.errors.message);
+
     return (
       <CheckoutForm
         onSubmit={this.onSubmit}

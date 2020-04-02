@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import { ReCaptcha } from "react-recaptcha-google";
+// import { ReCaptcha } from "react-recaptcha-google";
 import OrderInfo from "./OrderInfo";
 import SendInfo from "./SendInfo";
 
 export default class CheckoutForm extends Component {
-  componentDidMount() {
-    if (this.captchaDemo) {
-      console.log("started, just a second...");
-      this.captchaDemo.reset();
-    }
-  }
+  // componentDidMount() {
+  //   if (this.captchaDemo) {
+  //     console.log("started, just a second...");
+  //     this.captchaDemo.reset();
+  //   }
+  // }
 
-  onLoadRecaptcha() {
-    if (this.captchaDemo) {
-      this.captchaDemo.reset();
-    }
-  }
+  // onLoadRecaptcha() {
+  //   if (this.captchaDemo) {
+  //     this.captchaDemo.reset();
+  //   }
+  // }
 
-  verifyCallback(recaptchaToken) {
-    // Here you will get the final recaptchaToken!!!
-    console.log(recaptchaToken, "<= your recaptcha token");
-    this.setState("recaptchaResponse", recaptchaToken);
-  }
+  // verifyCallback(recaptchaToken) {
+  //   // Here you will get the final recaptchaToken!!!
+  //   console.log(recaptchaToken, "<= your recaptcha token");
+  //   this.setState("recaptchaResponse", recaptchaToken);
+  // }
 
   render() {
     return (
@@ -126,7 +126,7 @@ export default class CheckoutForm extends Component {
                 </tr>
               </tbody>
             </table>
-            <ReCaptcha
+            {/* <ReCaptcha
               ref={el => {
                 this.captchaDemo = el;
               }}
@@ -135,7 +135,7 @@ export default class CheckoutForm extends Component {
               sitekey="6LfwkeUUAAAAAEh1d4t9raRkM4oie6emRi4fiIDI"
               onloadCallback={this.onLoadRecaptcha}
               verifyCallback={this.verifyCallback}
-            />
+            /> */}
             <input
               style={{ marginLeft: "125px" }}
               className="formButton"
