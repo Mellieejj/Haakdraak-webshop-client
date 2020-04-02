@@ -29,25 +29,25 @@ class ProductListContainer extends Component {
 
   render() {
     return (
-      <div>
-        <section className="top-product">
-          <div className="productnaam">
-            <h2>Producten</h2>
-          </div>
-          <div className="filter">
-            <label>Filter producten:</label>
+      <section className="top-product">
+        <div className="pagina-naam">
+          <h2>Producten</h2>
+        </div>
+        <span className="filter">
+          <label>Filter producten:</label>
 
-            <select id="categorie" onChange={this.handleFilter}>
-              <option value="all">Alle Producten</option>
-              <option value={"Bijtringen & Rammelaars"}>
-                {"Bijtringen & Rammelaars"}
-              </option>
-              <option value="Baby Overige">Baby Overige</option>
-              <option value="Knuffels">Knuffels</option>
-              <option value="Sleutelhangers">Sleutelhangers</option>
-              <option value="Overige">Overige</option>
-            </select>
-          </div>
+          <select id="categorie" onChange={this.handleFilter}>
+            <option value="all">Alle Producten</option>
+            <option value={"Bijtringen & Rammelaars"}>
+              {"Bijtringen & Rammelaars"}
+            </option>
+            <option value="Baby Overige">Baby Overige</option>
+            <option value="Knuffels">Knuffels</option>
+            <option value="Sleutelhangers">Sleutelhangers</option>
+            <option value="Overige">Overige</option>
+          </select>
+        </span>
+        <div>
           <ProductBox
             products={
               this.props.filter.length === 0 ||
@@ -58,8 +58,8 @@ class ProductListContainer extends Component {
             }
             clickHandler={this.clickHandler}
           />
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 }
