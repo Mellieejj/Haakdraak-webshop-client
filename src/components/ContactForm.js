@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import emailjs from "emailjs-com";
+import { connect } from "react-redux";
 // import { ReCaptcha } from "react-recaptcha-google";
 
-export default class ContactForm extends Component {
+class ContactForm extends Component {
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -38,7 +39,8 @@ export default class ContactForm extends Component {
         error => {
           console.log(error.text);
         }
-      );
+      )
+      .then(event.target.reset());
   };
 
   render() {
@@ -114,3 +116,5 @@ export default class ContactForm extends Component {
     );
   }
 }
+
+export default connect()(ContactForm);
