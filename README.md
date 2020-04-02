@@ -13,7 +13,6 @@ HaakDraak is made to show my creations I made crocheting. I now create a webshop
 - [Project Goals](#project-goals)
 - [Demo](#demo)
 - [User stories](#user-stories)
-- [Wireframe](#wireframe)
 - [Used technology](#used-technology)
 - [Git workflow](#git-workflow)
 
@@ -23,13 +22,15 @@ My goals for this project are building an fullstack app I like to make, using te
 
 * Practise and improve my [git workflow](#git-workflow)
 * Try and use new technologies(sending email response)
-* Development use a wireframe program
-* Make and use user stories
+* Devlopment use user stories (make user stories too)
 
 ## Demo
 
-![screenshot 1]()
-![screenshot 2]()
+![prntscreen1](https://user-images.githubusercontent.com/58489880/78262857-79f8ff80-7501-11ea-8ab7-8d9d2e1f8105.png)
+![prntscreen3](https://user-images.githubusercontent.com/58489880/78263010-b167ac00-7501-11ea-94ec-9b5613ff2782.png)
+![prntscreen4](https://user-images.githubusercontent.com/58489880/78263047-be849b00-7501-11ea-87ba-561dc3934342.png)
+![prntscreen5](https://user-images.githubusercontent.com/58489880/78263079-c80e0300-7501-11ea-920f-177f74205028.png)
+
 ![demogif]()
 
 ## User Stories
@@ -46,8 +47,6 @@ My goals for this project are building an fullstack app I like to make, using te
 * As Admin user I want to login to see all the orders and edit (change status, or add/change products)
 
 -- :computer: I'm still working on my app to improve and finish all my user stories, probaly make more features. --
-
-## Wireframe
 
 ## Used Technology
 
