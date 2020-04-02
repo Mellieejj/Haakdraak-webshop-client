@@ -61,20 +61,20 @@ class CheckoutFormContainer extends Component {
         error => {
           console.log(error.text);
         }
-      );
-
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      street: "",
-      housenr: "",
-      postcode: "",
-      city: "",
-      opmerkingen: ""
-    });
-
-    this.props.clearCart();
+      )
+      .then(
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          street: "",
+          housenr: "",
+          postcode: "",
+          city: "",
+          opmerkingen: ""
+        })
+      )
+      .then(this.props.clearCart());
   };
 
   reset = () => {
@@ -91,8 +91,6 @@ class CheckoutFormContainer extends Component {
   };
 
   render() {
-    console.log(this.props.errors.message);
-
     return (
       <CheckoutForm
         onSubmit={this.onSubmit}
@@ -100,6 +98,7 @@ class CheckoutFormContainer extends Component {
         values={this.state}
         reset={this.props.reset}
         errors={this.props.errors}
+        cartItems={this.props.cartItems}
       />
     );
   }

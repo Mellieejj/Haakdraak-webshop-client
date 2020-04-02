@@ -137,10 +137,15 @@ export default class CheckoutForm extends Component {
               verifyCallback={this.verifyCallback}
             /> */}
             <input
-              style={{ marginLeft: "125px" }}
+              style={{ marginLeft: "125px"}}
               className="formButton"
               type="submit"
               value="Bestel"
+              disabled={
+                this.props.cartItems.length === 0 ? true :( !this.props.values.firstName || !this.props.values.lastName || !this.props.values.street || !this.props.values.housenr || !this.props.values.city || !this.props.values.postcode || !this.props.values.email)
+                  ? true
+                  : false 
+                }
             />
             <button className="formButton" onClick={() => this.props.reset}>
               <i className="fas fa-times"></i> Wis alles
