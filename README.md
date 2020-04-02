@@ -13,6 +13,7 @@ HaakDraak is made to show my creations I made crocheting. I now create a webshop
 - [Project Goals](#project-goals)
 - [Demo](#demo)
 - [User stories](#user-stories)
+- [Wireframe](#wireframe)
 - [Used technology](#used-technology)
 - [Git workflow](#git-workflow)
 
@@ -21,7 +22,7 @@ HaakDraak is made to show my creations I made crocheting. I now create a webshop
 My goals for this project are building an fullstack app I like to make, using technologies that are new and I learned at Codaisseur.
 
 - Practise and improve my [git workflow](#git-workflow)
-- Try and use new technologies(sending email response)
+- Try and use new technologies
 - Devlopment use user stories (make user stories too)
 
 ## Demo
@@ -49,6 +50,10 @@ My goals for this project are building an fullstack app I like to make, using te
 
 -- :computer: I'm still working on my app to improve and finish all my user stories, probaly make more features. --
 
+## Wireframe
+
+![wireframe](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/company/Cc7d365d3425637f38ac9773088d4ac09/projects/M74581b609e4f9a7749d60e971d820d031585041390639/pages/D3af5feb6f18aaca359e3178c13cb877e/image/D3af5feb6f18aaca359e3178c13cb877e.png)
+
 ## Used Technology
 
 I used these technologies on my Frontend side:
@@ -61,6 +66,7 @@ I used these technologies on my Frontend side:
 ## Git Workflow
 
 I try to use good git usage:
+
 - Working in different branches
 - Regularly git commits
 - Pull request with summary
