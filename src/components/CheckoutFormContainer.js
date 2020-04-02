@@ -27,12 +27,12 @@ class CheckoutFormContainer extends Component {
     const { cartItems } = this.props;
 
     const totalPrice = this.props.cartItems
-    ? this.props.cartItems.reduce((prevValue, currentValue) => {
-        const numberPrice = parseFloat(currentValue.price);
-        const priceQuantity = numberPrice * currentValue.quantity;
-        return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
-      }, 0)
-    : null;
+      ? this.props.cartItems.reduce((prevValue, currentValue) => {
+          const numberPrice = parseFloat(currentValue.price);
+          const priceQuantity = numberPrice * currentValue.quantity;
+          return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
+        }, 0)
+      : null;
 
     this.props.createOrder({
       form: this.state,
@@ -61,20 +61,20 @@ class CheckoutFormContainer extends Component {
         error => {
           console.log(error.text);
         }
-      );
-
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      street: "",
-      housenr: "",
-      postcode: "",
-      city: "",
-      opmerkingen: ""
-    });
-
-    this.props.clearCart();
+      )
+      .then(
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          street: "",
+          housenr: "",
+          postcode: "",
+          city: "",
+          opmerkingen: ""
+        })
+      )
+      .then(this.props.clearCart());
   };
 
   reset = () => {
@@ -98,6 +98,7 @@ class CheckoutFormContainer extends Component {
         values={this.state}
         reset={this.props.reset}
         errors={this.props.errors}
+        cartItems={this.props.cartItems}
       />
     );
   }

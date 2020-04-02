@@ -373,6 +373,10 @@ table {
   color: var(--wit);
 }
 
+.formButton:disabled {
+  background: var(--wit);
+  color: red;
+}
 .info {
   font-weight: bold;
 }

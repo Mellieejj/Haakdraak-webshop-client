@@ -1,26 +1,27 @@
 import React, { Component } from "react";
 import emailjs from "emailjs-com";
-import { ReCaptcha } from "react-recaptcha-google";
+import { connect } from "react-redux";
+// import { ReCaptcha } from "react-recaptcha-google";
 
-export default class ContactForm extends Component {
-  componentDidMount() {
-    if (this.captchaDemo) {
-      console.log("started, just a second...");
-      this.captchaDemo.reset();
-    }
-  }
+class ContactForm extends Component {
+  // componentDidMount() {
+  //   if (this.captchaDemo) {
+  //     console.log("started, just a second...");
+  //     this.captchaDemo.reset();
+  //   }
+  // }
 
-  onLoadRecaptcha() {
-    if (this.captchaDemo) {
-      this.captchaDemo.reset();
-    }
-  }
+  // onLoadRecaptcha() {
+  //   if (this.captchaDemo) {
+  //     this.captchaDemo.reset();
+  //   }
+  // }
 
-  verifyCallback(recaptchaToken) {
-    // Here you will get the final recaptchaToken!!!
-    console.log(recaptchaToken, "<= your recaptcha token");
-    this.setState("recaptchaResponse", recaptchaToken);
-  }
+  // verifyCallback(recaptchaToken) {
+  //   // Here you will get the final recaptchaToken!!!
+  //   console.log(recaptchaToken, "<= your recaptcha token");
+  //   this.setState("recaptchaResponse", recaptchaToken);
+  // }
 
   sendEmail = event => {
     event.preventDefault();
@@ -38,7 +39,8 @@ export default class ContactForm extends Component {
         error => {
           console.log(error.text);
         }
-      );
+      )
+      .then(event.target.reset());
   };
 
   render() {
@@ -86,7 +88,7 @@ export default class ContactForm extends Component {
                 <tr>
                   <td></td>
                   <td>
-                    <ReCaptcha
+                    {/* <ReCaptcha
                       ref={el => {
                         this.captchaDemo = el;
                       }}
@@ -95,7 +97,7 @@ export default class ContactForm extends Component {
                       sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
                       onloadCallback={this.onLoadRecaptcha}
                       verifyCallback={this.verifyCallback}
-                    />
+                    /> */}
                   </td>
                 </tr>
                 <tr>
@@ -114,3 +116,5 @@ export default class ContactForm extends Component {
     );
   }
 }
+
+export default connect()(ContactForm);
