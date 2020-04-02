@@ -17,11 +17,9 @@ export default function(state = initialState, action = {}) {
     case FITLER_SEARCH: {
       const filterCategorie = action.payload;
 
-      console.log("filterCat", filterCategorie);
       return {
         ...state,
         filter: state.products.filter(product => {
-          console.log("product Cat", product.categorie);
           return product.categorie.name.includes(filterCategorie);
         })
       };

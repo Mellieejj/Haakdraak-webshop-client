@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 
 const BackArrow = props => (
-  <div
+  <i
+    className="fa fa-angle-left"
+    aria-hidden="true"
     onClick={props.previousImage}
-    style={{ fontSize: "2em", marginRight: "12px" }}
-  >
-    <i className="fa fa-angle-left" aria-hidden="true"></i>
-  </div>
+    style={{ fontSize: "20px", marginRight: "12px" }}
+  ></i>
 );
 
 const NextArrow = props => (
-  <div
+  <i
+    className="fa fa-angle-right"
+    aria-hidden="true"
     onClick={props.nextImage}
-    style={{ fontSize: "2em", marginLeft: "12px" }}
-  >
-    <i className="fa fa-angle-right" aria-hidden="true"></i>
-  </div>
+    style={{ fontSize: "20px", marginLeft: "12px" }}
+  ></i>
 );
 
 export default class ProductDetails extends Component {
@@ -45,7 +45,7 @@ export default class ProductDetails extends Component {
         >
           <i className="far fa-hand-point-left"></i>Terug
         </div>
-        <div className="productnaam">
+        <div className="pagina-naam">
           <h2>{this.props.product.name}</h2>
         </div>
 
@@ -59,17 +59,19 @@ export default class ProductDetails extends Component {
                   return (
                     <div style={{ textAlign: "center" }} key={image.id}>
                       <img src={image.url} alt="" />
-                      {this.state.slideCount !== 0 ? (
-                        <BackArrow previousImage={this.previousImage} />
-                      ) : (
-                        ""
-                      )}
-                      {this.props.product.images ? (
-                        this.state.slideCount !==
-                        this.props.product.images.length - 1 ? (
-                          <NextArrow nextImage={this.nextImage} />
-                        ) : null
-                      ) : null}
+                      <div>
+                        {this.state.slideCount !== 0 ? (
+                          <BackArrow previousImage={this.previousImage} />
+                        ) : (
+                          ""
+                        )}
+                        {this.props.product.images ? (
+                          this.state.slideCount !==
+                          this.props.product.images.length - 1 ? (
+                            <NextArrow nextImage={this.nextImage} />
+                          ) : null
+                        ) : null}
+                      </div>
                     </div>
                   );
                 }
