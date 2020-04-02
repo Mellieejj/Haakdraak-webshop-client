@@ -50,11 +50,13 @@ My goals for this project are building an fullstack app I like to make, using te
 
 ## Used Technology
 
--[React]()
--[Redux]()
--[Express]()
--[Sequelize]()
--[EmailJS]()
+I used these technologies on my Frontend side: 
+
+- [React](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/App.js)
+- [Redux](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/reducers/products.js)
+- [EmailJS](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ContactForm.js)
+-[ReCaptcha](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ContactForm.js)
+
 
 ## Git Workflow
 
