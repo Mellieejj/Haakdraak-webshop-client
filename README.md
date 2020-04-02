@@ -61,6 +61,6 @@ I used these technologies on my Frontend side:
 ## Git Workflow
 
 I try to use good git usage:
-- Working in a branches
+- Working in different branches
 - Regularly git commits
 - Pull request with summary
