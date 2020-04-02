@@ -34,6 +34,11 @@ export default class SendInfo extends Component {
               dan kan dit iets langer zijn. Ik doe mijn best het zo snel
               mogelijk te versturen!{" "}
             </p>
+            <p>
+              Wanneer de bestelling verzonden moet worden zijn de verzendkosten
+              voor u. De verzendkosten zijn €6,95. Ophalen is ook een
+              mogelijkheid, dit kunnen we samen bespreken.
+            </p>
             <p className="tijdelijk">
               De levertijd is tijdelijk langer ivm studie. Vanaf eind april ga
               ik weer op bestelling haken. Alles wat ik heb liggen, kan ik
