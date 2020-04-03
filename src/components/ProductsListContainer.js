@@ -97,8 +97,6 @@ class ProductListContainer extends Component {
         ? this.props.products
         : this.props.filter;
 
-    console.log(productsList);
-
     const { currentPage, productsPerPage } = this.state;
 
     const lastIndex = currentPage * productsPerPage;
@@ -135,8 +133,8 @@ class ProductListContainer extends Component {
             clickHandler={this.clickHandler}
           />
         </div>
-        <div>
-          pagina {currentPage} van {totalPages}
+        <div className="pagination">
+          Pagina {currentPage} van {totalPages}
         </div>
         <div className="pagination">
           <button
