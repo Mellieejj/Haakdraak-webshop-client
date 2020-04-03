@@ -20,7 +20,7 @@ export default function(state = initialState, action = {}) {
       return {
         ...state,
         filter: state.products.filter(product => {
-          return product.categorie.name.includes(filterCategorie);
+          return product.categorie.name === filterCategorie;
         })
       };
     }

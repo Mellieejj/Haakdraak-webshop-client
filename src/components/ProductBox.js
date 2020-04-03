@@ -9,7 +9,6 @@ export default class ProductBox extends Component {
           const thumbnail = product.images.find(image => {
             return image.thumbnail === true;
           });
-          console.log(thumbnail.url);
 
           return (
             <div className="product" key={product.id}>
