@@ -36,6 +36,10 @@ export default class ProductDetails extends Component {
   };
 
   render() {
+    const images = this.props.product.images
+      ? this.props.product.images.filter(image => image.thumbnail === false)
+      : null;
+
     return (
       <section className="top-product">
         <div
@@ -51,32 +55,30 @@ export default class ProductDetails extends Component {
 
         <div className="box" key={this.props.product.id}>
           {this.props.product.images
-            ? this.props.product.images.map((image, i) => {
-                if (
-                  this.props.product.images.indexOf(image) ===
-                  this.state.slideCount
-                ) {
-                  return (
-                    <div style={{ textAlign: "center" }} key={image.id}>
-                      <img src={image.url} alt="" />
-                      <div>
-                        {this.state.slideCount !== 0 ? (
-                          <BackArrow previousImage={this.previousImage} />
-                        ) : (
-                          ""
-                        )}
-                        {this.props.product.images ? (
-                          this.state.slideCount !==
-                          this.props.product.images.length - 1 ? (
-                            <NextArrow nextImage={this.nextImage} />
-                          ) : null
-                        ) : null}
+            ? images
+                .filter(image => image.thumbnail === false)
+                .map((image, i) => {
+                  if (images.indexOf(image) === this.state.slideCount) {
+                    return (
+                      <div style={{ textAlign: "center" }} key={image.id}>
+                        <img src={image.url} alt="" />
+                        <div>
+                          {this.state.slideCount !== 0 ? (
+                            <BackArrow previousImage={this.previousImage} />
+                          ) : (
+                            ""
+                          )}
+                          {this.props.product.images ? (
+                            this.state.slideCount !== images.length - 1 ? (
+                              <NextArrow nextImage={this.nextImage} />
+                            ) : null
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
-                  );
-                }
-                return "";
-              })
+                    );
+                  }
+                  return "";
+                })
             : null}
 
           <p>
