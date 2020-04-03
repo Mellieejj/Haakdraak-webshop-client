@@ -138,37 +138,31 @@ class ProductListContainer extends Component {
         <div>
           pagina {currentPage} van {totalPages}
         </div>
-        <div>
-          {/* <InputGroup> */}
+        <div className="pagination">
           <button
-            type="button"
             disabled={currentPage === 1 ? true : false}
             onClick={this.firstPage}
           >
-            First
+            <i className="fas fa-angle-double-left"></i>
           </button>
           <button
-            type="button"
             disabled={currentPage === 1 ? true : false}
             onClick={this.prevPage}
           >
-            Previous
+            <i className="fas fa-angle-left"></i>
           </button>
           <button
-            type="button"
             disabled={currentPage === totalPages ? true : false}
             onClick={this.nextPage}
           >
-            Next
+            <i className="fas fa-angle-right"></i>
           </button>
           <button
-            type="button"
             disabled={currentPage === totalPages ? true : false}
             onClick={this.lastPage}
           >
-            Last
+            <i className="fas fa-angle-double-right"></i>
           </button>
-          {/* </InputGroup> */}
         </div>
       </section>
     );
