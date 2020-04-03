@@ -394,3 +394,28 @@ table {
   font-family: Patrick Hand;
   font-size: 20px;
 }
+
+.pagination {
+  font-family: Patrick Hand;
+}
+
+.pagination button {
+  display: inline-block;
+  background: var(--wit);
+  color: var(--grijs);
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  font-size: 28px;
+  margin: 5px;
+}
+
+.pagination button:hover {
+  background: var(--blauw);
+  color: var(--wit);
+}
+
+.pagination button:disabled {
+  background-color: var(--blauw);
+  color: var(--blauw);
+}

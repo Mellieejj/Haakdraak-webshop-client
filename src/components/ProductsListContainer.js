@@ -6,7 +6,9 @@ import ProductBox from "./ProductBox";
 
 class ProductListContainer extends Component {
   state = {
-    categorieFilter: ""
+    categorieFilter: "all",
+    currentPage: 1,
+    productsPerPage: 16
   };
 
   componentDidMount() {
@@ -20,14 +22,92 @@ class ProductListContainer extends Component {
   handleFilter = event => {
     if (event.target.value === "all") {
       this.props.getProducts();
-      this.setState({ categorieFilter: "all" });
+      this.setState({
+        ...this.state,
+        categorieFilter: "all",
+        currentPage: 1
+      });
     } else {
       this.props.filterSearch(event.target.value);
-      this.setState({ categorieFilter: event.target.value });
+      this.setState({
+        ...this.state,
+        categorieFilter: event.target.value,
+        currentPage: 1
+      });
+    }
+  };
+
+  firstPage = () => {
+    if (this.state.currentPage > 1) {
+      this.setState({
+        ...this.state,
+        currentPage: 1
+      });
+    }
+  };
+
+  prevPage = () => {
+    if (this.state.currentPage > 1) {
+      this.setState({
+        ...this.state,
+        currentPage: this.state.currentPage - 1
+      });
+    }
+  };
+
+  lastPage = () => {
+    const productsList =
+      this.state.categorieFilter === "all"
+        ? this.props.products
+        : this.props.filter;
+
+    if (
+      this.state.currentPage <
+      Math.ceil(productsList.length / this.state.productsPerPage)
+    ) {
+      this.setState({
+        ...this.state,
+        currentPage: Math.ceil(productsList.length / this.state.productsPerPage)
+      });
+    }
+  };
+
+  nextPage = () => {
+    const productsList =
+      this.state.categorieFilter === "all"
+        ? this.props.products
+        : this.props.filter;
+
+    if (
+      this.state.currentPage <
+      Math.ceil(productsList.length / this.state.productsPerPage)
+    ) {
+      this.setState({
+        ...this.state,
+        currentPage: this.state.currentPage + 1
+      });
     }
   };
 
   render() {
+    //pagination
+    const { products } = this.props;
+    const productsList =
+      this.state.categorieFilter === "all"
+        ? this.props.products
+        : this.props.filter;
+
+    const { currentPage, productsPerPage } = this.state;
+
+    const lastIndex = currentPage * productsPerPage;
+    const firstIndex = lastIndex - productsPerPage;
+    const currentProducts = productsList
+      ? productsList.slice(firstIndex, lastIndex)
+      : null;
+
+    const totalPages = products
+      ? Math.ceil(productsList.length / productsPerPage)
+      : null;
     return (
       <section className="top-product">
         <div className="pagina-naam">
@@ -49,15 +129,38 @@ class ProductListContainer extends Component {
         </span>
         <div>
           <ProductBox
-            products={
-              this.props.filter.length === 0 ||
-              this.state.categorieFilter === "all" ||
-              this.state.categorieFilter === ""
-                ? this.props.products
-                : this.props.filter
-            }
+            products={currentProducts}
             clickHandler={this.clickHandler}
           />
+        </div>
+        <div className="pagination">
+          Pagina {currentPage} van {totalPages}
+        </div>
+        <div className="pagination">
+          <button
+            disabled={currentPage === 1 ? true : false}
+            onClick={this.firstPage}
+          >
+            <i className="fas fa-angle-double-left"></i>
+          </button>
+          <button
+            disabled={currentPage === 1 ? true : false}
+            onClick={this.prevPage}
+          >
+            <i className="fas fa-angle-left"></i>
+          </button>
+          <button
+            disabled={currentPage === totalPages ? true : false}
+            onClick={this.nextPage}
+          >
+            <i className="fas fa-angle-right"></i>
+          </button>
+          <button
+            disabled={currentPage === totalPages ? true : false}
+            onClick={this.lastPage}
+          >
+            <i className="fas fa-angle-double-right"></i>
+          </button>
         </div>
       </section>
     );
