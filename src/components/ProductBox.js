@@ -6,11 +6,16 @@ export default class ProductBox extends Component {
     return (
       <section className="product-boxes">
         {this.props.products.map(product => {
+          const thumbnail = product.images.find(image => {
+            return image.thumbnail === true;
+          });
+          console.log(thumbnail.url);
+
           return (
             <div className="product" key={product.id}>
               <Link to={`/producten/${product.id}`}>
                 {product.images.length ? (
-                  <img src={product.images[0].url} alt="" />
+                  <img src={thumbnail.url} alt="" />
                 ) : null}
                 <h4>{product.name}</h4>
               </Link>
