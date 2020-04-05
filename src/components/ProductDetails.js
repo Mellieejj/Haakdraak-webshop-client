@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-const BackArrow = props => (
+const BackArrow = (props) => (
   <i
     className="fa fa-angle-left"
     aria-hidden="true"
@@ -9,7 +10,7 @@ const BackArrow = props => (
   ></i>
 );
 
-const NextArrow = props => (
+const NextArrow = (props) => (
   <i
     className="fa fa-angle-right"
     aria-hidden="true"
@@ -20,24 +21,24 @@ const NextArrow = props => (
 
 export default class ProductDetails extends Component {
   state = {
-    slideCount: 0
+    slideCount: 0,
   };
 
   nextImage = () => {
     this.setState({
-      slideCount: this.state.slideCount + 1
+      slideCount: this.state.slideCount + 1,
     });
   };
 
   previousImage = () => {
     this.setState({
-      slideCount: this.state.slideCount - 1
+      slideCount: this.state.slideCount - 1,
     });
   };
 
   render() {
     const images = this.props.product.images
-      ? this.props.product.images.filter(image => image.thumbnail === false)
+      ? this.props.product.images.filter((image) => image.thumbnail === false)
       : null;
 
     return (
@@ -56,7 +57,7 @@ export default class ProductDetails extends Component {
         <div className="box" key={this.props.product.id}>
           {this.props.product.images
             ? images
-                .filter(image => image.thumbnail === false)
+                .filter((image) => image.thumbnail === false)
                 .map((image, i) => {
                   if (images.indexOf(image) === this.state.slideCount) {
                     return (
@@ -114,10 +115,8 @@ export default class ProductDetails extends Component {
           {this.props.product.stock === 0 ? (
             <p>
               <span className="kopjes">Levertijd:</span> <br />
-              Producten die hier op de site staan, maak ik graag op bestelling.
-              De levertijd is ongeveer 2 weken. De producten die je hier op de
-              site vindt, zijn voorbeelden die ik al een keer gemaakt heb. Dit
-              kan allemaal aangepast worden aan je eigen voorkeuren en ideeën.{" "}
+              Kijk op de <Link to="/contact">contactpagina</Link> bij informatie
+              verzenden.
             </p>
           ) : null}
 

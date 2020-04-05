@@ -16,9 +16,9 @@ export default class ContactInfo extends Component {
         </p>
 
         <p>
-          Bestellingen die ik speciaal maak voor jou kunnen geplaatst worden via
-          het contactformulier of stuur een mail. Dan bespreken we samen de
-          mogelijkheden en kosten.
+          Bestellingen die ik speciaal voor jou maak kunnen geplaatst worden via
+          het contactformulier. Een email met je wensen kan ook. Dan bespreken
+          we samen de mogelijkheden en de kosten.
         </p>
         <OrderInfo />
         <SendInfo />

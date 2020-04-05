@@ -24,19 +24,19 @@ export default class TextBox extends Component {
             instagram
           </a>{" "}
           staan nog meer foto's van mijn gehaakte beestenboel en bestellingen
-          van andere klanten. Deze kunnen ook speciaal voor je gehaakt worden.
+          van andere klanten. Deze kunnen ook speciaal voor je jou gehaakt
+          worden.
         </p>
         <p>
-          Heb je zelf een idee, of heb je iets leuks voorbij zien komen wat niet
-          tussen mijn foto's staan, neem even contact op via het
-          contactformulier of stuur een mailtje, dan kijken wij samen verder
+          Heb je zelf een idee, of heb je iets leuks voorbij zien komen dat niet
+          tussen mijn foto's staat, neem even contact op via het
+          contactformulier of stuur een mailtje. Dan kijken wij samen verder
           voor een eventuele bestelling.
         </p>
         <p className="tijdelijk">
-          Tijdelijk maak ik niets op bestelling. Als je iets wilt en ik heb het
-          op voorraad kan het besteld worden. Half april denk ik weer op
-          bestelling te kunnen haken. Als de bestelling geen haast heeft (eind
-          april / half mei geleverd) kan de bestelling wel geplaatst worden.
+          De levertijd is tijdelijk langer ivm studie. Vanaf eind april ga ik
+          weer op bestelling haken. Alles wat ik heb liggen, kan ik binnen een
+          week verzenden.
         </p>
       </div>
     );
