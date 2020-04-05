@@ -27,11 +27,6 @@ My goals for this project are building an fullstack app I like to make, using te
 
 ## Demo
 
-![prntscreen1](https://user-images.githubusercontent.com/58489880/78262857-79f8ff80-7501-11ea-8ab7-8d9d2e1f8105.png)
-![prntscreen3](https://user-images.githubusercontent.com/58489880/78263010-b167ac00-7501-11ea-94ec-9b5613ff2782.png)
-![prntscreen4](https://user-images.githubusercontent.com/58489880/78263047-be849b00-7501-11ea-87ba-561dc3934342.png)
-![prntscreen5](https://user-images.githubusercontent.com/58489880/78263079-c80e0300-7501-11ea-920f-177f74205028.png)
-
 ![demo](https://user-images.githubusercontent.com/58489880/78265507-d0b40880-7504-11ea-9c45-e054490de41b.gif)
 
 ## User Stories
