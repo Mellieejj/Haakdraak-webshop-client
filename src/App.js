@@ -11,6 +11,7 @@ import ProductsListContainer from "./components/ProductsListContainer";
 import ProductDetailsContainer from "./components/ProductDetailsContainer";
 import CartContainer from "./components/CartContainer";
 import ContactContainer from "./components/ContactContainer";
+import AuthContainer from "./components/adminComponents/AuthContainer";
 
 import "./App.css";
 
@@ -32,6 +33,7 @@ class App extends Component {
           />
           <Route exact path="/cart" component={CartContainer} />
           <Route exact path="/contact" component={ContactContainer} />
+          <Route exact path="/admin" component={AuthContainer} />
           <Route exact path="/" component={Home} />
           <Route path="/" component={Footer} />
         </div>
