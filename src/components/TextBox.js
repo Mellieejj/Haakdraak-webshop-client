@@ -34,7 +34,7 @@ export default class TextBox extends Component {
           voor een eventuele bestelling.
         </p>
         <p className="tijdelijk">
-          De levertijd is tijdelijk langer ivm studie. Vanaf eind april ga ik
+          De levertijd is tijdelijk langer i.v.m. studie. Vanaf eind april ga ik
           weer op bestelling haken. Alles wat ik heb liggen, kan ik binnen een
           week verzenden.
         </p>
