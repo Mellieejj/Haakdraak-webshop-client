@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {connect} from "react-redux"
 import {getOrders} from "../../actions/orderActions"
+import OrderList from "./OrderList"
 
 class OrdersContainer extends Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class OrdersContainer extends Component {
         <div className="pagina-naam">
           <h2>Alle bestellingen</h2>
         </div>
-        <div className="box"></div>
+        <div className="box">
+          <OrderList orders={this.props.orders}/>
+        </div>
       </div>
     );
   }
