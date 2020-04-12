@@ -55,3 +55,27 @@ export function createOrder(data) {
   };
 }
 
+export const ALL_ORDERS = "ALL_ORDERS";
+
+function allOrders(payload) {
+  return {
+    type: ALL_ORDERS,
+    payload,
+  };
+}
+
+export const getOrders = () => (dispatch, getState) => {
+  const state = getState();
+  const { orders } = state;
+
+  if (!orders.length) {
+    request(`${baseUrl}/orders`)
+      .then((response) => {
+        console.log(response.body);
+
+        const action = allOrders(response.body);
+        dispatch(action);
+      })
+      .catch(console.error);
+  }
+};
