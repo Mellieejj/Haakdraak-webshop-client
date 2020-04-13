@@ -79,3 +79,21 @@ export const getOrders = () => (dispatch, getState) => {
       .catch(console.error);
   }
 };
+export const ONE_ORDER = "ONE_ORDER";
+
+const orderFetched = (order) => {
+  return {
+    type: ONE_ORDER,
+    payload: order,
+  };
+};
+
+export const loadOrder = (orderId) => (dispatch) => {
+  request
+    .get(`${baseUrl}/orders/${orderId}`)
+    .send(orderId)
+    .then((response) => {
+      dispatch(orderFetched(response.body));
+    })
+    .catch(console.error);
+};
