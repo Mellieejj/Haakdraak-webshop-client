@@ -28,6 +28,13 @@ export default class OrderDetails extends Component {
 
     return (
       <div>
+          <div
+          style={{ float: "left", marginTop: "auto" }}
+          className="formButton"
+          onClick={() => this.props.history.goBack()}
+        >
+          <i className="far fa-hand-point-left"></i>Terug
+        </div>
         <div className="pagina-naam">
           <h2>Details van bestelling</h2>
         </div>
