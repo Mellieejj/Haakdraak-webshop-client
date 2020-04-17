@@ -1,7 +1,7 @@
 import request from "superagent";
 
-const baseUrl = "http://localhost:4000";
-// const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
+// const baseUrl = "http://localhost:4000";
+const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
 
 //all products
 export const ALL_PRODUCTS = "ALL_PRODUCTS";

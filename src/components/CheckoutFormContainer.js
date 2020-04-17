@@ -13,16 +13,16 @@ class CheckoutFormContainer extends Component {
     housenr: "",
     postcode: "",
     city: "",
-    opmerkingen: ""
+    opmerkingen: "",
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     const { cartItems } = this.props;
 
@@ -36,45 +36,45 @@ class CheckoutFormContainer extends Component {
 
     this.props.createOrder({
       form: this.state,
-      items: this.props.cartItems
+      items: this.props.cartItems,
     });
 
     const formOrder = {
       ...this.state,
       cartItems: cartItems
-        .map(item => item.name + " " + item.quantity + "x")
+        .map((item) => item.name + " " + item.quantity + "x")
         .join("<br />"),
-      totalPrice
+      totalPrice,
     };
 
-    // emailjs
-    //   .send(
-    //     "smtp_server",
-    //     "bestel_form",
-    //     formOrder,
-    //     "user_4XE8EaLYpu2i37GtsnZ5k"
-    //   )
-    //   .then(
-    //     result => {
-    //       console.log("SUCCESS!", result.status, result.text);
-    //     },
-    //     error => {
-    //       console.log(error.text);
-    //     }
-    //   )
-    //   .then(
-    //     this.setState({
-    //       firstName: "",
-    //       lastName: "",
-    //       email: "",
-    //       street: "",
-    //       housenr: "",
-    //       postcode: "",
-    //       city: "",
-    //       opmerkingen: ""
-    //     })
-    //   )
-    //   .then(this.props.clearCart());
+    emailjs
+      .send(
+        "smtp_server",
+        "bestel_form",
+        formOrder,
+        "user_4XE8EaLYpu2i37GtsnZ5k"
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.status, result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      )
+      .then(
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          street: "",
+          housenr: "",
+          postcode: "",
+          city: "",
+          opmerkingen: "",
+        })
+      )
+      .then(this.props.clearCart());
   };
 
   reset = () => {
@@ -86,7 +86,7 @@ class CheckoutFormContainer extends Component {
       housenr: "",
       postcode: "",
       city: "",
-      opmerkingen: ""
+      opmerkingen: "",
     });
   };
 
