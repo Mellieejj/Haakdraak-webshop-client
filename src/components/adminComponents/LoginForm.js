@@ -3,8 +3,8 @@ import React, { Component } from "react";
 export default class LoginForm extends Component {
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.onSubmit}>
+      <div className="box">
+        <form id="login" onSubmit={this.props.onSubmit}>
           <input
             placeholder="name"
             type="text"

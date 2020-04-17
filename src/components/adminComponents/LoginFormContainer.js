@@ -6,28 +6,31 @@ import LoginForm from "./LoginForm";
 class LogininFormContainer extends Component {
   state = {
     name: "",
-    password: ""
+    password: "",
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.login(this.state);
     this.setState({
       name: "",
-      password: ""
+      password: "",
     });
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   render() {
     return (
       <div>
-        <h3>Login</h3>
+        <div className="pagina-naam">
+          <h2>Login</h2>
+        </div>
+
         <LoginForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}

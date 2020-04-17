@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import LoginFormContainer from "./LoginFormContainer";
-import OrdersContainer from "./OrdersContainer";
+import AdminMenu from "./AdminMenu";
 
 class AdminPage extends Component {
   render() {
     return (
       <div>
-        {!this.props.user.jwt ? <LoginFormContainer /> : <OrdersContainer />}
+        {!this.props.user.jwt ? <LoginFormContainer /> : <AdminMenu />}
       </div>
     );
   }

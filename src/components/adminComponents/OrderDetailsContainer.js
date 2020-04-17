@@ -27,7 +27,7 @@ class OrderDetailsContainer extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log("orderdetailscontainer", state.order);
+  // console.log("orderdetailscontainer", state.order);
   return {
     user: state.user,
     order: state.order,
