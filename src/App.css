@@ -420,3 +420,7 @@ table {
   background-color: var(--blauw);
   color: var(--blauw);
 }
+
+#login {
+  text-align: center;
+}

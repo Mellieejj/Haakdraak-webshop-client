@@ -23,7 +23,7 @@ class ContactForm extends Component {
   //   this.setState("recaptchaResponse", recaptchaToken);
   // }
 
-  sendEmail = event => {
+  sendEmail = (event) => {
     event.preventDefault();
     emailjs
       .sendForm(
@@ -33,14 +33,15 @@ class ContactForm extends Component {
         "user_4XE8EaLYpu2i37GtsnZ5k"
       )
       .then(
-        result => {
+        (result) => {
           console.log("SUCCESS!", result.status, result.text);
         },
-        error => {
+        (error) => {
           console.log(error.text);
         }
-      )
-      .then(event.target.reset());
+      );
+
+    event.target.reset();
   };
 
   render() {

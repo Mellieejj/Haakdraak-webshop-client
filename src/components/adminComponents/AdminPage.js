@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import LoginFormContainer from "./LoginFormContainer";
+import AdminMenu from "./AdminMenu";
 
 class AdminPage extends Component {
   render() {
-    return <div>{!this.props.user.jwt ? <LoginFormContainer /> : `Je bent ingelogd, ${this.props.user.name}`}</div>;
+    return (
+      <div>
+        {!this.props.user.jwt ? <LoginFormContainer /> : <AdminMenu />}
+      </div>
+    );
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
 
   return {
-    user: state.user
+    user: state.user,
   };
 }
 

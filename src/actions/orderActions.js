@@ -54,3 +54,46 @@ export function createOrder(data) {
     }
   };
 }
+
+export const ALL_ORDERS = "ALL_ORDERS";
+
+function allOrders(payload) {
+  return {
+    type: ALL_ORDERS,
+    payload,
+  };
+}
+
+export const getOrders = () => (dispatch, getState) => {
+  const state = getState();
+  const { orders } = state;
+
+  if (!orders.length) {
+    request(`${baseUrl}/orders`)
+      .then((response) => {
+        console.log(response.body);
+
+        const action = allOrders(response.body);
+        dispatch(action);
+      })
+      .catch(console.error);
+  }
+};
+export const ONE_ORDER = "ONE_ORDER";
+
+const orderFetched = (order) => {
+  return {
+    type: ONE_ORDER,
+    payload: order,
+  };
+};
+
+export const loadOrder = (orderId) => (dispatch) => {
+  request
+    .get(`${baseUrl}/orders/${orderId}`)
+    .send(orderId)
+    .then((response) => {
+      dispatch(orderFetched(response.body));
+    })
+    .catch(console.error);
+};
