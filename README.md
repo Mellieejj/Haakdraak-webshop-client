@@ -55,7 +55,9 @@ I used these technologies on my Frontend side:
 
 - [React](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/App.js)
 - [Redux](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/reducers/products.js)
+- [Superagent](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/actions/productActions.js)
 - [EmailJS](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ContactForm.js)
+- [MomentJS](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/adminComponents/OrderDetailsContainer.js)
 - [ReCaptcha](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ContactForm.js)
 
 ## Git Workflow
