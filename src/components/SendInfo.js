@@ -22,14 +22,24 @@ export default class SendInfo extends Component {
         {!this.state.sendToggle ? (
           <p>
             <span onClick={this.toggle}>
-            <i className="fas fa-chevron-right">{" "}
-            <span className="info">Verzend informatie </span></i></span>
+              <i className="fas fa-chevron-right">
+                {" "}
+                <span className="info">Verzend informatie </span>
+              </i>
+            </span>
           </p>
         ) : (
-          <p><span onClick={this.toggle}>
-            <i className="fas fa-chevron-down">{" "}
-            <span className="info">Verzend informatie </span></i></span>
-            <p>Alle producten die op voorraad zijn, kan ik binnen een week verzenden.</p>
+          <p>
+            <span onClick={this.toggle}>
+              <i className="fas fa-chevron-down">
+                {" "}
+                <span className="info">Verzend informatie </span>
+              </i>
+            </span>
+            <p>
+              Alle producten die op voorraad zijn, kan ik binnen een week
+              verzenden.
+            </p>
             <p>
               Producten die hier op de site staan, maak ik graag op bestelling.
               De levertijd is ongeveer 2-3 weken. De producten die je hier op de
@@ -46,10 +56,6 @@ export default class SendInfo extends Component {
               Wanneer de bestelling verzonden moet worden zijn de verzendkosten
               voor jou. De verzendkosten zijn €6,95. Ophalen is ook een
               mogelijkheid, dit kunnen we samen bespreken.
-            </p>
-            <p className="tijdelijk">
-              De levertijd is tijdelijk langer ivm studie. Vanaf eind april ga
-              ik weer op bestelling haken.
             </p>
           </p>
         )}
