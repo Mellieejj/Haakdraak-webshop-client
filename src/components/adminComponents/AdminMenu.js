@@ -9,10 +9,12 @@ export default class AdminMenu extends Component {
           <h2>Admin</h2>
         </div>
         <div className="boxes">
-          <Link to="/admin/producten"><div className="box">
+          {/* <Link to="/admin/producten"> */}
+            <div className="box">
             <h3>Producten</h3>
-            <p>Producten toevoegen en/of aanpassen</p>
-          </div></Link>
+            <p>Binnenkort: Producten toevoegen en/of aanpassen</p>
+          </div>
+          {/* </Link> */}
           <Link to="/admin/orders">
           <div className="box">
             <h3>Bestellingen</h3>
