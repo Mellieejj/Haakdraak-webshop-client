@@ -1,6 +1,6 @@
 # HaakDraak WebShop
 
-FrontEnd:[Checkout the deplyed version](https://www.haakdraak.nl/Test)
+FrontEnd:[Checkout the deplyed version](https://www.haakdraak.nl/)
 
 BackEnd: [github repository](https://github.com/Mellieejj/Haakdraak-webshop-server)
 
