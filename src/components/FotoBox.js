@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class FotoBox extends Component {
   render() {
-    const url = "http://www.haakdraak.nl/afbeeldingen";
+    const url = "https://www.haakdraak.nl/afbeeldingen";
     const images = [
       `${url}/box-guus.jpg`,
       `${url}/draakjes.jpg`,

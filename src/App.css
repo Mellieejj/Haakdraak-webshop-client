@@ -155,7 +155,7 @@ img {
 .foto {
   grid-area: foto;
   min-height: 400px;
-  background: url("http://www.haakdraak.nl/Test/afbeeldingen/48-2.jpg");
+  background: url("https://www.haakdraak.nl/afbeeldingen/48-2.jpg");
   background-size: cover;
   background-position: center;
   padding: 3rem;

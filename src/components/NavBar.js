@@ -12,7 +12,7 @@ class NavBar extends Component {
 
     return (
       <nav className="main-nav">
-        <img src="http://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
+        <img src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
         <h1>HaakDraak</h1>
         <section className="nav">
           <Link to="/">
