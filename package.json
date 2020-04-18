@@ -1,6 +1,6 @@
 {
   "name": "client-webshop",
-  "homepage": "https://www.haakdraak.nl/Test",
+  "homepage": "https://www.haakdraak.nl",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
