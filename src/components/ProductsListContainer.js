@@ -1,38 +1,38 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts, cartAdd, filterSearch } from "../actions/productActions";
-
+import { Pacman } from "react-pure-loaders"
 import ProductBox from "./ProductBox";
 
 class ProductListContainer extends Component {
   state = {
     categorieFilter: "all",
     currentPage: 1,
-    productsPerPage: 16
+    productsPerPage: 16,
   };
 
   componentDidMount() {
     this.props.getProducts();
   }
 
-  clickHandler = id => {
+  clickHandler = (id) => {
     this.props.cartAdd(id);
   };
 
-  handleFilter = event => {
+  handleFilter = (event) => {
     if (event.target.value === "all") {
       this.props.getProducts();
       this.setState({
         ...this.state,
         categorieFilter: "all",
-        currentPage: 1
+        currentPage: 1,
       });
     } else {
       this.props.filterSearch(event.target.value);
       this.setState({
         ...this.state,
         categorieFilter: event.target.value,
-        currentPage: 1
+        currentPage: 1,
       });
     }
   };
@@ -41,7 +41,7 @@ class ProductListContainer extends Component {
     if (this.state.currentPage > 1) {
       this.setState({
         ...this.state,
-        currentPage: 1
+        currentPage: 1,
       });
     }
   };
@@ -50,7 +50,7 @@ class ProductListContainer extends Component {
     if (this.state.currentPage > 1) {
       this.setState({
         ...this.state,
-        currentPage: this.state.currentPage - 1
+        currentPage: this.state.currentPage - 1,
       });
     }
   };
@@ -67,7 +67,9 @@ class ProductListContainer extends Component {
     ) {
       this.setState({
         ...this.state,
-        currentPage: Math.ceil(productsList.length / this.state.productsPerPage)
+        currentPage: Math.ceil(
+          productsList.length / this.state.productsPerPage
+        ),
       });
     }
   };
@@ -84,7 +86,7 @@ class ProductListContainer extends Component {
     ) {
       this.setState({
         ...this.state,
-        currentPage: this.state.currentPage + 1
+        currentPage: this.state.currentPage + 1,
       });
     }
   };
@@ -127,11 +129,13 @@ class ProductListContainer extends Component {
             <option value="Overige">Overige</option>
           </select>
         </span>
+        
         <div>
-          <ProductBox
+        {products ?  <ProductBox
             products={currentProducts}
             clickHandler={this.clickHandler}
           />
+        : <div className="load"><Pacman loading="true" color={"#32a093"} /></div> }
         </div>
         <div className="pagination">
           Pagina {currentPage} van {totalPages}
@@ -171,7 +175,7 @@ function mapStateToProps(state) {
   // console.log(state.products.products);
   return {
     products: state.products.products,
-    filter: state.products.filter
+    filter: state.products.filter,
   };
 }
 

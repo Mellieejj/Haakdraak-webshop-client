@@ -428,3 +428,11 @@ table {
   background-color: var(--wit);
   text-align: center;
 }
+.load {
+  background: var(--wit);
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 50%;
+  box-shadow: var(--shadow);
+}
