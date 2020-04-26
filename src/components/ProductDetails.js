@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+} from "react-share";
 
 const BackArrow = (props) => (
   <i
@@ -131,6 +139,36 @@ export default class ProductDetails extends Component {
               ? this.props.product.categorie.name
               : null}
           </p>
+        </div>
+        <div className="socialmedia">
+          <p>Dit product delen op: </p>
+
+          <FacebookShareButton
+            children={this.props.product.name}
+            url={`https://www.haakdraak.nl/producten/${this.props.product.id}`}
+            quote={this.props.product.name}
+            hashtag="#haakdraak"
+          >
+            <FacebookIcon round="true" size="2rem" />
+          </FacebookShareButton>
+
+          <TwitterShareButton
+            children={this.props.product.name}
+            url={`https://www.haakdraak.nl/producten/${this.props.product.id}`}
+            hashtag="#haakdraak"
+            title={this.props.product.name}
+          >
+            <TwitterIcon size="2rem" round="true" />
+          </TwitterShareButton>
+
+          <WhatsappShareButton
+            children={this.props.product.name}
+            url={`https://www.haakdraak.nl/producten/${this.props.product.id}`}
+            title={this.props.product.name}
+            separator={" "}
+          >
+            <WhatsappIcon round="true" size="2rem" />
+          </WhatsappShareButton>
         </div>
       </section>
     );

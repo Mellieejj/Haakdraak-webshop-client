@@ -423,3 +423,8 @@ table {
 #login {
   text-align: center;
 }
+
+.socialmedia {
+  background-color: var(--wit);
+  text-align: center;
+}
