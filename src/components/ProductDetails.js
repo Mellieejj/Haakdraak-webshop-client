@@ -8,6 +8,7 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share";
+import {Pacman} from "react-pure-loaders"
 
 const BackArrow = (props) => (
   <i
@@ -88,7 +89,7 @@ export default class ProductDetails extends Component {
                   }
                   return "";
                 })
-            : null}
+            : <div className="load"><Pacman loading="true" color={"#32a093"} /></div>}
 
           <p>
             <span className="kopjes">Beschrijving:</span>
