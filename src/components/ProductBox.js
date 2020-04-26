@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Pacman } from "react-pure-loaders";
 
 export default class ProductBox extends Component {
   render() {
-    return (
-      <section className="product-boxes">
+    return (<>
+    {this.props.products ? (
+    <section className="product-boxes">
         {this.props.products.map(product => {
           const thumbnail = product.images.find(image => {
             return image.thumbnail === true;
@@ -29,7 +31,12 @@ export default class ProductBox extends Component {
             </div>
           );
         })}
-      </section>
+      </section> ) : (
+            <div className="load">
+              <Pacman loading="true" color={"#32a093"} />
+            </div>
+          )}
+      </>
     );
   }
 }
