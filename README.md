@@ -59,6 +59,7 @@ I used these technologies on my Frontend side:
 - [EmailJS](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ContactForm.js)
 - [MomentJS](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/adminComponents/OrderDetailsContainer.js)
 - [ReCaptcha](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ContactForm.js)
+- [react-share](https://github.com/Mellieejj/Haakdraak-webshop-client/blob/master/src/components/ProductDetails.js)
 
 ## Git Workflow
 
