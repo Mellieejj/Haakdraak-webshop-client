@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts, cartAdd, filterSearch } from "../actions/productActions";
-import { Pacman } from "react-pure-loaders"
+import { Pacman } from "react-pure-loaders";
 import ProductBox from "./ProductBox";
 
 class ProductListContainer extends Component {
@@ -129,14 +129,20 @@ class ProductListContainer extends Component {
             <option value="Overige">Overige</option>
           </select>
         </span>
-        
+
         <div>
-        {products ?  <ProductBox
-            products={currentProducts}
-            clickHandler={this.clickHandler}
-          />
-        : <div className="load"><Pacman loading="true" color={"#32a093"} /></div> }
+          {products ? (
+            <ProductBox
+              products={currentProducts}
+              clickHandler={this.clickHandler}
+            />
+          ) : (
+            <div className="load">
+              <Pacman loading="true" color={"#32a093"} />
+            </div>
+          )}
         </div>
+        
         <div className="pagination">
           Pagina {currentPage} van {totalPages}
         </div>
