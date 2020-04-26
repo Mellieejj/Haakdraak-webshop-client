@@ -155,7 +155,7 @@ export default class ProductDetails extends Component {
           <TwitterShareButton
             children={this.props.product.name}
             url={`https://www.haakdraak.nl/producten/${this.props.product.id}`}
-            hashtag="#haakdraak"
+            hashtags={["haakdraak"]}
             title={this.props.product.name}
           >
             <TwitterIcon size="2rem" round="true" />
@@ -165,7 +165,6 @@ export default class ProductDetails extends Component {
             children={this.props.product.name}
             url={`https://www.haakdraak.nl/producten/${this.props.product.id}`}
             title={this.props.product.name}
-            separator={" "}
           >
             <WhatsappIcon round="true" size="2rem" />
           </WhatsappShareButton>
