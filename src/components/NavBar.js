@@ -33,8 +33,8 @@ class NavBar extends Component {
           <Link to="/cart">
             <div className="dropdown">
               <div className="dropdown__hover">
-               <i className="fas fa-shopping-bag"></i>{" "} {countCart} 
-              </div> 
+                <i className="fas fa-shopping-bag"></i> {countCart}
+              </div>
             </div>
           </Link>{" "}
         </section>
@@ -45,7 +45,7 @@ class NavBar extends Component {
 
 function mapStateToProps(state) {
   return {
-    cart: state.products.cart
+    cart: state.products.cart,
   };
 }
 

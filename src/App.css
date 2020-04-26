@@ -155,7 +155,7 @@ img {
 .foto {
   grid-area: foto;
   min-height: 400px;
-  background: url("http://www.haakdraak.nl/afbeeldingen/48-2.jpg");
+  background: url("https://www.haakdraak.nl/afbeeldingen/48-2.jpg");
   background-size: cover;
   background-position: center;
   padding: 3rem;
@@ -283,8 +283,7 @@ img {
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  align-items: start;
+  grid-gap: 5px;
   justify-items: center;
 }
 
@@ -422,5 +421,10 @@ table {
 }
 
 #login {
+  text-align: center;
+}
+
+.socialmedia {
+  background-color: var(--wit);
   text-align: center;
 }
