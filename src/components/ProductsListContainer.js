@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts, cartAdd, filterSearch } from "../actions/productActions";
+import { Pacman } from "react-pure-loaders";
 
 import ProductBox from "./ProductBox";
 
@@ -131,12 +132,15 @@ class ProductListContainer extends Component {
         </span>
 
         <div>
-        
+        {!currentProducts ? 
+        <div className="load">
+              <Pacman loading="true" color={"#32a093"} />
+            </div> : 
             <ProductBox
               products={currentProducts}
               clickHandler={this.clickHandler}
             />
-          
+        }
         </div>
         
         <div className="pagination">
