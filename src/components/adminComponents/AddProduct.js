@@ -51,7 +51,7 @@ export default function AddProduct (props) {
           value={props.values.stock}
           onChange={props.onChange}
         />
-        <select name="categorieId">
+        <select name="categorie">
           <option value={"Bijtringen & rammelaars"}>
             {"Bijtringen & Rammelaars"}
           </option>

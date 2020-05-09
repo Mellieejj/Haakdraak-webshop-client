@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddProduct from "./AddProduct";
 
 export default function AddProductContainer() {
   const initialFields = {
@@ -7,16 +8,29 @@ export default function AddProductContainer() {
     description: "",
     size: "",
     optioneel: "",
-    stock: null,
-    categorieId: null,
+    stock: 0,
+    categorie: "",
   };
 
-  const [fields, setFields] = useState(initialFields)
+  const [fields, setFields] = useState(initialFields);
 
-  
+  const onChange = (event) => {
+    setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log("submit", fields);
+  };
+
   return (
     <div>
-      <AddProduct values={this.state} />
+      <AddProduct
+        values={fields}
+        buttonName="verzenden"
+        onSubmit={onSubmit}
+        onChange={onChange}
+      />
     </div>
   );
 }
