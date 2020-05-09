@@ -1,44 +1,34 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { login } from "../../actions/adminActions";
 import LoginForm from "./LoginForm";
 
-class LogininFormContainer extends Component {
-  state = {
+export default function LogininFormContainer() {
+  const initialFields = {
     name: "",
     password: "",
   };
 
-  onSubmit = (event) => {
+  const [fields, setFields] = useState(initialFields);
+  const dispatch = useDispatch();
+
+  const onSubmit = (event) => {
     event.preventDefault();
-    this.props.login(this.state);
-    this.setState({
-      name: "",
-      password: "",
-    });
+    dispatch(login(fields));
+    setFields(initialFields);
   };
 
-  onChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+  const onChange = (event) => {
+    setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
-  render() {
-    return (
-      <div>
-        <div className="pagina-naam">
-          <h2>Login</h2>
-        </div>
-
-        <LoginForm
-          onSubmit={this.onSubmit}
-          onChange={this.onChange}
-          values={this.state}
-        />
+  return (
+    <div>
+      <div className="pagina-naam">
+        <h2>Login</h2>
       </div>
-    );
-  }
-}
 
-export default connect(null, { login })(LogininFormContainer);
+      <LoginForm onSubmit={onSubmit} onChange={onChange} values={fields} />
+    </div>
+  );
+}

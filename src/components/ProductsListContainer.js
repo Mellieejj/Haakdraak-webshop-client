@@ -1,193 +1,132 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getProducts, cartAdd, filterSearch } from "../actions/productActions";
 import { Pacman } from "react-pure-loaders";
 
 import ProductBox from "./ProductBox";
 
-class ProductListContainer extends Component {
-  state = {
-    categorieFilter: "all",
-    currentPage: 1,
-    productsPerPage: 16,
+export default function ProductListContainer() {
+  const [categorieFilter, setCategorieFilter] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(16);
+
+  const { products, filter } = useSelector((state) => state.products);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  const clickHandler = (id) => {
+    dispatch(cartAdd(id));
   };
 
-  componentDidMount() {
-    this.props.getProducts();
-  }
-
-  clickHandler = (id) => {
-    this.props.cartAdd(id);
-  };
-
-  handleFilter = (event) => {
+  const handleFilter = (event) => {
     if (event.target.value === "all") {
-      this.props.getProducts();
-      this.setState({
-        ...this.state,
-        categorieFilter: "all",
-        currentPage: 1,
-      });
+      dispatch(getProducts());
+      setCategorieFilter("all");
+      setCurrentPage(1);
     } else {
-      this.props.filterSearch(event.target.value);
-      this.setState({
-        ...this.state,
-        categorieFilter: event.target.value,
-        currentPage: 1,
-      });
+      filterSearch(event.target.value);
+      setCategorieFilter(event.target.value);
+      setCurrentPage(1);
+    }
+  };
+  const firstPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(1);
     }
   };
 
-  firstPage = () => {
-    if (this.state.currentPage > 1) {
-      this.setState({
-        ...this.state,
-        currentPage: 1,
-      });
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
-  prevPage = () => {
-    if (this.state.currentPage > 1) {
-      this.setState({
-        ...this.state,
-        currentPage: this.state.currentPage - 1,
-      });
+  const lastPage = () => {
+    const productsList = categorieFilter === "all" ? products : filter;
+
+    if (currentPage < Math.ceil(productsList.length / productsPerPage)) {
+      setCurrentPage(Math.ceil(productsList.length / productsPerPage));
     }
   };
 
-  lastPage = () => {
-    const productsList =
-      this.state.categorieFilter === "all"
-        ? this.props.products
-        : this.props.filter;
+  const nextPage = () => {
+    const productsList = categorieFilter === "all" ? products : filter;
 
-    if (
-      this.state.currentPage <
-      Math.ceil(productsList.length / this.state.productsPerPage)
-    ) {
-      this.setState({
-        ...this.state,
-        currentPage: Math.ceil(
-          productsList.length / this.state.productsPerPage
-        ),
-      });
+    if (currentPage < Math.ceil(productsList.length / productsPerPage)) {
+      setCurrentPage(currentPage + 1);
     }
   };
 
-  nextPage = () => {
-    const productsList =
-      this.state.categorieFilter === "all"
-        ? this.props.products
-        : this.props.filter;
+  //pagination
+  const productsList = categorieFilter === "all" ? products : filter;
 
-    if (
-      this.state.currentPage <
-      Math.ceil(productsList.length / this.state.productsPerPage)
-    ) {
-      this.setState({
-        ...this.state,
-        currentPage: this.state.currentPage + 1,
-      });
-    }
-  };
+  const lastIndex = currentPage * productsPerPage;
+  const firstIndex = lastIndex - productsPerPage;
+  const currentProducts = productsList
+    ? productsList.slice(firstIndex, lastIndex)
+    : null;
 
-  render() {
-    //pagination
-    const { products } = this.props;
-    const productsList =
-      this.state.categorieFilter === "all"
-        ? this.props.products
-        : this.props.filter;
+  const totalPages = products
+    ? Math.ceil(productsList.length / productsPerPage)
+    : null;
 
-    const { currentPage, productsPerPage } = this.state;
+  return (
+    <section className="top-product">
+      <div className="pagina-naam">
+        <h2>Producten</h2>
+      </div>
+      <span className="filter">
+        <label>Filter producten:</label>
 
-    const lastIndex = currentPage * productsPerPage;
-    const firstIndex = lastIndex - productsPerPage;
-    const currentProducts = productsList
-      ? productsList.slice(firstIndex, lastIndex)
-      : null;
+        <select id="categorie" onChange={handleFilter}>
+          <option value="all">Alle Producten</option>
+          <option value={"Bijtringen & Rammelaars"}>
+            {"Bijtringen & Rammelaars"}
+          </option>
+          <option value="Baby Overige">Baby Overige</option>
+          <option value="Knuffels">Knuffels</option>
+          <option value="Sleutelhangers">Sleutelhangers</option>
+          <option value="Overige">Overige</option>
+        </select>
+      </span>
 
-    const totalPages = products
-      ? Math.ceil(productsList.length / productsPerPage)
-      : null;
-    return (
-      <section className="top-product">
-        <div className="pagina-naam">
-          <h2>Producten</h2>
-        </div>
-        <span className="filter">
-          <label>Filter producten:</label>
+      <div>
+        {!currentProducts ? (
+          <div className="load">
+            <Pacman loading="true" color={"#32a093"} />
+          </div>
+        ) : (
+          <ProductBox products={currentProducts} clickHandler={clickHandler} />
+        )}
+      </div>
 
-          <select id="categorie" onChange={this.handleFilter}>
-            <option value="all">Alle Producten</option>
-            <option value={"Bijtringen & Rammelaars"}>
-              {"Bijtringen & Rammelaars"}
-            </option>
-            <option value="Baby Overige">Baby Overige</option>
-            <option value="Knuffels">Knuffels</option>
-            <option value="Sleutelhangers">Sleutelhangers</option>
-            <option value="Overige">Overige</option>
-          </select>
-        </span>
-
-        <div>
-        {!currentProducts ? 
-        <div className="load">
-              <Pacman loading="true" color={"#32a093"} />
-            </div> : 
-            <ProductBox
-              products={currentProducts}
-              clickHandler={this.clickHandler}
-            />
-        }
-        </div>
-        
-        <div className="pagination">
-          Pagina {currentPage} van {totalPages}
-        </div>
-        <div className="pagination">
-          <button
-            disabled={currentPage === 1 ? true : false}
-            onClick={this.firstPage}
-          >
-            <i className="fas fa-angle-double-left"></i>
-          </button>
-          <button
-            disabled={currentPage === 1 ? true : false}
-            onClick={this.prevPage}
-          >
-            <i className="fas fa-angle-left"></i>
-          </button>
-          <button
-            disabled={currentPage === totalPages ? true : false}
-            onClick={this.nextPage}
-          >
-            <i className="fas fa-angle-right"></i>
-          </button>
-          <button
-            disabled={currentPage === totalPages ? true : false}
-            onClick={this.lastPage}
-          >
-            <i className="fas fa-angle-double-right"></i>
-          </button>
-        </div>
-      </section>
-    );
-  }
+      <div className="pagination">
+        Pagina {currentPage} van {totalPages}
+      </div>
+      <div className="pagination">
+        <button disabled={currentPage === 1 ? true : false} onClick={firstPage}>
+          <i className="fas fa-angle-double-left"></i>
+        </button>
+        <button disabled={currentPage === 1 ? true : false} onClick={prevPage}>
+          <i className="fas fa-angle-left"></i>
+        </button>
+        <button
+          disabled={currentPage === totalPages ? true : false}
+          onClick={nextPage}
+        >
+          <i className="fas fa-angle-right"></i>
+        </button>
+        <button
+          disabled={currentPage === totalPages ? true : false}
+          onClick={lastPage}
+        >
+          <i className="fas fa-angle-double-right"></i>
+        </button>
+      </div>
+    </section>
+  );
 }
-
-function mapStateToProps(state) {
-  // console.log(state.products.products);
-  return {
-    products: state.products.products,
-    filter: state.products.filter,
-  };
-}
-
-const mapDispatchToProps = { getProducts, cartAdd, filterSearch };
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProductListContainer);

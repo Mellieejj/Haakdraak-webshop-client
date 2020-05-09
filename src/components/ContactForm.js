@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import emailjs from "emailjs-com";
-import { connect } from "react-redux";
 // import { ReCaptcha } from "react-recaptcha-google";
 
-class ContactForm extends Component {
+export default function ContactForm() {
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -23,7 +22,7 @@ class ContactForm extends Component {
   //   this.setState("recaptchaResponse", recaptchaToken);
   // }
 
-  sendEmail = (event) => {
+  const sendEmail = (event) => {
     event.preventDefault();
     emailjs
       .sendForm(
@@ -44,52 +43,51 @@ class ContactForm extends Component {
     event.target.reset();
   };
 
-  render() {
-    return (
-      <div className="box">
-        <h3>Contact Formulier</h3>
-        <div>
-          <form className="contact-form" onSubmit={this.sendEmail}>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Naam: </td>
-                  <td>
-                    <input type="text" name="user_name" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Email: </td>
-                  <td>
-                    <input type="email" name="user_email" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Vraag / Bestelling: </td>
-                  <td>
-                    <input type="radio" name="vraag-order" value="vraag" />
-                    Vraag
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <input type="radio" name="vraag-order" value="bestelling" />
-                    Bestelling
-                  </td>
-                </tr>
-                <tr>
-                  <td>Bericht:</td>
-                  <td>
-                    <textarea name="message" />
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td></td>
-                  <td>
-                    {/* <ReCaptcha
+  return (
+    <div className="box">
+      <h3>Contact Formulier</h3>
+      <div>
+        <form className="contact-form" onSubmit={sendEmail}>
+          <table>
+            <tbody>
+              <tr>
+                <td>Naam: </td>
+                <td>
+                  <input type="text" name="user_name" />
+                </td>
+              </tr>
+              <tr>
+                <td>Email: </td>
+                <td>
+                  <input type="email" name="user_email" />
+                </td>
+              </tr>
+              <tr>
+                <td>Vraag / Bestelling: </td>
+                <td>
+                  <input type="radio" name="vraag-order" value="vraag" />
+                  Vraag
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <input type="radio" name="vraag-order" value="bestelling" />
+                  Bestelling
+                </td>
+              </tr>
+              <tr>
+                <td>Bericht:</td>
+                <td>
+                  <textarea name="message" />
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>
+                  {/* <ReCaptcha
                       ref={el => {
                         this.captchaDemo = el;
                       }}
@@ -99,23 +97,20 @@ class ContactForm extends Component {
                       onloadCallback={this.onLoadRecaptcha}
                       verifyCallback={this.verifyCallback}
                     /> */}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="reset" value="Reset" />
-                  </td>
-                  <td>
-                    <input type="submit" value="Send" />
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-          </form>
-        </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="reset" value="Reset" />
+                </td>
+                <td>
+                  <input type="submit" value="Send" />
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default connect()(ContactForm);

@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class FotoContainer extends Component {
-  render() {
-    return (
-      <section className="top-container">
-        <header className="foto">
-          <h1>HaakDraak</h1>
-          <p>Gehaakte knuffels, kraamcadeautjes en meer!</p>
-        </header>
-      </section>
-    );
-  }
+export default function FotoContainer() {
+  return (
+    <section className="top-container">
+      <header className="foto">
+        <h1>HaakDraak</h1>
+        <p>Gehaakte knuffels, kraamcadeautjes en meer!</p>
+      </header>
+    </section>
+  );
 }

@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import FotoContainer from "./FotoContainer";
 import TextBox from "./TextBox";
 import FotoBox from "./FotoBox";
 
-export default class Homepage extends Component {
-  render() {
-    return (
-      <div>
-        <FotoContainer />
-        <div className="boxes">
-          <TextBox />
-          <FotoBox />
-        </div>
+export default function Homepage() {
+  return (
+    <div>
+      <FotoContainer />
+      <div className="boxes">
+        <TextBox />
+        <FotoBox />
       </div>
-    );
-  }
+    </div>
+  );
 }

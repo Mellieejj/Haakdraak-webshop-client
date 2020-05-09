@@ -1,22 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class LoginForm extends Component {
-  render() {
+export default function LoginForm (props) {
     return (
       <div className="box">
-        <form id="login" onSubmit={this.props.onSubmit}>
+        <form id="login" onSubmit={props.onSubmit}>
           <input
             placeholder="name"
             type="text"
-            value={this.props.values.name}
-            onChange={this.props.onChange}
+            value={props.values.name}
+            onChange={props.onChange}
             name="name"
           ></input>
           <input
             placeholder="password"
             type="password"
-            value={this.props.values.password}
-            onChange={this.props.onChange}
+            value={props.values.password}
+            onChange={props.onChange}
             name="password"
           ></input>
           <button type="submit">Login</button>
@@ -24,4 +23,4 @@ export default class LoginForm extends Component {
       </div>
     );
   }
-}
+

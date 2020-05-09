@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import { loadReCaptcha } from "react-recaptcha-google";
+// import { loadReCaptcha } from "react-recaptcha-google";
 import store from "./store";
 
 import NavBar from "./components/NavBar";
@@ -17,33 +17,33 @@ import OrdersContainer from "./components/adminComponents/OrdersContainer";
 
 import "./App.css";
 
-class App extends Component {
-  componentDidMount() {
-    loadReCaptcha();
-  }
+export default function App() {
+  // useEffect(()=> {
+  //   loadReCaptcha();
+  // },[])
 
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="wrapper">
-          <Route path="/" component={NavBar} />
-          <Route exact path="/producten" component={ProductsListContainer} />
-          <Route
-            exact
-            path="/producten/:productId"
-            component={ProductDetailsContainer}
-          />
-          <Route exact path="/admin/orders" component={OrdersContainer}/>
-          <Route exact path="/admin/orders/:orderId" component={OrderDetailsContainer} />
-          <Route exact path="/cart" component={CartContainer} />
-          <Route exact path="/contact" component={ContactContainer} />
-          <Route exact path="/admin" component={AdminPage} />
-          <Route exact path="/" component={Home} />
-          <Route path="/" component={Footer} />
-        </div>
-      </Provider>
-    );
-  }
+  return (
+    <Provider store={store}>
+      <div className="wrapper">
+        <Route path="/" component={NavBar} />
+        <Route exact path="/producten" component={ProductsListContainer} />
+        <Route
+          exact
+          path="/producten/:productId"
+          component={ProductDetailsContainer}
+        />
+        <Route exact path="/admin/orders" component={OrdersContainer} />
+        <Route
+          exact
+          path="/admin/orders/:orderId"
+          component={OrderDetailsContainer}
+        />
+        <Route exact path="/cart" component={CartContainer} />
+        <Route exact path="/contact" component={ContactContainer} />
+        <Route exact path="/admin" component={AdminPage} />
+        <Route exact path="/" component={Home} />
+        <Route path="/" component={Footer} />
+      </div>
+    </Provider>
+  );
 }
-
-export default App;

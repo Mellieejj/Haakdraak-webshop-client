@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default class ProductBox extends Component {
-  render() {
+export default function ProductBox (props){
     return (
        <section className="product-boxes">
-        {this.props.products.map(product => {
+        {props.products.map(product => {
           const thumbnail = product.images.find(image => {
             return image.thumbnail === true;
           });
@@ -22,7 +21,7 @@ export default class ProductBox extends Component {
                 € {product.price}{" "}
                 <i
                   id="addToCart"
-                  onClick={() => this.props.clickHandler(product.id)}
+                  onClick={() => props.clickHandler(product.id)}
                   className="fas fa-cart-plus fa-lg"
                 ></i>
               </p>
@@ -31,4 +30,4 @@ export default class ProductBox extends Component {
         })}
       </section> ) 
   }
-}
+

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import emailjs from "emailjs-com";
 import { createOrder } from "../actions/orderActions";
 import CheckoutForm from "./CheckoutForm";
 
-class CheckoutFormContainer extends Component {
-  state = {
+export default function CheckoutFormContainer(props) {
+  const initialFields = {
     firstName: "",
     lastName: "",
     email: "",
@@ -15,33 +15,35 @@ class CheckoutFormContainer extends Component {
     city: "",
     opmerkingen: "",
   };
+  const [fields, setFields] = useState(initialFields);
 
-  onChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+  const dispatch = useDispatch();
+
+  const onChange = (event) => {
+    setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
-  onSubmit = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    const { cartItems } = this.props;
 
-    const totalPrice = this.props.cartItems
-      ? this.props.cartItems.reduce((prevValue, currentValue) => {
+    const totalPrice = props.cartItems
+      ? props.cartItems.reduce((prevValue, currentValue) => {
           const numberPrice = parseFloat(currentValue.price);
           const priceQuantity = numberPrice * currentValue.quantity;
           return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
         }, 0)
       : null;
 
-    this.props.createOrder({
-      form: this.state,
-      items: this.props.cartItems,
-    });
+    dispatch(
+      createOrder({
+        form: fields,
+        items: props.cartItems,
+      })
+    );
 
     const formOrder = {
-      ...this.state,
-      cartItems: cartItems
+      fields,
+      cartItems: props.cartItems
         .map((item) => item.name + " " + item.quantity + "x")
         .join("<br />"),
       totalPrice,
@@ -62,46 +64,20 @@ class CheckoutFormContainer extends Component {
           console.log(error.text);
         }
       )
-      .then(
-        this.setState({
-          firstName: "",
-          lastName: "",
-          email: "",
-          street: "",
-          housenr: "",
-          postcode: "",
-          city: "",
-          opmerkingen: "",
-        })
-      )
-      .then(this.props.clearCart());
+      .then(setFields(initialFields))
+      .then(props.clearCart());
   };
 
-  reset = () => {
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      street: "",
-      housenr: "",
-      postcode: "",
-      city: "",
-      opmerkingen: "",
-    });
-  };
+  const reset = () => setFields(initialFields);
 
-  render() {
-    return (
-      <CheckoutForm
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
-        values={this.state}
-        reset={this.props.reset}
-        errors={this.props.errors}
-        cartItems={this.props.cartItems}
-      />
-    );
-  }
+  return (
+    <CheckoutForm
+      onSubmit={onSubmit}
+      onChange={onChange}
+      values={fields}
+      reset={reset}
+      errors={props.errors}
+      cartItems={props.cartItems}
+    />
+  );
 }
-
-export default connect(null, { createOrder })(CheckoutFormContainer);

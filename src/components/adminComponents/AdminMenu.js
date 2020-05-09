@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class AdminMenu extends Component {
-  render() {
+export default function AdminMenu () {
     return (
       <div>
         <div className="pagina-naam">
@@ -25,4 +24,4 @@ export default class AdminMenu extends Component {
       </div>
     );
   }
-}
+

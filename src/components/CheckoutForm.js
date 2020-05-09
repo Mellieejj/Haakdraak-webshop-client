@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 // import { ReCaptcha } from "react-recaptcha-google";
 import OrderInfo from "./OrderInfo";
 import SendInfo from "./SendInfo";
 
-export default class CheckoutForm extends Component {
+export default function CheckoutForm (props) {
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -23,15 +23,14 @@ export default class CheckoutForm extends Component {
   //   this.setState("recaptchaResponse", recaptchaToken);
   // }
 
-  render() {
     return (
       <div className="box">
         <h3>Bestel Formulier</h3>
         <div>
-          {this.props.errors ? (
-            <p className="error">{this.props.errors}</p>
+          {props.errors ? (
+            <p className="error">{props.errors}</p>
           ) : null}
-          <form onSubmit={this.props.onSubmit}>
+          <form onSubmit={props.onSubmit}>
             <table>
               <tbody>
                 <tr>
@@ -40,8 +39,8 @@ export default class CheckoutForm extends Component {
                     <input
                       type="text"
                       name="firstName"
-                      value={this.props.values.firstName}
-                      onChange={this.props.onChange}
+                      value={props.values.firstName}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -51,8 +50,8 @@ export default class CheckoutForm extends Component {
                     <input
                       type="text"
                       name="lastName"
-                      value={this.props.values.lastName}
-                      onChange={this.props.onChange}
+                      value={props.values.lastName}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -62,8 +61,8 @@ export default class CheckoutForm extends Component {
                     <input
                       type="text"
                       name="email"
-                      value={this.props.values.email}
-                      onChange={this.props.onChange}
+                      value={props.values.email}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -73,8 +72,8 @@ export default class CheckoutForm extends Component {
                     <input
                       type="text"
                       name="street"
-                      value={this.props.values.street}
-                      onChange={this.props.onChange}
+                      value={props.values.street}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -84,8 +83,8 @@ export default class CheckoutForm extends Component {
                     <input
                       type="number"
                       name="housenr"
-                      value={this.props.values.housenr}
-                      onChange={this.props.onChange}
+                      value={props.values.housenr}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -96,8 +95,8 @@ export default class CheckoutForm extends Component {
                       type="text"
                       name="postcode"
                       // pattern="[0-9]{4}[A_Z]{2}"
-                      value={this.props.values.postcode}
-                      onChange={this.props.onChange}
+                      value={props.values.postcode}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -107,8 +106,8 @@ export default class CheckoutForm extends Component {
                     <input
                       type="text"
                       name="city"
-                      value={this.props.values.city}
-                      onChange={this.props.onChange}
+                      value={props.values.city}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -119,8 +118,8 @@ export default class CheckoutForm extends Component {
                       type="text"
                       name="opmerkingen"
                       style={{ minHeight: "4.5rem" }}
-                      value={this.props.values.opmerkingen}
-                      onChange={this.props.onChange}
+                      value={props.values.opmerkingen}
+                      onChange={props.onChange}
                     />
                   </td>
                 </tr>
@@ -142,12 +141,12 @@ export default class CheckoutForm extends Component {
               type="submit"
               value="Bestel"
               disabled={
-                this.props.cartItems.length === 0 ? true :( !this.props.values.firstName || !this.props.values.lastName || !this.props.values.street || !this.props.values.housenr || !this.props.values.city || !this.props.values.postcode || !this.props.values.email)
+                props.cartItems.length === 0 ? true :( !props.values.firstName || !props.values.lastName || !props.values.street || !props.values.housenr || !props.values.city || !props.values.postcode || !props.values.email)
                   ? true
                   : false 
                 }
             />
-            <button className="formButton" onClick={() => this.props.reset}>
+            <button className="formButton" onClick={() => props.reset}>
               <i className="fas fa-times"></i> Wis alles
             </button>
           </form>
@@ -157,4 +156,4 @@ export default class CheckoutForm extends Component {
       </div>
     );
   }
-}
+
