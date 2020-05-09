@@ -5,7 +5,7 @@ import { Pacman } from "react-pure-loaders";
 
 import ProductBox from "./ProductBox";
 
-function ProductListContainer() {
+export default function ProductListContainer() {
   const [categorieFilter, setCategorieFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(16);
@@ -130,5 +130,3 @@ function ProductListContainer() {
     </section>
   );
 }
-
-export default ProductListContainer;

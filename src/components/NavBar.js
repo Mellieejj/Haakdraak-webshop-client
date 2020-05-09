@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function NavBar() {
+export default function NavBar() {
   const cart = useSelector((state) => state.products.cart);
 
   const countCart = cart.reduce((lastValue, newValue) => {

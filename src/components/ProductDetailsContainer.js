@@ -5,7 +5,7 @@ import { loadProduct, cartAdd } from "../actions/productActions";
 
 import ProductDetails from "./ProductDetails";
 
-function ProductDetailsContainer() {
+export default function ProductDetailsContainer() {
   const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -29,5 +29,3 @@ function ProductDetailsContainer() {
     </div>
   );
 }
-
-export default ProductDetailsContainer;

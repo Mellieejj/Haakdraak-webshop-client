@@ -17,31 +17,33 @@ import OrdersContainer from "./components/adminComponents/OrdersContainer";
 
 import "./App.css";
 
-function App () {
+export default function App() {
   // useEffect(()=> {
   //   loadReCaptcha();
   // },[])
 
-    return (
-      <Provider store={store}>
-        <div className="wrapper">
-          <Route path="/" component={NavBar} />
-          <Route exact path="/producten" component={ProductsListContainer} />
-          <Route
-            exact
-            path="/producten/:productId"
-            component={ProductDetailsContainer}
-          />
-          <Route exact path="/admin/orders" component={OrdersContainer}/>
-          <Route exact path="/admin/orders/:orderId" component={OrderDetailsContainer} />
-          <Route exact path="/cart" component={CartContainer} />
-          <Route exact path="/contact" component={ContactContainer} />
-          <Route exact path="/admin" component={AdminPage} />
-          <Route exact path="/" component={Home} />
-          <Route path="/" component={Footer} />
-        </div>
-      </Provider>
-    );
-  }
-
-export default App;
+  return (
+    <Provider store={store}>
+      <div className="wrapper">
+        <Route path="/" component={NavBar} />
+        <Route exact path="/producten" component={ProductsListContainer} />
+        <Route
+          exact
+          path="/producten/:productId"
+          component={ProductDetailsContainer}
+        />
+        <Route exact path="/admin/orders" component={OrdersContainer} />
+        <Route
+          exact
+          path="/admin/orders/:orderId"
+          component={OrderDetailsContainer}
+        />
+        <Route exact path="/cart" component={CartContainer} />
+        <Route exact path="/contact" component={ContactContainer} />
+        <Route exact path="/admin" component={AdminPage} />
+        <Route exact path="/" component={Home} />
+        <Route path="/" component={Footer} />
+      </div>
+    </Provider>
+  );
+}
