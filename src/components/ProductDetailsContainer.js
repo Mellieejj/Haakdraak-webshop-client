@@ -1,40 +1,33 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import { loadProduct, cartAdd } from "../actions/productActions";
 
 import ProductDetails from "./ProductDetails";
 
-class ProductDetailsContainer extends Component {
-  componentDidMount() {
-    this.props.loadProduct(this.props.match.params.productId);
-  }
+function ProductDetailsContainer() {
+  const product = useSelector((state) => state.product);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const routeParameter = useParams();
 
-  clickHandler = id => {
-    this.props.cartAdd(id);
+  useEffect(() => {
+    dispatch(loadProduct(routeParameter.productId));
+  }, [dispatch, routeParameter]);
+
+  const clickHandler = (id) => {
+    dispatch(cartAdd(id));
   };
 
-  render() {
-    return (
-      <div>
-        <ProductDetails
-          product={this.props.product}
-          history={this.props.history}
-          clickHandler={this.clickHandler}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <ProductDetails
+        product={product}
+        history={history}
+        clickHandler={clickHandler}
+      />
+    </div>
+  );
 }
 
-function mapStateToProps(state) {
-  // console.log("productdetailscontainer", state.product);
-  return {
-    product: state.product
-  };
-}
-
-const mapDispatchToProps = { loadProduct, cartAdd };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProductDetailsContainer);
+export default ProductDetailsContainer;
