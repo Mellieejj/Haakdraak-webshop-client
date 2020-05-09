@@ -14,7 +14,7 @@ class AddProductContainer extends Component {
   render(){
     return (
       <div>
-        <AddProduct values={this.state}
+        <AddProduct values={this.state} />
       </div>
     )
   }
