@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import { loadReCaptcha } from "react-recaptcha-google";
+// import { loadReCaptcha } from "react-recaptcha-google";
 import store from "./store";
 
 import NavBar from "./components/NavBar";
@@ -17,12 +17,11 @@ import OrdersContainer from "./components/adminComponents/OrdersContainer";
 
 import "./App.css";
 
-class App extends Component {
-  componentDidMount() {
-    loadReCaptcha();
-  }
+function App () {
+  // useEffect(()=> {
+  //   loadReCaptcha();
+  // },[])
 
-  render() {
     return (
       <Provider store={store}>
         <div className="wrapper">
@@ -44,6 +43,6 @@ class App extends Component {
       </Provider>
     );
   }
-}
+
 
 export default App;
