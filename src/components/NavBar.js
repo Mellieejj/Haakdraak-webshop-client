@@ -40,5 +40,3 @@ export default function NavBar() {
     </nav>
   );
 }
-
-export default NavBar;
