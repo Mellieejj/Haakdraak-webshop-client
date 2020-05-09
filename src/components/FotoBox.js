@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class FotoBox extends Component {
-  render() {
+export default function FotoBox () {
     const url = "https://www.haakdraak.nl/afbeeldingen";
     const images = [
       `${url}/box-guus.jpg`,
@@ -27,4 +26,4 @@ export default class FotoBox extends Component {
       </div>
     );
   }
-}
+
