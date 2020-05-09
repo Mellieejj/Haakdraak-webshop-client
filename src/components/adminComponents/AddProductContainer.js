@@ -1,21 +1,22 @@
-import React, {Component} from "react"
+import React, { useState } from "react";
 
-class AddProductContainer extends Component {
-  state = {
+export default function AddProductContainer() {
+  const initialFields = {
     name: "",
     price: "",
     description: "",
     size: "",
     optioneel: "",
     stock: null,
-    categorieId: null
+    categorieId: null,
+  };
 
-  }
-  render(){
-    return (
-      <div>
-        <AddProduct values={this.state} />
-      </div>
-    )
-  }
+  const [fields, setFields] = useState(initialFields)
+
+  
+  return (
+    <div>
+      <AddProduct values={this.state} />
+    </div>
+  );
 }

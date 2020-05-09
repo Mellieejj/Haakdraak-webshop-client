@@ -1,24 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import LoginFormContainer from "./LoginFormContainer";
 import AdminMenu from "./AdminMenu";
 
-class AdminPage extends Component {
-  render() {
-    return (
-      <div>
-        {!this.props.user.jwt ? <LoginFormContainer /> : <AdminMenu />}
-      </div>
-    );
-  }
+export default function AdminPage() {
+  const user = useSelector((state) => state.user);
+  return <div>{!user.jwt ? <LoginFormContainer /> : <AdminMenu />}</div>;
 }
-
-function mapStateToProps(state) {
-  // console.log(state);
-
-  return {
-    user: state.user,
-  };
-}
-
-export default connect(mapStateToProps)(AdminPage);
