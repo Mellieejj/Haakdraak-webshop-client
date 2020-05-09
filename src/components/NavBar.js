@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 function NavBar() {
   const cart = useSelector((state) => state.products.cart);
-  
+
   const countCart = cart.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;
   }, 0);
@@ -40,6 +40,5 @@ function NavBar() {
     </nav>
   );
 }
-
 
 export default NavBar;

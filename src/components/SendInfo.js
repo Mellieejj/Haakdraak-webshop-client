@@ -23,7 +23,7 @@ export default function SendInfo() {
           </span>
         </p>
       ) : (
-        <p>
+        <>
           <span onClick={toggle}>
             <i className="fas fa-chevron-down">
               {" "}
@@ -51,7 +51,7 @@ export default function SendInfo() {
             voor jou. De verzendkosten zijn €6,95. Ophalen is ook een
             mogelijkheid, dit kunnen we samen bespreken.
           </p>
-        </p>
+        </>
       )}
     </div>
   );
