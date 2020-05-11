@@ -1,7 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import AddProduct from "./AddProduct";
+import AddImage from "./AddImage";
+import { createProduct } from "../../actions/adminActions";
 
 export default function AddProductContainer() {
+  const [imagesArray, setImagesArray] = useState([]);
+
+  const [image, setImage] = useState({url: "",
+  thumbnail: ""});
+
   const initialFields = {
     name: "",
     price: "",
@@ -13,24 +21,51 @@ export default function AddProductContainer() {
   };
 
   const [fields, setFields] = useState(initialFields);
+  const dispatch = useDispatch();
 
-  const onChange = (event) => {
+  const onChangeProduct = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const onChangeImage = (event) => {
+    setImage({...image, [event.target.name]: event.target.value });
+
+  };
+
+  const onSubmitImage =  (event) => {
+    event.preventDefault();
+    setImagesArray([...imagesArray, image]);
+    setImage({ url: "", thumbnail: "" });
+    // setFields({...fields, productImages: imagesArray})
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("submit", fields);
+    dispatch(createProduct({fields: fields, productImages: imagesArray}))
+    console.log("fields", fields, imagesArray);
+    setFields(initialFields);
+    setImagesArray([])
   };
+  console.log("change image", image);
 
+  console.log("imageArray", imagesArray);
   return (
     <div>
-      <AddProduct
+    
+    <div>  <AddProduct
         values={fields}
         buttonName="verzenden"
         onSubmit={onSubmit}
-        onChange={onChange}
+        onChange={onChangeProduct}
       />
     </div>
+    <div>
+    <AddImage
+    values={image}
+    onChange={onChangeImage}
+    onSubmit={onSubmitImage}
+  />
+  </div>
+  </div>
   );
 }

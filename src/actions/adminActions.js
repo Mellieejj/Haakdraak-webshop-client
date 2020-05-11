@@ -1,8 +1,8 @@
 import request from "superagent";
-import { displayError } from "./orderActions";
+import { displayError, removeError } from "./orderActions";
 
-// const baseUrl = "http://localhost:4000";
-const baseUrl = "https://cherry-crumble-89582.herokuapp.com"
+const baseUrl = "http://localhost:4000";
+// const baseUrl = "https://cherry-crumble-89582.herokuapp.com"
 
 export const JWT = "JWT";
 
@@ -25,6 +25,44 @@ export function login(data) {
         return dispatch(errorMessage);
       }
       console.log(error);
+    }
+  };
+}
+
+export const NEW_PRODUCT = "NEW_PRODUCT";
+
+function newProduct(payload) {
+  return {
+    type: NEW_PRODUCT,
+    payload,
+  };
+}
+
+export function createProduct(data) {
+  return async function (dispatch, getState) {
+    try {
+      console.log("data", data);
+      
+      const response = await request.post(`${baseUrl}/products`).send(data);
+      console.log("response", response.body);
+      
+      const action = newProduct(response.body);
+      console.log("action", action )
+      await dispatch(action);
+      dispatch(removeError());
+      dispatch(
+        displayError(
+          "Product is toegevoegd!"
+        )
+      );
+    } catch (error) {
+      if (error.response) {
+        const errorMessage = displayError(error.response.body.message);
+
+        dispatch(errorMessage);
+      } else {
+        console.error(error);
+      }
     }
   };
 }
