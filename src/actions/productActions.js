@@ -76,9 +76,9 @@ export function clearCart() {
 //filter
 export const FITLER_SEARCH = "FITLER_SEARCH";
 
-export function filterSearch(filterCategorie) {
+export function filterSearch(filterCategory) {
   return {
     type: FITLER_SEARCH,
-    payload: filterCategorie,
+    payload: filterCategory,
   };
 }

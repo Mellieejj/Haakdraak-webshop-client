@@ -41,14 +41,30 @@ export default function CheckoutFormContainer(props) {
       })
     );
 
+    const {firstName,
+      lastName,
+      email,
+      street,
+      housenr,
+      postcode,
+      city,
+      opmerkingen} = fields
     const formOrder = {
-      fields,
+      firstName, 
+      lastName,
+      email,
+      street,
+      housenr,
+      postcode,
+      city,
+      opmerkingen,
       cartItems: props.cartItems
         .map((item) => item.name + " " + item.quantity + "x")
         .join("<br />"),
       totalPrice,
     };
 
+    console.log(formOrder);
     emailjs
       .send(
         "smtp_server",

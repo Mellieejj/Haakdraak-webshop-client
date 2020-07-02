@@ -95,7 +95,7 @@ export default function ProductDetails(props) {
 
         <p>
           <span className="kopjes"> Optionele variaties:</span> <br />
-          {props.product.optioneel}
+          {props.product.optional}
         </p>
 
         <p>
@@ -130,8 +130,8 @@ export default function ProductDetails(props) {
         </p>
 
         <p>
-          <span className="kopjes"> Categorie:</span>{" "}
-          {props.product.categorie ? props.product.categorie.name : null}
+          <span className="kopjes"> Category:</span>{" "}
+          {props.product.category ? props.product.category.name : null}
         </p>
       </div>
       <div className="socialmedia">

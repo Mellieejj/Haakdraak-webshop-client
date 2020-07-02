@@ -9,6 +9,9 @@
   --wit: #ffffff;
   --dark: #333;
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  
+  --ff-patrick: Patrick Hand;
+  --ff-chewy: Chewy;
 }
 
 html {
