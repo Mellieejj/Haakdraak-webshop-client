@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function AddProduct(props) {
   return (
     <form onSubmit={props.onSubmit}>
@@ -40,8 +39,8 @@ export default function AddProduct(props) {
         className="form-control form-control-lg custom-form"
         type="text"
         placeholder="Optionele opties"
-        name="optioneel"
-        value={props.values.optioneel}
+        name="optional"
+        value={props.values.optional}
         onChange={props.onChange}
       />
       <input
@@ -53,11 +52,11 @@ export default function AddProduct(props) {
         onChange={props.onChange}
       />
       <select
-        name="categorie"
-        value={props.values.categorie}
+        name="category"
+        value={props.values.category}
         onChange={props.onChange}
       >
-        <option value="">Kies categorie</option>
+        <option value="">Kies category</option>
         <option value={"Bijtringen & Rammelaars"}>
           {"Bijtringen & Rammelaars"}
         </option>

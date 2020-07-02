@@ -6,7 +6,7 @@ import { Pacman } from "react-pure-loaders";
 import ProductBox from "./ProductBox";
 
 export default function ProductListContainer() {
-  const [categorieFilter, setCategorieFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(16);
 
@@ -25,11 +25,11 @@ export default function ProductListContainer() {
   const handleFilter = (event) => {
     if (event.target.value === "all") {
       dispatch(getProducts());
-      setCategorieFilter("all");
+      setCategoryFilter("all");
       setCurrentPage(1);
     } else {
       filterSearch(event.target.value);
-      setCategorieFilter(event.target.value);
+      setCategoryFilter(event.target.value);
       setCurrentPage(1);
     }
   };
@@ -46,7 +46,7 @@ export default function ProductListContainer() {
   };
 
   const lastPage = () => {
-    const productsList = categorieFilter === "all" ? products : filter;
+    const productsList = categoryFilter === "all" ? products : filter;
 
     if (currentPage < Math.ceil(productsList.length / productsPerPage)) {
       setCurrentPage(Math.ceil(productsList.length / productsPerPage));
@@ -54,7 +54,7 @@ export default function ProductListContainer() {
   };
 
   const nextPage = () => {
-    const productsList = categorieFilter === "all" ? products : filter;
+    const productsList = categoryFilter === "all" ? products : filter;
 
     if (currentPage < Math.ceil(productsList.length / productsPerPage)) {
       setCurrentPage(currentPage + 1);
@@ -62,7 +62,7 @@ export default function ProductListContainer() {
   };
 
   //pagination
-  const productsList = categorieFilter === "all" ? products : filter;
+  const productsList = categoryFilter === "all" ? products : filter;
 
   const lastIndex = currentPage * productsPerPage;
   const firstIndex = lastIndex - productsPerPage;
@@ -82,7 +82,7 @@ export default function ProductListContainer() {
       <span className="filter">
         <label>Filter producten:</label>
 
-        <select id="categorie" onChange={handleFilter}>
+        <select id="category" onChange={handleFilter}>
           <option value="all">Alle Producten</option>
           <option value={"Bijtringen & Rammelaars"}>
             {"Bijtringen & Rammelaars"}

@@ -7,17 +7,16 @@ import { createProduct } from "../../actions/adminActions";
 export default function AddProductContainer() {
   const [imagesArray, setImagesArray] = useState([]);
 
-  const [image, setImage] = useState({url: "",
-  thumbnail: ""});
+  const [image, setImage] = useState({ url: "", thumbnail: "" });
 
   const initialFields = {
     name: "",
     price: "",
     description: "",
     size: "",
-    optioneel: "",
+    optional: "",
     stock: 0,
-    categorie: "",
+    category: "",
   };
 
   const [fields, setFields] = useState(initialFields);
@@ -28,11 +27,10 @@ export default function AddProductContainer() {
   };
 
   const onChangeImage = (event) => {
-    setImage({...image, [event.target.name]: event.target.value });
-
+    setImage({ ...image, [event.target.name]: event.target.value });
   };
 
-  const onSubmitImage =  (event) => {
+  const onSubmitImage = (event) => {
     event.preventDefault();
     setImagesArray([...imagesArray, image]);
     setImage({ url: "", thumbnail: "" });
@@ -41,31 +39,30 @@ export default function AddProductContainer() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(createProduct({fields: fields, productImages: imagesArray}))
+    dispatch(createProduct({ fields: fields, productImages: imagesArray }));
     console.log("fields", fields, imagesArray);
     setFields(initialFields);
-    setImagesArray([])
+    setImagesArray([]);
   };
-  console.log("change image", image);
 
-  console.log("imageArray", imagesArray);
   return (
     <div>
-    
-    <div>  <AddProduct
-        values={fields}
-        buttonName="verzenden"
-        onSubmit={onSubmit}
-        onChange={onChangeProduct}
-      />
+      <div>
+        {" "}
+        <AddProduct
+          values={fields}
+          buttonName="verzenden"
+          onSubmit={onSubmit}
+          onChange={onChangeProduct}
+        />
+      </div>
+      <div>
+        <AddImage
+          values={image}
+          onChange={onChangeImage}
+          onSubmit={onSubmitImage}
+        />
+      </div>
     </div>
-    <div>
-    <AddImage
-    values={image}
-    onChange={onChangeImage}
-    onSubmit={onSubmitImage}
-  />
-  </div>
-  </div>
   );
 }
