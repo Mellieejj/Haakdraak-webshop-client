@@ -28,7 +28,7 @@ export default function ProductListContainer() {
       setCategoryFilter("all");
       setCurrentPage(1);
     } else {
-      filterSearch(event.target.value);
+      dispatch(filterSearch(event.target.value));
       setCategoryFilter(event.target.value);
       setCurrentPage(1);
     }
