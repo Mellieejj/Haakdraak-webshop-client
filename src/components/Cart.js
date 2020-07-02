@@ -43,7 +43,7 @@ export default function Cart(props) {
                         className="fas fa-plus-circle"
                       ></i>{" "}
                       <i
-                        onClick={() => this.props.subtractFromCart(item.id)}
+                        onClick={() => props.subtractFromCart(item.id)}
                         className="fas fa-minus-circle"
                       ></i>
                     </td>
