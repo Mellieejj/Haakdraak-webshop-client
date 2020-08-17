@@ -74,7 +74,6 @@ export default function ProductListContainer() {
     ? Math.ceil(productsList.length / productsPerPage)
     : null;
 
-    console.log(currentProducts)
   return (
     <section className="top-product">
       <div className="pagina-naam">

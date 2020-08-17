@@ -1,23 +1,25 @@
 import React from "react";
 
 export default function Cart(props) {
+
+  const {cartItems, addToCart, subtractFromCart, clearCart} = props
   //total price of cart items
-  const totalPrice = props.cartItems
-    ? props.cartItems.reduce((prevValue, currentValue) => {
+  const totalPrice = cartItems
+    ? cartItems.reduce((prevValue, currentValue) => {
         const numberPrice = parseFloat(currentValue.price);
         const priceQuantity = numberPrice * currentValue.quantity;
         return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
       }, 0)
     : null;
   // total items of cart
-  const countCart = props.cartItems.reduce((lastValue, newValue) => {
+  const countCart = cartItems.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;
   }, 0);
 
   return (
     <div className="box">
       <h3>Winkelwagen</h3>
-      {props.cartItems.length === 0 ? (
+      {cartItems.length === 0 ? (
         <p>Er zijn geen producten toegevoegd aan uw winkelwagen!</p>
       ) : (
         <div>
@@ -31,7 +33,7 @@ export default function Cart(props) {
               </tr>
             </thead>
             <tbody>
-              {props.cartItems.map((item) => {
+              {cartItems.map((item) => {
                 return (
                   <tr key={item.id}>
                     <td>{item.name}</td>
@@ -39,11 +41,11 @@ export default function Cart(props) {
                     <td>{item.quantity}</td>
                     <td>
                       <i
-                        onClick={() => props.addToCart(item.id)}
+                        onClick={() => addToCart(item.id)}
                         className="fas fa-plus-circle"
                       ></i>{" "}
                       <i
-                        onClick={() => props.subtractFromCart(item.id)}
+                        onClick={() => subtractFromCart(item.id)}
                         className="fas fa-minus-circle"
                       ></i>
                     </td>
@@ -62,7 +64,7 @@ export default function Cart(props) {
           <div
             style={{ float: "right" }}
             className="formButton"
-            onClick={() => props.clearCart()}
+            onClick={() => clearCart()}
           >
             <i className="fas fa-times"></i> Leeg wagentje
           </div>
