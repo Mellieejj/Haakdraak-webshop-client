@@ -4,6 +4,7 @@ import OrderInfo from "./OrderInfo";
 import SendInfo from "./SendInfo";
 
 export default function CheckoutForm (props) {
+  const { errors, onSubmit, values, onChange, cartItems, reset} = props
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -27,10 +28,10 @@ export default function CheckoutForm (props) {
       <div className="box">
         <h3>Bestel Formulier</h3>
         <div>
-          {props.errors ? (
-            <p className="error">{props.errors}</p>
+          {errors ? (
+            <p className="error">{errors}</p>
           ) : null}
-          <form onSubmit={props.onSubmit}>
+          <form onSubmit={onSubmit}>
             <table>
               <tbody>
                 <tr>
@@ -39,8 +40,8 @@ export default function CheckoutForm (props) {
                     <input
                       type="text"
                       name="firstName"
-                      value={props.values.firstName}
-                      onChange={props.onChange}
+                      value={values.firstName}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -50,8 +51,8 @@ export default function CheckoutForm (props) {
                     <input
                       type="text"
                       name="lastName"
-                      value={props.values.lastName}
-                      onChange={props.onChange}
+                      value={values.lastName}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -61,8 +62,8 @@ export default function CheckoutForm (props) {
                     <input
                       type="text"
                       name="email"
-                      value={props.values.email}
-                      onChange={props.onChange}
+                      value={values.email}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -72,8 +73,8 @@ export default function CheckoutForm (props) {
                     <input
                       type="text"
                       name="street"
-                      value={props.values.street}
-                      onChange={props.onChange}
+                      value={values.street}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -83,8 +84,8 @@ export default function CheckoutForm (props) {
                     <input
                       type="number"
                       name="housenr"
-                      value={props.values.housenr}
-                      onChange={props.onChange}
+                      value={values.housenr}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -95,8 +96,8 @@ export default function CheckoutForm (props) {
                       type="text"
                       name="postcode"
                       // pattern="[0-9]{4}[A_Z]{2}"
-                      value={props.values.postcode}
-                      onChange={props.onChange}
+                      value={values.postcode}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -106,8 +107,8 @@ export default function CheckoutForm (props) {
                     <input
                       type="text"
                       name="city"
-                      value={props.values.city}
-                      onChange={props.onChange}
+                      value={values.city}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -118,8 +119,8 @@ export default function CheckoutForm (props) {
                       type="text"
                       name="opmerkingen"
                       style={{ minHeight: "4.5rem" }}
-                      value={props.values.opmerkingen}
-                      onChange={props.onChange}
+                      value={values.opmerkingen}
+                      onChange={onChange}
                     />
                   </td>
                 </tr>
@@ -141,12 +142,12 @@ export default function CheckoutForm (props) {
               type="submit"
               value="Bestel"
               disabled={
-                props.cartItems.length === 0 ? true :( !props.values.firstName || !props.values.lastName || !props.values.street || !props.values.housenr || !props.values.city || !props.values.postcode || !props.values.email)
+                cartItems.length === 0 ? true :( !values.firstName || !values.lastName || !values.street || !values.housenr || !values.city || !values.postcode || !values.email)
                   ? true
                   : false 
                 }
             />
-            <button className="formButton" onClick={() => props.reset}>
+            <button className="formButton" onClick={() => reset}>
               <i className="fas fa-times"></i> Wis alles
             </button>
           </form>
