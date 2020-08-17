@@ -74,6 +74,7 @@ export default function ProductListContainer() {
     ? Math.ceil(productsList.length / productsPerPage)
     : null;
 
+    console.log(currentProducts)
   return (
     <section className="top-product">
       <div className="pagina-naam">
@@ -95,7 +96,7 @@ export default function ProductListContainer() {
       </span>
 
       <div>
-        {!currentProducts ? (
+        {currentProducts.length === 0 ? (
           <div className="load">
             <Pacman loading="true" color={"#32a093"} />
           </div>
