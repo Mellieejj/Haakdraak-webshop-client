@@ -8,7 +8,7 @@ import ProductBox from "./ProductBox";
 export default function ProductListContainer() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(16);
+  const [productsPerPage] = useState(16);
 
   const { products, filter } = useSelector((state) => state.products);
 
