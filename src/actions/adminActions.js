@@ -1,8 +1,8 @@
 import request from "superagent";
 import { displayError, removeError } from "./orderActions";
 
-// const baseUrl = "http://localhost:4000";
-const baseUrl = "https://cherry-crumble-89582.herokuapp.com"
+const baseUrl = "http://localhost:4000";
+// const baseUrl = "https://cherry-crumble-89582.herokuapp.com"
 
 export const JWT = "JWT";
 
