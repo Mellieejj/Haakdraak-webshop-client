@@ -46,7 +46,6 @@ export function createOrder(data) {
     } catch (error) {
       if (error.response) {
         const errorMessage = displayError(error.response.body.message);
-
         dispatch(errorMessage);
       } else {
         console.error(error);
@@ -71,8 +70,6 @@ export const getOrders = () => (dispatch, getState) => {
   if (!orders.length) {
     request(`${baseUrl}/orders`)
       .then((response) => {
-        console.log(response.body);
-
         const action = allOrders(response.body);
         dispatch(action);
       })
