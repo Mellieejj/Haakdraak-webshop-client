@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
-  const cart = useSelector((state) => state.products.cart);
+  const cart = useSelector(({products}) => products.cart);
 
   const countCart = cart.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;

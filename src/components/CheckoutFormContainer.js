@@ -4,7 +4,7 @@ import emailjs from "emailjs-com";
 import { createOrder } from "../actions/orderActions";
 import CheckoutForm from "./CheckoutForm";
 
-export default function CheckoutFormContainer(props) {
+export default function CheckoutFormContainer({ cartItems, clearCart, errors }) {
   const initialFields = {
     firstName: "",
     lastName: "",
@@ -26,8 +26,8 @@ export default function CheckoutFormContainer(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    const totalPrice = props.cartItems
-      ? props.cartItems.reduce((prevValue, currentValue) => {
+    const totalPrice = cartItems
+      ? cartItems.reduce((prevValue, currentValue) => {
           const numberPrice = parseFloat(currentValue.price);
           const priceQuantity = numberPrice * currentValue.quantity;
           return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
@@ -37,20 +37,12 @@ export default function CheckoutFormContainer(props) {
     dispatch(
       createOrder({
         form: fields,
-        items: props.cartItems,
+        items: cartItems,
       })
     );
 
-    const {firstName,
-      lastName,
-      email,
-      street,
-      housenr,
-      postcode,
-      city,
-      opmerkingen} = fields
-    const formOrder = {
-      firstName, 
+    const {
+      firstName,
       lastName,
       email,
       street,
@@ -58,7 +50,17 @@ export default function CheckoutFormContainer(props) {
       postcode,
       city,
       opmerkingen,
-      cartItems: props.cartItems
+    } = fields;
+    const formOrder = {
+      firstName,
+      lastName,
+      email,
+      street,
+      housenr,
+      postcode,
+      city,
+      opmerkingen,
+      cartItems: cartItems
         .map((item) => item.name + " " + item.quantity + "x")
         .join("<br />"),
       totalPrice,
@@ -81,7 +83,7 @@ export default function CheckoutFormContainer(props) {
         }
       )
       .then(setFields(initialFields))
-      .then(props.clearCart());
+      .then(clearCart());
   };
 
   const reset = () => setFields(initialFields);
@@ -92,8 +94,8 @@ export default function CheckoutFormContainer(props) {
       onChange={onChange}
       values={fields}
       reset={reset}
-      errors={props.errors}
-      cartItems={props.cartItems}
+      errors={errors}
+      cartItems={cartItems}
     />
   );
 }

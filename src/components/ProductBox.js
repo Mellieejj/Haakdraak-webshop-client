@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductBox (props){
+export default function ProductBox ({products, clickHandler}){
     return (
        <section className="product-boxes">
-        {props.products.map(product => {
+        {products.map(product => {
           const thumbnail = product.images.find(image => {
             return image.thumbnail === true;
           });
@@ -21,7 +21,7 @@ export default function ProductBox (props){
                 € {product.price}{" "}
                 <i
                   id="addToCart"
-                  onClick={() => props.clickHandler(product.id)}
+                  onClick={() => clickHandler(product.id)}
                   className="fas fa-cart-plus fa-lg"
                 ></i>
               </p>
