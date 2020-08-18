@@ -10,7 +10,7 @@ export default function ProductListContainer() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(16);
 
-  const { products, filter } = useSelector((state) => state.products);
+  const { products, filter } = useSelector(({products}) => products);
 
   const dispatch = useDispatch();
 

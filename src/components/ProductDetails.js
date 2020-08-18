@@ -10,25 +10,25 @@ import {
 } from "react-share";
 import { Pacman } from "react-pure-loaders";
 
-const BackArrow = (props) => (
+const BackArrow = ({previousImage}) => (
   <i
     className="fa fa-angle-left"
     aria-hidden="true"
-    onClick={props.previousImage}
+    onClick={previousImage}
     style={{ fontSize: "20px", marginRight: "12px" }}
   ></i>
 );
 
-const NextArrow = (props) => (
+const NextArrow = (nextImage) => (
   <i
     className="fa fa-angle-right"
     aria-hidden="true"
-    onClick={props.nextImage}
+    onClick={nextImage}
     style={{ fontSize: "20px", marginLeft: "12px" }}
   ></i>
 );
 
-export default function ProductDetails(props) {
+export default function ProductDetails({product, history, clickHandler}) {
   const [slideCount, setSlideCount] = useState(0);
 
   const nextImage = () => {
@@ -39,8 +39,8 @@ export default function ProductDetails(props) {
     setSlideCount(slideCount - 1);
   };
 
-  const images = props.product.images
-    ? props.product.images.filter((image) => image.thumbnail === false)
+  const images = product.images
+    ? product.images.filter((image) => image.thumbnail === false)
     : null;
 
   return (
@@ -48,16 +48,16 @@ export default function ProductDetails(props) {
       <div
         style={{ float: "left", marginTop: "auto" }}
         className="formButton"
-        onClick={() => props.history.goBack()}
+        onClick={() => history.goBack()}
       >
         <i className="far fa-hand-point-left"></i>Terug
       </div>
       <div className="pagina-naam">
-        <h2>{props.product.name}</h2>
+        <h2>{product.name}</h2>
       </div>
 
-      <div className="box" key={props.product.id}>
-        {props.product.images ? (
+      <div className="box" key={product.id}>
+        {product.images ? (
           images
             .filter((image) => image.thumbnail === false)
             .map((image, i) => {
@@ -71,7 +71,7 @@ export default function ProductDetails(props) {
                       ) : (
                         ""
                       )}
-                      {props.product.images ? (
+                      {product.images ? (
                         slideCount !== images.length - 1 ? (
                           <NextArrow nextImage={nextImage} />
                         ) : null
@@ -90,20 +90,20 @@ export default function ProductDetails(props) {
 
         <p>
           <span className="kopjes">Beschrijving:</span>
-          <br /> {props.product.description}
+          <br /> {product.description}
         </p>
 
         <p>
           <span className="kopjes"> Optionele variaties:</span> <br />
-          {props.product.optional}
+          {product.optional}
         </p>
 
         <p>
-          € {props.product.price}{" "}
+          € {product.price}{" "}
           <i
             id="addToCart"
             style={{ float: "center", marginLeft: "150px" }}
-            onClick={() => props.clickHandler(props.product.id)}
+            onClick={() => clickHandler(product.id)}
             className="fas fa-cart-plus"
           >
             {" "}
@@ -114,10 +114,10 @@ export default function ProductDetails(props) {
         </p>
 
         <p>
-          <span className="kopjes">Op voorraad:</span> {props.product.stock}
+          <span className="kopjes">Op voorraad:</span> {product.stock}
         </p>
 
-        {props.product.stock === 0 ? (
+        {product.stock === 0 ? (
           <p>
             <span className="kopjes">Levertijd:</span> <br />
             Kijk op de <Link to="/contact">contactpagina</Link> bij informatie
@@ -126,39 +126,39 @@ export default function ProductDetails(props) {
         ) : null}
 
         <p>
-          <span className="kopjes">Formaat:</span> +/- {props.product.size}
+          <span className="kopjes">Formaat:</span> +/- {product.size}
         </p>
 
         <p>
           <span className="kopjes"> Category:</span>{" "}
-          {props.product.category ? props.product.category.name : null}
+          {product.category ? product.category.name : null}
         </p>
       </div>
       <div className="socialmedia">
         <p>Dit product delen op: </p>
 
         <FacebookShareButton
-          children={props.product.name}
-          url={`https://www.haakdraak.nl/producten/${props.product.id}`}
-          quote={props.product.name}
+          children={product.name}
+          url={`https://www.haakdraak.nl/producten/${product.id}`}
+          quote={product.name}
           hashtag="#haakdraak"
         >
           <FacebookIcon round="true" size="2rem" />
         </FacebookShareButton>
 
         <TwitterShareButton
-          children={props.product.name}
-          url={`https://www.haakdraak.nl/producten/${props.product.id}`}
+          children={product.name}
+          url={`https://www.haakdraak.nl/producten/${product.id}`}
           hashtags={["haakdraak"]}
-          title={props.product.name}
+          title={product.name}
         >
           <TwitterIcon size="2rem" round="true" />
         </TwitterShareButton>
 
         <WhatsappShareButton
-          children={props.product.name}
-          url={`https://www.haakdraak.nl/producten/${props.product.id}`}
-          title={props.product.name}
+          children={product.name}
+          url={`https://www.haakdraak.nl/producten/${product.id}`}
+          title={product.name}
         >
           <WhatsappIcon round="true" size="2rem" />
         </WhatsappShareButton>
