@@ -9,6 +9,7 @@ import {
 const initialState = { products: [], cart: [], filter: [] };
 
 export default function (state = initialState, action = {}) {
+  const { products, cart, filter } = state
   switch (action.type) {
     case ALL_PRODUCTS: {
       return { ...state, products: action.payload };
@@ -19,7 +20,7 @@ export default function (state = initialState, action = {}) {
 
       return {
         ...state,
-        filter: state.products.filter((product) => {
+        filter: products.filter((product) => {
           return product.category.name === filterCategory;
         }),
       };
@@ -27,16 +28,16 @@ export default function (state = initialState, action = {}) {
 
     case CART_ADDED: {
       const productId = action.payload;
-      const productCart = state.cart.find((p) => p.id === productId);
+      const productCart = cart.find((p) => p.id === productId);
 
       if (!productCart) {
-        const product = state.products.find((p) => p.id === productId);
+        const product = products.find((p) => p.id === productId);
         return {
           ...state,
-          cart: [...state.cart, { ...product, quantity: 1 }],
+          cart: [...cart, { ...product, quantity: 1 }],
         };
       } else {
-        const updatedCart = state.cart.map((p) =>
+        const updatedCart = cart.map((p) =>
           p.id === productId ? { ...p, quantity: p.quantity + 1 } : p
         );
         return {
@@ -48,13 +49,13 @@ export default function (state = initialState, action = {}) {
     case CART_SUBTRACTED: {
       const productId = action.payload;
 
-      const productCart = state.cart.find((p) => p.id === productId);
+      const productCart = cart.find((p) => p.id === productId);
 
       if (!productCart) {
         return state;
       } else {
         if (productCart.quantity > 1) {
-          const updatedCart = state.cart.map((p) =>
+          const updatedCart = cart.map((p) =>
             p.id === productId ? { ...p, quantity: p.quantity - 1 } : p
           );
           return {
@@ -62,7 +63,7 @@ export default function (state = initialState, action = {}) {
             cart: updatedCart,
           };
         } else {
-          const updatedCart = state.cart.filter((p) => p.id !== productId);
+          const updatedCart = cart.filter((p) => p.id !== productId);
           return {
             ...state,
             cart: updatedCart,
