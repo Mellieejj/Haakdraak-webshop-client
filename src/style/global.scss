@@ -1,83 +1,70 @@
-/* CSS Variables */
-
-:root {
-  --link: #32a093;
-  --bezocht: #288176;
-  --aanwijzen: #a3fff9;
-  --blauw: #32a093;
-  --grijs: #555555;
-  --wit: #ffffff;
-  --dark: #333;
-  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  
-  --ff-patrick: Patrick Hand;
-  --ff-chewy: Chewy;
-}
+@import "/config";
 
 html {
   box-sizing: border-box;
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
   font-size: 20px;
-  color: var(--grijs);
+  color: $grijs;
 }
 
 body {
-  background: var(--blauw);
+  background: $blauw;
 }
 
 h1 {
-  font-family: Chewy;
+  font-family: $ff-chewy; 
   font-size: 60px;
-  color: var(--blauw);
+  color: $blauw;
 }
 
 h2 {
-  font-family: Chewy;
+  font-family: $ff-chewy;
   font-size: 36px;
-  color: var(--blauw);
+  color: $blauw;
 }
 
 h3 {
-  font-family: Chewy;
+  font-family: $ff-chewy;
   font-size: 24px;
-  color: var(--grijs);
+  color: $grijs;
   text-align: center;
 }
 
 h4 {
-  font-family: Chewy;
+  font-family: $ff-chewy;
   font-size: 20px;
-  color: var(--blauw);
+  color: $blauw;
   margin-bottom: 0px;
   margin-top: 5px;
 }
 
 p {
   font-size: 20px;
-  font-family: Patrick Hand;
-}
-
-.tijdelijk {
-  color: red;
-  font-weight: bold;
-}
-
-.btn {
-  background: var(--dark);
-  color: var(--wit);
-  padding: 0.6rem 1.3rem;
-  text-decoration: none;
-  border: 0;
+  font-family: $ff-patrick;
 }
 
 img {
   max-width: 100%;
 }
 
+//nog splitsen 
+.tijdelijk {
+  color: red;
+  font-weight: bold;
+}
+
+.btn {
+  background: $dark;
+  color: $wit;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
 .wrapper {
   display: grid;
   margin: 0 auto;
-  background: var(--blauw);
+  background: $blauw;
   max-width: 1150px;
 }
 
@@ -100,40 +87,40 @@ img {
 .dropdown__hover {
   display: inline-block;
   padding: 10px;
-  background: var(--wit);
-  color: var(--grijs);
+  background: $wit;
+  color: $grijs;
   cursor: pointer;
   text-align: center;
   border: none;
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
   font-size: 24px;
   min-width: 150px;
   margin-left: 20px;
 }
 
 .dropdown__hover:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .dropdown__hover:hover a {
-  color: var(--wit);
+  color: $wit;
 }
 
 .dropdown a {
   text-decoration: none;
-  color: var(--grijs);
+  color: $grijs;
 }
 
 .dropdown a:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .main-nav {
   max-width: 100%;
   max-height: 127px;
-  background: var(--wit);
+  background: $wit;
 }
 
 .main-nav h1 {
@@ -166,24 +153,24 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
 }
 
 .foto h1 {
   font-size: 4rem;
   margin-bottom: 0;
-  color: var(--wit);
+  color: $wit;
 }
 
 .foto p {
   font-size: 1.5rem;
   margin-top: 0;
-  color: var(--wit);
+  color: $wit;
   text-align: center;
 }
 
 .pagina-naam {
-  background: var(--wit);
+  background: $wit;
   text-align: center;
 }
 
@@ -200,10 +187,10 @@ img {
 }
 
 .box {
-  background: var(--wit);
+  background: $wit;
   text-align: left;
   padding: 1.5rem 2rem;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
 }
 
 .box img {
@@ -216,8 +203,8 @@ img {
 }
 
 .box i:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .box-1 {
@@ -225,7 +212,7 @@ img {
 }
 
 .box a {
-  color: var(--blauw);
+  color: $blauw;
 }
 
 .box-2 {
@@ -236,8 +223,8 @@ img {
   margin-top: 10px;
   max-height: 500px;
   padding-left: 10px;
-  background: var(--wit);
-  box-shadow: var(--shadow);
+  background: $wit;
+  box-shadow: $shadow;
 }
 
 .product img {
@@ -252,6 +239,7 @@ img {
 .kopjes {
   font-weight: bold;
 }
+
 .product h4 {
   margin-left: 20px;
 }
@@ -269,17 +257,17 @@ img {
 }
 
 .prijs i:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .boxes a {
-  color: var(--link);
+  color: $link;
   text-decoration: none;
 }
 
 .product-boxes a {
-  color: var(--link);
+  color: $link;
   text-decoration: none;
 }
 
@@ -292,7 +280,7 @@ img {
 
 .grid img {
   border: none;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
   max-width: 100%;
 }
 
@@ -304,9 +292,9 @@ img {
 .foot-nav {
   height: 100px;
   width: 1150px;
-  background: var(--wit);
+  background: $wit;
   margin: 25px auto;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
   display: flex;
 }
 
@@ -315,12 +303,12 @@ img {
 }
 
 .foot-nav a {
-  color: var(--grijs);
+  color: $grijs;
   text-decoration: none;
 }
 
 table {
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
   font-size: 20px;
   border-collapse: collapse;
   margin: auto;
@@ -328,8 +316,8 @@ table {
 
 .cart thead {
   font-weight: bold;
-  color: var(--blauw);
-  border: 1px solid var(--grijs);
+  color: $blauw;
+  border: 1px solid $grijs;
 }
 
 .cart td {
@@ -339,7 +327,7 @@ table {
 }
 
 .cart tfoot {
-  border-top: 1px solid var(--grijs);
+  border-top: 1px solid $grijs;
 }
 
 .cart i {
@@ -347,8 +335,8 @@ table {
 }
 
 .cart i:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .error {
@@ -359,53 +347,53 @@ table {
 .formButton {
   display: inline-block;
   padding: 10px;
-  background: var(--wit);
-  color: var(--grijs);
+  background: $wit;
+  color: $grijs;
   cursor: pointer;
   text-align: center;
   border: none;
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
   font-size: 20px;
   min-width: 150px;
   margin-top: 25px;
 }
 
 .formButton:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .formButton:disabled {
-  background: var(--wit);
+  background: $wit;
   color: red;
 }
 .info {
   font-weight: bold;
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
 }
 
 .filter {
-  background: var(--wit);
+  background: $wit;
 }
 
 .filter label {
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
   font-size: 20px;
 }
 
 .filter select {
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
   font-size: 20px;
 }
 
 .pagination {
-  font-family: Patrick Hand;
+  font-family: $ff-patrick;
 }
 
 .pagination button {
   display: inline-block;
-  background: var(--wit);
-  color: var(--grijs);
+  background: $wit;
+  color: $grijs;
   cursor: pointer;
   text-align: center;
   border: none;
@@ -414,13 +402,13 @@ table {
 }
 
 .pagination button:hover {
-  background: var(--blauw);
-  color: var(--wit);
+  background: $blauw;
+  color: $wit;
 }
 
 .pagination button:disabled {
-  background-color: var(--blauw);
-  color: var(--blauw);
+  background-color: $blauw;
+  color: $blauw;
 }
 
 #login {
@@ -428,14 +416,15 @@ table {
 }
 
 .socialmedia {
-  background-color: var(--wit);
+  background-color: $wit;
   text-align: center;
 }
+
 .load {
-  background: var(--wit);
+  background: $wit;
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 50%;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
 }

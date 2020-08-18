@@ -101,10 +101,10 @@ export default function ContactForm() {
               </tr>
               <tr>
                 <td>
-                  <input type="reset" value="Reset" />
+                  <input type="reset" className="formButton" value="Reset" />
                 </td>
                 <td>
-                  <input type="submit" value="Send" />
+                  <input type="submit" className="formButton" value="Send" />
                 </td>
               </tr>
             </tfoot>

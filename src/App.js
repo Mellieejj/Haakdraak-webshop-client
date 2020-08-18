@@ -15,7 +15,7 @@ import OrderDetailsContainer from "./components/adminComponents/OrderDetailsCont
 import AdminPage from "./components/adminComponents/AdminPage";
 import OrdersContainer from "./components/adminComponents/OrdersContainer";
 
-import "./App.css";
+import "./style/global.scss";
 
 export default function App() {
   // useEffect(()=> {
