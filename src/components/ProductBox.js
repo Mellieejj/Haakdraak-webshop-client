@@ -12,9 +12,9 @@ export default function ProductBox ({products, clickHandler}){
           return (
             <div className="product" key={product.id}>
               <Link to={`/producten/${product.id}`}>
-                {product.images.length ? (
+                {product.images.length && (
                   <img src={thumbnail.url} alt="" />
-                ) : null}
+                )}
                 <h4>{product.name}</h4>
               </Link>
               <p className="prijs">

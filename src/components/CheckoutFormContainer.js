@@ -15,6 +15,7 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
     city: "",
     opmerkingen: "",
   };
+
   const [fields, setFields] = useState(initialFields);
 
   const dispatch = useDispatch();
@@ -26,13 +27,13 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    const totalPrice = cartItems
-      ? cartItems.reduce((prevValue, currentValue) => {
-          const numberPrice = parseFloat(currentValue.price);
-          const priceQuantity = numberPrice * currentValue.quantity;
-          return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
-        }, 0)
-      : null;
+    const totalPrice =
+      cartItems &&
+      cartItems.reduce((prevValue, currentValue) => {
+        const numberPrice = parseFloat(currentValue.price);
+        const priceQuantity = numberPrice * currentValue.quantity;
+        return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
+      }, 0);
 
     dispatch(
       createOrder({
@@ -51,6 +52,7 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
       city,
       opmerkingen,
     } = fields;
+    
     const formOrder = {
       firstName,
       lastName,

@@ -28,9 +28,7 @@ export default function CheckoutForm (props) {
       <div className="box">
         <h3>Bestel Formulier</h3>
         <div>
-          {errors ? (
-            <p className="error">{errors}</p>
-          ) : null}
+          {errors && <p className="error">{errors}</p>}
           <form onSubmit={onSubmit}>
             <table>
               <tbody>
@@ -148,7 +146,8 @@ export default function CheckoutForm (props) {
                 }
             />
             <button className="formButton" onClick={() => reset}>
-              <i className="fas fa-times"></i> Wis alles
+              <i className="fas fa-times"></i>
+              Wis alles
             </button>
           </form>
         </div>

@@ -19,7 +19,7 @@ const BackArrow = ({previousImage}) => (
   ></i>
 );
 
-const NextArrow = (nextImage) => (
+const NextArrow = ({nextImage}) => (
   <i
     className="fa fa-angle-right"
     aria-hidden="true"

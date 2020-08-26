@@ -66,13 +66,9 @@ export default function ProductListContainer() {
 
   const lastIndex = currentPage * productsPerPage;
   const firstIndex = lastIndex - productsPerPage;
-  const currentProducts = productsList
-    ? productsList.slice(firstIndex, lastIndex)
-    : null;
+  const currentProducts = productsList && productsList.slice(firstIndex, lastIndex);
 
-  const totalPages = products
-    ? Math.ceil(productsList.length / productsPerPage)
-    : null;
+  const totalPages = products && Math.ceil(productsList.length / productsPerPage);
 
   return (
     <section className="top-product">

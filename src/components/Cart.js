@@ -3,13 +3,12 @@ import React from "react";
 export default function Cart(props) {
   const { cartItems, addToCart, subtractFromCart, clearCart } = props;
   //total price of cart items
-  const totalPrice = cartItems
-    ? cartItems.reduce((prevValue, currentValue) => {
+  const totalPrice = cartItems && 
+     cartItems.reduce((prevValue, currentValue) => {
         const numberPrice = parseFloat(currentValue.price);
         const priceQuantity = numberPrice * currentValue.quantity;
         return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
-      }, 0)
-    : null;
+      }, 0);
   // total items of cart
   const countCart = cartItems.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;
