@@ -51,7 +51,7 @@ export default function AddProductContainer() {
         {" "}
         <AddProduct
           values={fields}
-          buttonName="verzenden"
+          buttonName="Verzenden"
           onSubmit={onSubmit}
           onChange={onChangeProduct}
         />

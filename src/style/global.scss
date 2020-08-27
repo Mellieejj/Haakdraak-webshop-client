@@ -1,6 +1,6 @@
 @import "/config";
 
-html {
+* {
   box-sizing: border-box;
   font-family: $ff-patrick;
   font-size: 20px;
@@ -72,49 +72,48 @@ img {
 
 .nav {
   margin-top: 37px;
-}
 
-.nav a {
-  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
-
 .dropdown {
   position: relative;
   display: inline;
   z-index: 10;
-}
 
-.dropdown__hover {
-  display: inline-block;
-  padding: 10px;
-  background: $wit;
-  color: $grijs;
-  cursor: pointer;
-  text-align: center;
-  border: none;
-  font-family: $ff-patrick;
-  font-size: 24px;
-  min-width: 150px;
-  margin-left: 20px;
-}
+  &__hover {
+    display: inline-block;
+    padding: 10px;
+    background: $wit;
+    color: $grijs;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    font-family: $ff-patrick;
+    font-size: 24px;
+    min-width: 150px;
+    margin-left: 20px;
+    
+   &:hover {
+      background: $blauw;
+      color: $wit;
+    }
+  }
 
-.dropdown__hover:hover {
-  background: $blauw;
-  color: $wit;
-}
+  &__hover:hover a {
+    color: $wit;
+  }
 
-.dropdown__hover:hover a {
-  color: $wit;
-}
+  a {
+    text-decoration: none;
+    color: $grijs;
+  }
 
-.dropdown a {
-  text-decoration: none;
-  color: $grijs;
-}
-
-.dropdown a:hover {
-  background: $blauw;
-  color: $wit;
+  a:hover {
+    background: $blauw;
+    color: $wit;
+  }
 }
 
 .main-nav {

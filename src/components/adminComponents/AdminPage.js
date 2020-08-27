@@ -4,6 +4,6 @@ import LoginFormContainer from "./LoginFormContainer";
 import AdminMenu from "./AdminMenu";
 
 export default function AdminPage() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(({user}) => user);
   return <div>{!user.jwt ? <LoginFormContainer /> : <AdminMenu />}</div>;
 }

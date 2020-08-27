@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-export default function OrderList(props) {
+export default function OrderList({orders}) {
   return (
     <div>
-      {!props.orders ? null : (
+      {!orders ? null : (
         <table>
           <thead>
             <tr>
@@ -15,7 +15,7 @@ export default function OrderList(props) {
             </tr>
           </thead>
           <tbody>
-            {props.orders.map((order) => {
+            {orders.map((order) => {
               return (
                 <tr key={order.id}>
                   <td>{moment(order.createdAt).format("D MMM YYYY, HH:mm")}</td>
@@ -23,7 +23,8 @@ export default function OrderList(props) {
                     {order.firstName} {order.lastName}
                   </td>
                   <td>
-                    <ul>{order.products.length}</ul>
+                    {/* products .order_products.quantity ff checken hoe het zit  */}
+                    <ul>{order.products.length}</ul>  
                   </td>
                   <td>
                     <Link to={`/admin/orders/${order.id}`}>Details</Link>
