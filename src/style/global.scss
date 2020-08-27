@@ -120,18 +120,17 @@ img {
   max-width: 100%;
   max-height: 127px;
   background: $wit;
-}
 
-.main-nav h1 {
-  float: left;
-  margin: 25px 10px 25px 0px;
-}
+  h1 {
+    float: left;
+    margin: 25px 10px 25px 0px;
+  }
 
-.main-nav img {
-  float: left;
-  margin: 17px 0px 17px 17px;
+  img {
+    float: left;
+    margin: 17px 0px 17px 17px;
+  }
 }
-
 /* top container */
 
 .top-container {
@@ -143,7 +142,7 @@ img {
 
 .foto {
   grid-area: foto;
-  min-height: 400px;
+  min-height: 512px;
   background: url("https://www.haakdraak.nl/afbeeldingen/48-2.jpg");
   background-size: cover;
   background-position: center;
@@ -153,19 +152,19 @@ img {
   align-items: center;
   justify-content: center;
   box-shadow: $shadow;
-}
 
-.foto h1 {
-  font-size: 4rem;
-  margin-bottom: 0;
-  color: $wit;
-}
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: $wit;
+  }
 
-.foto p {
-  font-size: 1.5rem;
-  margin-top: 0;
-  color: $wit;
-  text-align: center;
+  p {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: $wit;
+    text-align: center;
+  }
 }
 
 .pagina-naam {
@@ -177,12 +176,22 @@ img {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  a {
+    color: $link;
+    text-decoration: none;
+  }
 }
 
 .product-boxes {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
+
+  a {
+    color: $link;
+    text-decoration: none;
+  }
 }
 
 .box {
@@ -190,32 +199,32 @@ img {
   text-align: left;
   padding: 1.5rem 2rem;
   box-shadow: $shadow;
-}
 
-.box img {
-  max-height: 500px;
-}
+  img {
+    max-height: 500px;
+  }
 
-.box i {
-  padding: 5px;
-  font-size: 20px;
-}
+  i {
+    padding: 5px;
+    font-size: 20px;
+    
+    &:hover {
+      background: $blauw;
+      color: $wit;
+    }
+  }
 
-.box i:hover {
-  background: $blauw;
-  color: $wit;
-}
+  &-1 {
+    grid-area: box-1;
+  }
 
-.box-1 {
-  grid-area: box-1;
-}
+   a {
+    color: $blauw;
+  }
 
-.box a {
-  color: $blauw;
-}
-
-.box-2 {
-  grid-area: box-2;
+  &-2 {
+    grid-area: box-2;
+  }
 }
 
 .product {
@@ -224,50 +233,40 @@ img {
   padding-left: 10px;
   background: $wit;
   box-shadow: $shadow;
-}
 
-.product img {
-  max-width: 174px;
-  max-height: 235px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-}
+  img {
+    max-width: 174px;
+    max-height: 235px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
 
-.kopjes {
-  font-weight: bold;
-}
+  .kopjes {
+    font-weight: bold;
+  }
 
-.product h4 {
-  margin-left: 20px;
+  h4 {
+    margin-left: 20px;
+  }
 }
 
 .prijs {
   font-size: 18px;
   margin-top: 10px;
   margin-left: 20px;
-}
-
-.prijs i {
-  padding: 10px;
-  float: right;
-  margin-right: 35px;
-}
-
-.prijs i:hover {
-  background: $blauw;
-  color: $wit;
-}
-
-.boxes a {
-  color: $link;
-  text-decoration: none;
-}
-
-.product-boxes a {
-  color: $link;
-  text-decoration: none;
+  
+  i {
+    padding: 10px;
+    float: right;
+    margin-right: 35px;
+ 
+    &:hover {
+      background: $blauw;
+      color: $wit;
+    }
+  }
 }
 
 .grid {
@@ -275,17 +274,17 @@ img {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
   justify-items: center;
-}
 
-.grid img {
-  border: none;
-  box-shadow: $shadow;
-  max-width: 100%;
-}
-
-.grid img:nth-child(2) {
-  grid-column: span 3;
-  grid-row: span 2;
+  img {
+    border: none;
+    box-shadow: $shadow;
+    max-width: 100%;
+    
+    &:nth-child(2) {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+  }
 }
 
 .foot-nav {
@@ -295,15 +294,15 @@ img {
   margin: 25px auto;
   box-shadow: $shadow;
   display: flex;
-}
 
-.foot-nav p {
-  margin-left: 20px;
-}
+  p {
+    margin-left: 20px;
+  }
 
-.foot-nav a {
-  color: $grijs;
-  text-decoration: none;
+  a {
+    color: $grijs;
+    text-decoration: none;
+  }
 }
 
 table {
@@ -312,30 +311,31 @@ table {
   border-collapse: collapse;
   margin: auto;
 }
+.cart{
+  thead {
+    font-weight: bold;
+    color: $blauw;
+    border: 1px solid $grijs;
+  }
 
-.cart thead {
-  font-weight: bold;
-  color: $blauw;
-  border: 1px solid $grijs;
-}
+  td {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 6rem;
+  }
 
-.cart td {
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width: 6rem;
-}
+  tfoot {
+    border-top: 1px solid $grijs;
+  }
 
-.cart tfoot {
-  border-top: 1px solid $grijs;
-}
-
-.cart i {
-  padding: 5px;
-}
-
-.cart i:hover {
-  background: $blauw;
-  color: $wit;
+  i {
+    padding: 5px;
+    
+    &:hover {
+    background: $blauw;
+    color: $wit;
+    }
+  }
 }
 
 .error {
@@ -355,17 +355,18 @@ table {
   font-size: 20px;
   min-width: 150px;
   margin-top: 25px;
+  
+  &:hover {
+    background: $blauw;
+    color: $wit;
+  }
+
+  &:disabled {
+    background: $wit;
+    color: red;
+  }
 }
 
-.formButton:hover {
-  background: $blauw;
-  color: $wit;
-}
-
-.formButton:disabled {
-  background: $wit;
-  color: red;
-}
 .info {
   font-weight: bold;
   font-family: $ff-patrick;
@@ -373,41 +374,41 @@ table {
 
 .filter {
   background: $wit;
-}
 
-.filter label {
-  font-family: $ff-patrick;
-  font-size: 20px;
-}
+  label {
+    font-family: $ff-patrick;
+    font-size: 20px;  
+  }
 
-.filter select {
-  font-family: $ff-patrick;
-  font-size: 20px;
+  select {
+    font-family: $ff-patrick;
+    font-size: 20px;
+  }
 }
 
 .pagination {
   font-family: $ff-patrick;
-}
 
-.pagination button {
-  display: inline-block;
-  background: $wit;
-  color: $grijs;
-  cursor: pointer;
-  text-align: center;
-  border: none;
-  font-size: 28px;
-  margin: 5px;
-}
+  button {
+    display: inline-block;
+    background: $wit;
+    color: $grijs;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    font-size: 28px;
+    margin: 5px;
+  
+    &:hover {
+      background: $blauw;
+      color: $wit;
+    }
 
-.pagination button:hover {
-  background: $blauw;
-  color: $wit;
-}
-
-.pagination button:disabled {
-  background-color: $blauw;
-  color: $blauw;
+    &:disabled {
+      background-color: $blauw;
+      color: $blauw;
+    }
+  }
 }
 
 #login {
