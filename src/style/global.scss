@@ -98,21 +98,21 @@ img {
    &:hover {
       background: $blauw;
       color: $wit;
-    }
-  }
 
-  &__hover:hover a {
-    color: $wit;
+      a {
+        color: $wit;
+      }
+    }
   }
 
   a {
     text-decoration: none;
     color: $grijs;
-  }
-
-  a:hover {
-    background: $blauw;
-    color: $wit;
+  
+    &:hover {
+      background: $blauw;
+      color: $wit;
+    }
   }
 }
 
@@ -133,40 +133,37 @@ img {
 }
 /* top container */
 
-.top-container {
+.c-main-photo {
   display: grid;
   grid-template-areas: "foto foto" "foto foto";
-}
+  
+  &__img {
+    grid-area: foto;
+    min-height: 512px;
+    background: url("https://www.haakdraak.nl/afbeeldingen/48-2.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow;
+  }
 
-/* Showcase */
-
-.foto {
-  grid-area: foto;
-  min-height: 512px;
-  background: url("https://www.haakdraak.nl/afbeeldingen/48-2.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: $shadow;
-
-  h1 {
+  &__title {
     font-size: 4rem;
     margin-bottom: 0;
     color: $wit;
   }
 
-  p {
+  &__text {
     font-size: 1.5rem;
     margin-top: 0;
     color: $wit;
     text-align: center;
   }
 }
-
 .pagina-naam {
   background: $wit;
   text-align: center;
