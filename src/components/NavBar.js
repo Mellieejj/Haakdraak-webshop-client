@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
-  const cart = useSelector(({products}) => products.cart);
+  const cart = useSelector(({ products }) => products.cart);
 
   const countCart = cart.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;
@@ -11,32 +11,26 @@ export default function NavBar() {
 
   return (
     <nav className="main-nav">
-      <img src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
-      <h1>HaakDraak</h1>
-      <section className="nav">
+      <div className="main-nav__logo">
+        <img src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
+        <h1>HaakDraak</h1>
+      </div>
+      <div className="main-nav__nav">
         <Link to="/">
-          <div className="dropdown">
-            <div className="dropdown__hover">Home</div>
-          </div>
+          <div className="main-nav__nav-item">Home</div>
         </Link>
         <Link to="/producten">
-          <div className="dropdown">
-            <div className="dropdown__hover">Producten</div>
-          </div>{" "}
+          <div className="main-nav__nav-item">Producten</div>
         </Link>
         <Link to="/contact">
-          <div className="dropdown">
-            <div className="dropdown__hover">Contact</div>
-          </div>{" "}
+          <div className="main-nav__nav-item">Contact</div>
         </Link>
         <Link to="/cart">
-          <div className="dropdown">
-            <div className="dropdown__hover">
-              <i className="fas fa-shopping-bag"></i> {countCart}
-            </div>
+          <div className="main-nav__nav-item">
+            <i className="fas fa-shopping-bag"></i> {countCart}
           </div>
         </Link>{" "}
-      </section>
+      </div>
     </nav>
   );
 }

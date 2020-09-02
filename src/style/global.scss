@@ -68,21 +68,35 @@ img {
   max-width: 1150px;
 }
 
-/* Navigation */
+/* Navigation bar*/
+.main-nav {
+  max-width: 100%;
+  max-height: 127px;
+  background: $wit;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+  &__logo {
+    display: flex;
 
-.nav {
-  margin-top: 37px;
-
-  a {
-    text-decoration: none;
+    h1 { 
+      margin: 25px 10px 25px 0px;
+    }
+    
+    img {
+      margin: 17px 0px 17px 17px;
+    }
   }
-}
-.dropdown {
-  position: relative;
-  display: inline;
-  z-index: 10;
 
-  &__hover {
+  &__nav {
+    max-width: 100%;
+    display: flex;
+  }
+  
+  &__nav-item {
+    position: relative;
     display: inline-block;
     padding: 10px;
     background: $wit;
@@ -90,47 +104,23 @@ img {
     cursor: pointer;
     text-align: center;
     border: none;
+    border-radius: 4px;
     font-family: $ff-patrick;
     font-size: 24px;
     min-width: 150px;
     margin-left: 20px;
     
-   &:hover {
+    &:hover {
       background: $blauw;
       color: $wit;
 
-      a {
+      i {
         color: $wit;
       }
     }
   }
-
-  a {
-    text-decoration: none;
-    color: $grijs;
-  
-    &:hover {
-      background: $blauw;
-      color: $wit;
-    }
-  }
 }
 
-.main-nav {
-  max-width: 100%;
-  max-height: 127px;
-  background: $wit;
-
-  h1 {
-    float: left;
-    margin: 25px 10px 25px 0px;
-  }
-
-  img {
-    float: left;
-    margin: 17px 0px 17px 17px;
-  }
-}
 /* top container */
 
 .c-main-photo {
