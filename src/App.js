@@ -34,7 +34,7 @@ export default function App() {
         <Route exact path="/contact" component={ContactContainer} />
         <Route exact path="/admin" component={AdminPage} />
         <Route exact path="/" component={Home} /> */}
-        {/* <Route path="/" component={Footer} /> */}
+        <Route path="/" component={Footer} />
       </div>
     </Provider>
   );
