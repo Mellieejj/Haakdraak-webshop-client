@@ -10,7 +10,7 @@ export default function NavBar() {
   }, 0);
 
   return (
-    <nav className="main-nav">
+    <div className="main-nav">
       {/* logo */}
       <div className="main-nav__logo">
         <img className="main-nav__logo-img" src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
@@ -24,7 +24,7 @@ export default function NavBar() {
       </label>
 
       {/* menu */}
-      <div className="main-nav__nav">
+      <nav className="main-nav__nav">
         <Link to="/">
           <div className="main-nav__nav-item">Home</div>
         </Link>
@@ -39,8 +39,8 @@ export default function NavBar() {
             <i className="fas fa-shopping-bag"></i> {countCart}
           </div>
         </Link>
-      </div>
-    
-    </nav>
+      </nav>
+      
+    </div>
   );
 }
