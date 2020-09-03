@@ -7,10 +7,10 @@ export default function Homepage() {
   return (
     <div>
       <FotoContainer />
-      {/* <div className="boxes">
+      <div className="boxes">
         <TextBox />
         <FotoBox />
-      </div> */}
+      </div>
     </div>
   );
 }

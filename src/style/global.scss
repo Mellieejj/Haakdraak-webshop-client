@@ -6,7 +6,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: $ff-patrick;
-  font-size: 20px;
   color: $grijs;
 }
 
@@ -46,8 +45,16 @@ h4 {
 }
 
 p {
-  font-size: 20px;
-  font-family: $ff-patrick;
+  font-size: 16px;
+
+  @include desktop {
+    font-size: 18px;
+  }
+}
+
+a {
+  color: $link;
+  text-decoration: none;
 }
 
 img {
@@ -109,7 +116,6 @@ img {
   }
   
   &__toggle-label {
-    // position: absolute;
     cursor: pointer;
     top: 10px;
     right: 0;
@@ -157,7 +163,6 @@ img {
     transition: all .2s ease-out;
   }
 
-
   &__nav {
     position: absolute;
     width: 100%;
@@ -167,10 +172,6 @@ img {
     transform: scale(1,0);
     transition: transform 400ms ease-in-out;
     
-    a {
-      text-decoration: none;
-    }
-
     @include desktop {
       display: flex;
       position: relative;
@@ -192,12 +193,13 @@ img {
     opacity: 0;
     transition: opacity 250ms ease-in-out;
     border-top: 1px solid $blauw;
+    font-size: 18px;
     
     @include desktop {
       opacity: 1;
       display: inline-block;
       min-width: 150px;
-      font-size: 24px;
+      font-size: 20px;
       border-radius: 4px;
       border: none;
     }
@@ -236,7 +238,6 @@ img {
 }
 
 /* top container */
-
 .c-main-photo {
   display: grid;
   grid-template-areas: "foto foto" "foto foto";
@@ -304,32 +305,30 @@ img {
 }
 
 .boxes {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: block;
 
-  a {
-    color: $link;
-    text-decoration: none;
-  }
+  @include tablet {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }  
 }
 
 .product-boxes {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
-
-  a {
-    color: $link;
-    text-decoration: none;
-  }
 }
 
 .box {
   background: $wit;
   text-align: left;
-  padding: 1.5rem 2rem;
   box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10% 2rem;
+  margin-bottom: 10px;
 
   img {
     max-height: 500px;
@@ -343,18 +342,6 @@ img {
       background: $blauw;
       color: $wit;
     }
-  }
-
-  &-1 {
-    grid-area: box-1;
-  }
-
-   a {
-    color: $blauw;
-  }
-
-  &-2 {
-    grid-area: box-2;
   }
 }
 
@@ -400,11 +387,12 @@ img {
   }
 }
 
-.grid {
+.photo-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 5px;
   justify-items: center;
+
 
   img {
     border: none;
@@ -457,7 +445,7 @@ img {
 
   a {
     color: $grijs;
-    text-decoration: none;
+    // text-decoration: none;
   }
 }
 
@@ -467,6 +455,7 @@ table {
   border-collapse: collapse;
   margin: auto;
 }
+
 .cart{
   thead {
     font-weight: bold;
