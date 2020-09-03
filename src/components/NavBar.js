@@ -13,9 +13,16 @@ export default function NavBar() {
     <nav className="main-nav">
       {/* logo */}
       <div className="main-nav__logo">
-        <img src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
+        <img className="main-nav__logo-img" src="https://www.haakdraak.nl/afbeeldingen/5.jpg" alt="logo" />
         <h1>HaakDraak</h1>
       </div>
+      {/* mobile icon + checkbox */}
+     
+      <input type="checkbox" className="main-nav__toggle-checkbox" id="toggle" />
+      <label htmlFor="toggle" className="main-nav__toggle-label">
+        <span className="main-nav__toggle-icon"></span>
+      </label>
+
       {/* menu */}
       <div className="main-nav__nav">
         <Link to="/">
