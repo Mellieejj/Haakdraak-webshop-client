@@ -177,6 +177,7 @@ img {
       top: initial;
       width: auto;
       max-width:100%;
+      transform: scale(1, 1);
     }
   }
   
@@ -193,12 +194,12 @@ img {
     transition: opacity 250ms ease-in-out;
     
     @include desktop {
+      opacity: 1;
       display: inline-block;
       min-width: 150px;
       font-size: 24px;
       border-radius: 4px;
       border: none;
-      opacity: 1;
     }
 
     &:hover {
