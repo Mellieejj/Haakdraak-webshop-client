@@ -9,10 +9,7 @@ export default function Footer() {
           kraamcadeautjes en meer!
         </p>
       </div>
-      <div
-        className="foot-nav__box"
-        // style={{ marginLeft: "325px", marginTop: "10px" }}
-      >
+      <div className="foot-nav__box">
         <a
           className="foot-nav__box-social"
           target="_blank"
@@ -30,10 +27,7 @@ export default function Footer() {
           <i className="fab fa-instagram fa-3x"></i>
         </a>
       </div>
-      <div
-        className="foot-nav__box"
-        // style={{ marginLeft: "150px", marginTop: "10px" }}
-      >
+      <div className="foot-nav__box">
         <p class="foot-nav__box-text">E-mail: Melanie@haakdraak.nl</p>
       </div>
     </div>

@@ -393,7 +393,7 @@ img {
   width: 100%;
   background: $wit;
   margin-top: 25px;
-  
+
   @include desktop {
     display: flex;
     justify-content: space-between;
@@ -425,8 +425,8 @@ img {
       font-size: 42px;
     }
   }
+
   a {
-    
     color: $grijs;
     text-decoration: none;
   }
