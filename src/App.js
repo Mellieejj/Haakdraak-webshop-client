@@ -26,7 +26,7 @@ export default function App() {
     <Provider store={store}>
       <div className="wrapper">
         <Route path="/" component={NavBar} />
-        {/* <Route exact path="/producten" component={ProductsListContainer} /> */}
+        <Route exact path="/producten" component={ProductsListContainer} />
         {/* <Route exact path="/producten/:productId" component={ProductDetailsContainer} /> */}
         {/* <Route exact path="/admin/orders" component={OrdersContainer} /> */}
         {/* <Route exact path="/admin/orders/:orderId" component={OrderDetailsContainer} /> */}
