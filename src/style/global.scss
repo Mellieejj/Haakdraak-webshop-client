@@ -17,6 +17,10 @@ h1 {
   font-family: $ff-chewy; 
   color: $blauw;
   font-size: 36px;
+  
+  @include tablet {
+    font-size: 48px;
+  }
 
   @include desktop {
     font-size: 60px;
@@ -25,8 +29,17 @@ h1 {
 
 h2 {
   font-family: $ff-chewy;
-  font-size: 36px;
   color: $blauw;
+  font-size:28px;
+
+  @include tablet {
+    font-size: 32px;
+  }
+
+  @include desktop {
+    font-size: 36px;
+
+  }
 }
 
 h3 {
@@ -47,8 +60,12 @@ h4 {
 p {
   font-size: 16px;
 
-  @include desktop {
+  @include tablet {
     font-size: 18px;
+  }
+
+  @include desktop {
+    font-size: 20px;
   }
 }
 
@@ -195,11 +212,15 @@ img {
     border-top: 1px solid $blauw;
     font-size: 18px;
     
+    @include tablet {
+      font-size: 20px;
+    }
+
     @include desktop {
       opacity: 1;
       display: inline-block;
       min-width: 150px;
-      font-size: 20px;
+      font-size: 24px;
       border-radius: 4px;
       border: none;
     }
@@ -299,9 +320,12 @@ img {
   }
 }
 
-.pagina-naam {
+.page-title {
   margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: $shadow;
   background: $wit;
+  max-width: 100%;
   text-align: center;
 }
 
