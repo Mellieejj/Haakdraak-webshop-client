@@ -18,7 +18,9 @@ export default function ProductBox ({products, clickHandler}){
                 <h4>{product.name}</h4>
               </Link>
               <p className="prijs">
-                € {product.price}{" "}
+                <span>
+                  € {product.price}
+                </span> 
                 <i
                   id="addToCart"
                   onClick={() => clickHandler(product.id)}

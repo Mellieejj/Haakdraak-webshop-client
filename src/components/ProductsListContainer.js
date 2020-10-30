@@ -68,7 +68,7 @@ export default function ProductListContainer() {
     
       <SelectFilter setCategoryFilter={setCategoryFilter} dispatch={dispatch} setCurrentPage={setCurrentPage} />
 
-      {/* <div>
+      <div>
         {currentProducts.length === 0 ? (
           <div className="load">
             <Pacman loading="true" color={"#32a093"} />
@@ -76,9 +76,9 @@ export default function ProductListContainer() {
         ) : (
           <ProductBox products={currentProducts} clickHandler={clickHandler} />
         )}
-      </div> */}
+      </div>
 
-      {/* <div className="pagination">
+      <div className="pagination">
         Pagina {currentPage} van {totalPages}
       </div>
       <div className="pagination">
@@ -100,7 +100,7 @@ export default function ProductListContainer() {
         >
           <i className="fas fa-angle-double-right"></i>
         </button>
-      </div> */}
+      </div>
     </section>
   );
 }

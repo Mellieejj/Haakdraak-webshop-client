@@ -6,7 +6,7 @@ export default function ContactContainer() {
   return (
     <div>
       <section className="top-product">
-        <div className="pagina-naam">
+        <div className="page-title">
           <h2>Contact</h2>
         </div>
       </section>
