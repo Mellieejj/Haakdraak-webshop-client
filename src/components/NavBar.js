@@ -1,13 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, history, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
-  const cart = useSelector(({ products }) => products.cart);
+  const [checkboxState, setCheckboxState] = useState(false);
+  const history = useHistory();
 
+  const onRouteChange = () =>  {
+    setCheckboxState(false)
+  }
+
+  useEffect(() => {
+    history.listen(onRouteChange)
+  }, [history]);
+
+  const cart = useSelector(({ products }) => products.cart);
+  
   const countCart = cart.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;
   }, 0);
+  
 
   return (
     <div className="main-nav">
@@ -17,8 +29,14 @@ export default function NavBar() {
         <h1>HaakDraak</h1>
       </div>
       {/* mobile icon + checkbox */}
-     
-      <input type="checkbox" className="main-nav__toggle-checkbox" id="toggle" />
+      <input 
+        type="checkbox" 
+        className="main-nav__toggle-checkbox"
+        id="toggle" 
+        onChange={() => setCheckboxState(!checkboxState)} 
+        checked={checkboxState}
+      />
+      
       <label htmlFor="toggle" className="main-nav__toggle-label">
         <span className="main-nav__toggle-icon"></span>
       </label>
