@@ -65,8 +65,10 @@ export default function ProductListContainer() {
       <div className="page-title">
         <h2>Producten</h2>
       </div>
-    
-      <SelectFilter setCategoryFilter={setCategoryFilter} dispatch={dispatch} setCurrentPage={setCurrentPage} />
+
+      <div className="page-title">
+        <SelectFilter setCategoryFilter={setCategoryFilter} dispatch={dispatch} setCurrentPage={setCurrentPage} />
+      </div>
 
       <div>
         {currentProducts.length === 0 ? (

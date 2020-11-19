@@ -10,23 +10,28 @@ export default function ProductBox ({products, clickHandler}){
           });
 
           return (
-            <div className="product" key={product.id}>
+            <div className="product-card" key={product.id}>
               <Link to={`/producten/${product.id}`}>
                 {product.images.length && (
                   <img src={thumbnail.url} alt="" />
                 )}
-                <h4>{product.name}</h4>
               </Link>
-              <p className="prijs">
-                <span>
-                  € {product.price}
-                </span> 
-                <i
-                  id="addToCart"
-                  onClick={() => clickHandler(product.id)}
-                  className="fas fa-cart-plus fa-lg"
-                ></i>
-              </p>
+              <div className="product-card__bottom">
+                <Link to={`/producten/${product.id}`}>
+                  <h4>{product.name}</h4>
+                </Link>
+                <p className="prijs">
+                  <span>
+                    € {product.price}
+                  </span> 
+                  <i
+                    id="addToCart"
+                    onClick={() => clickHandler(product.id)}
+                    className="fas fa-cart-plus fa-lg"
+                    >
+                  </i>
+                </p>
+              </div>
             </div>
           );
         })}

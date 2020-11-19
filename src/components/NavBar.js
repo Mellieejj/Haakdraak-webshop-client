@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, history, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
   const [checkboxState, setCheckboxState] = useState(false);
+  const cart = useSelector(({ products }) => products.cart);
   const history = useHistory();
 
   const onRouteChange = () =>  {
@@ -14,12 +15,9 @@ export default function NavBar() {
     history.listen(onRouteChange)
   }, [history]);
 
-  const cart = useSelector(({ products }) => products.cart);
-  
   const countCart = cart.reduce((lastValue, newValue) => {
     return lastValue + newValue.quantity;
   }, 0);
-  
 
   return (
     <div className="main-nav">
