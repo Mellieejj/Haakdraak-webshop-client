@@ -85,7 +85,7 @@ export default function ProductDetails({product, history, clickHandler}) {
             <Pacman loading="true" color={"#32a093"} />
           </div>
         )}
-        <div className="content">
+        <div className="product-details__content">
             
           <p className="product-details__description">
             <span className="product-details__description-subtitle">Beschrijving:</span>
@@ -97,18 +97,20 @@ export default function ProductDetails({product, history, clickHandler}) {
             {product.optional}
           </p>
 
-          <p className="product-details__description">
+          <p className="product-details__description product-details__prijs">
             € {product.price}{" "}
-            <i
+            <button 
+              class="form-button product-details__add-button"
               id="addToCart"
               onClick={() => clickHandler(product.id)}
-              className="fas fa-cart-plus"
-              >
-              {" "}
-              <span style={{ fontFamily: "Patrick Hand", fontSize: "20px" }}>
-                Toevoegen aan winkelwagentje
-              </span>
-            </i>
+            >
+              <i
+                className="fas fa-cart-plus"
+                >
+                {" "}
+              </i>
+              Toevoegen aan winkelwagentje
+            </button>
           </p>
 
           <p className="product-details__description">

@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy|Patrick+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 //colors
-$link: #32a093;
-$bezocht: #288176;
-$aanwijzen: #a3fff9;
 $blue: #32a093;
 $grey: #555555;
 $white: #ffffff;
+$error: #ff4d4d;
 $dark: #333;
 $shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+
+$link: $blue;
+$active: #0A201D;
+$hover: #1E6058;
   
 //fonts
 $ff-patrick: Patrick Hand;
 $ff-chewy: Chewy;
+$ff-montserrat: Montserrat;
+
 
 //border-radius
 $radius: 4px;

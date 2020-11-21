@@ -18,12 +18,10 @@ export default function ProductBox ({products, clickHandler}){
               </Link>
               <div className="product-card__bottom">
                 <Link to={`/producten/${product.id}`}>
-                  <h4>{product.name}</h4>
+                  <h3>{product.name}</h3>
                 </Link>
                 <p className="prijs">
-                  <span>
-                    € {product.price}
-                  </span> 
+                  € {product.price}
                   <i
                     id="addToCart"
                     onClick={() => clickHandler(product.id)}
