@@ -46,9 +46,9 @@ export default function ProductDetails({product, history, clickHandler}) {
   return (
     <section>
       <div className="page-title">
-        <div className="back-btn" onClick={() => history.goBack()}>
+        <button className="back-btn" onClick={() => history.goBack()}>
           <i className="far fa-hand-point-left"></i>Terug
-        </div>
+        </button>
         <div>
         <h2>{product.name}</h2>
         </div>
@@ -100,7 +100,7 @@ export default function ProductDetails({product, history, clickHandler}) {
           <p className="product-details__description product-details__prijs">
             € {product.price}{" "}
             <button 
-              class="form-button product-details__add-button"
+              className="form-button product-details__add-button"
               id="addToCart"
               onClick={() => clickHandler(product.id)}
             >
@@ -118,18 +118,18 @@ export default function ProductDetails({product, history, clickHandler}) {
           </p>
 
           {product.stock === 0 ? (
-            <p class="product-details__description">
+            <p className="product-details__description">
               <span className="product-details__description-subtitle">Levertijd:</span> <br />
               Kijk op de <Link to="/contact">contactpagina</Link> bij informatie
               verzenden.
             </p>
           ) : null}
 
-          <p class="product-details__description">
+          <p className="product-details__description">
             <span className="product-details__description-subtitle">Formaat:</span> +/- {product.size}
           </p>
 
-          <p class="product-details__description">
+          <p className="product-details__description">
             <span className="product-details__description-subtitle"> Category:</span>{" "}
             {product.category ? product.category.name : null}
           </p>

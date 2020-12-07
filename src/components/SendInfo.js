@@ -14,21 +14,20 @@ export default function SendInfo() {
   return (
     <div>
       {!sendToggle ? (
-        <p>
+        <>
           <span onClick={toggle}>
-            <i className="fas fa-chevron-right">
-              {" "}
-              <span className="info">Verzend informatie </span>
-            </i>
+            <span className="info">
+              <i className="fas fa-chevron-right"></i>Verzend informatie 
+            </span>
           </span>
-        </p>
+        </>
       ) : (
         <>
           <span onClick={toggle}>
-            <i className="fas fa-chevron-down">
-              {" "}
-              <span className="info">Verzend informatie </span>
-            </i>
+          <span className="info info--open">
+            <i className="fas fa-chevron-down"></i>
+              Verzend informatie
+            </span>
           </span>
           <p>
             Alle producten die op voorraad zijn, kan ik binnen een week

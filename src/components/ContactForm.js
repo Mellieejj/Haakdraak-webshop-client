@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 // import { ReCaptcha } from "react-recaptcha-google";
 
 export default function ContactForm() {
+  const [errorMessage, setErrorMessage] = useState();
+  const [succesMessage, setSuccesMessage] = useState();
+  const [sendMessage, setSendMessage] = useState();
+
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -24,29 +28,72 @@ export default function ContactForm() {
 
   const sendEmail = (event) => {
     event.preventDefault();
-    emailjs
-      .sendForm(
-        "smtp_server",
-        "contact_form",
-        event.target,
-        "user_4XE8EaLYpu2i37GtsnZ5k"
-      )
-      .then(
-        (result) => {
-          console.log("SUCCESS!", result.status, result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    const name = event.target.user_name.value;
+    const email = event.target.user_email.value;
+    const message = event.target.message.value;
+    
+    setSuccesMessage();
+    if (!name && !email && !message) {
+      setErrorMessage("Vul de velden in.");
+      return;
+    }
+
+    if (!name) {
+      setErrorMessage("Vul je naam in.");
+      return;
+    }
+
+    if (!email) {
+      setErrorMessage("Vul je email in.");
+      return;
+    }
+
+    if (!message) {
+      setErrorMessage("Vul een bericht in.");
+      return;
+    }
+
+    setErrorMessage();
+    setSendMessage("Bericht wordt verzonden, even geduld.");
+    // emailjs
+    //   .sendForm(
+    //     "smtp_server",
+    //     "contact_form",
+    //     event.target,
+    //     "user_4XE8EaLYpu2i37GtsnZ5k"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       setSendMessage();
+    //       setSuccesMessage("Bedankt voor je bericht!");
+    //       console.log("SUCCESS!", result.status, result.text);
+    //     },
+    //     (error) => {
+    //       setSendMessage();
+    //       setErrorMessage(
+    //         `Er is iets misgegaan, je kunt een mail sturen naar melanie@haakdraak.nl.`
+    //       );
+    //       console.log(error.text);
+    //     }
+    //   );
 
     event.target.reset();
   };
 
+  const message = errorMessage || succesMessage || sendMessage;
+  const messageClass = errorMessage
+    ? "error"
+    : succesMessage
+    ? "succes"
+    : sendMessage
+    ? "sending"
+    : null;
+
   return (
     <div className="box">
-      <h3>Contact Formulier</h3>
-      <div>
+      <h2 className="box__title">Contact Formulier</h2>
+      <div className="contact">
+        <div className={messageClass}>{message}</div>
         <form className="contact-form" onSubmit={sendEmail}>
           <table>
             <tbody>
@@ -101,10 +148,10 @@ export default function ContactForm() {
               </tr>
               <tr>
                 <td>
-                  <input type="reset" className="formButton" value="Reset" />
+                  <button type="reset" className="formButton" value="Reset">Reset</button>
                 </td>
                 <td>
-                  <input type="submit" className="formButton" value="Send" />
+                  <button type="submit" className="formButton" value="Send">Verzenden</button>
                 </td>
               </tr>
             </tfoot>

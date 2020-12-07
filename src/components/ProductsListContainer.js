@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, cartAdd, filterSearch } from "../actions/productActions";
+import { getProducts, cartAdd } from "../actions/productActions";
 import { Pacman } from "react-pure-loaders";
 
 import ProductBox from "./ProductBox";

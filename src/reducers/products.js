@@ -9,7 +9,7 @@ import {
 const initialState = { products: [], cart: [], filter: [] };
 
 export default function (state = initialState, action = {}) {
-  const { products, cart, filter } = state
+  const { products, cart } = state
   switch (action.type) {
     case ALL_PRODUCTS: {
       return { ...state, products: action.payload };

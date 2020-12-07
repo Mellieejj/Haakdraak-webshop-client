@@ -157,6 +157,8 @@ img {
   align-items: center;
   z-index: 9999;
   border-bottom: 1px solid $blue;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
 
   &__logo {
     display: flex;
@@ -171,6 +173,7 @@ img {
     @include desktop {
       width: auto;
       height: auto;
+      border-bottom-left-radius: $radius;
     }
   }
 
@@ -193,7 +196,7 @@ img {
   &__toggle-icon {
     display: block;
     background-color: $blue;
-    border-radius: 3px;
+    border-radius: $radius-toggle-icon;
     height: 3px;
     width: 1.5em;
     position: relative;
@@ -206,7 +209,7 @@ img {
     background: $blue;
     height: 100%;
     width: 100%;
-    border-radius: 3px;
+    border-radius: $radius-toggle-icon;
     position: absolute;
     top: -10px;
     transition: all 0.2s ease-out;
@@ -218,7 +221,7 @@ img {
     background: $blue;
     height: 100%;
     width: 100%;
-    border-radius: 3px;
+    border-radius: $radius-toggle-icon;
     position: absolute;
     top: 10px;
     transition: all 0.2s ease-out;
@@ -267,7 +270,7 @@ img {
       opacity: 1;
       display: inline-block;
       min-width: 150px;
-      border-radius: 4px;
+      border-radius: $radius;
       border: none;
       font-size: 16px;
     }
@@ -380,7 +383,7 @@ img {
   padding: 5px;
   box-shadow: $shadow;
   background: $white;
-  border-radius: 4px;
+  border-radius: $radius;
   border: none;
   max-width: 100%;
   position: relative;
@@ -397,7 +400,7 @@ img {
   &--container {
     width: 100%;
     border: 1px solid $dark;
-    border-radius: 4px;
+    border-radius: $radius;
     margin: 0;
     padding: 0;
     
@@ -478,12 +481,13 @@ img {
   cursor: pointer;
   display: inline-block;
   border-radius: $radius;
+  border: none;
   padding: 10px;
   
   i {
     margin-right: 4px;
   }
-
+  
   &:hover {
     background: $blue;
     color: $white;
@@ -578,7 +582,7 @@ img {
     max-width: 174px;
     max-height: 235px;
     border: none;
-    border-radius: 4px;
+    border-radius: $radius;
   }
   
   a {
@@ -640,6 +644,30 @@ img {
   }
 }
 
+.contact{
+  padding:10px;
+
+  &-form {
+    margin-top: 25px;
+
+    td {
+      padding: 5px 0;
+
+      @include tablet {
+        padding: 10px;
+      }
+    }
+
+    input {
+      padding: 10px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+}
+
 .foot-nav {
   width: 100%;
   background: $white;
@@ -676,7 +704,6 @@ img {
 
 table {
   border-collapse: collapse;
-  margin: auto;
 }
 
 .cart {
@@ -705,15 +732,49 @@ table {
     }
   }
 }
+.succes,
+.sending,
+.error {
+  border-radius: $radius;
+  padding: 25px;
+  font-weight: bold;
+  margin: 25px 0 0;
+}
 
 .error {
   color: $error;
-  font-size: 24px;
-  font-weight: bold;
+  background-color:$error-bg;
+  box-shadow: inset 0 0 0 2px $error;
+}
+
+.succes {
+  color: $succes;
+  box-shadow: inset 0 0 0 2px $succes;
+  background-color: $succes-bg;
+}
+
+.sending {
+  color: $blue;
+  background-color: $white;
+  box-shadow: inset 0 0 0 2px $blue;
 }
 
 .info {
   font-weight: bold;
+
+  i {
+    padding-right: 9px;
+  }
+
+  &--open {
+    padding-bottom: 12px;
+    color: $blue;
+    font-weight: bold;
+
+    i {
+      padding-right: 5px;
+    }
+  }
 }
 
 .select-filter {
@@ -725,7 +786,7 @@ table {
     // background: $white;
     padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: $radius;
 
     @include tablet {
       padding-left: 20px;
