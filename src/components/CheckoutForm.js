@@ -1,6 +1,6 @@
 import React from "react";
 // import { ReCaptcha } from "react-recaptcha-google";
-import OrderInfo from "./OrderInfo";
+// import OrderInfo from "./OrderInfo";
 import SendInfo from "./SendInfo";
 
 export default function CheckoutForm (props) {
@@ -151,7 +151,7 @@ export default function CheckoutForm (props) {
             </button>
           </form>
         </div>
-        <OrderInfo />
+        {/* <OrderInfo /> */}
         <SendInfo />
       </div>
     );
