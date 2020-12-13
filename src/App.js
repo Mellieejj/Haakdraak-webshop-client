@@ -30,7 +30,7 @@ export default function App() {
         <Route exact path="/producten/:productId" component={ProductDetailsContainer} />
         {/* <Route exact path="/admin/orders" component={OrdersContainer} /> */}
         {/* <Route exact path="/admin/orders/:orderId" component={OrderDetailsContainer} /> */}
-        {/* <Route exact path="/cart" component={CartContainer} /> */}
+        <Route exact path="/cart" component={CartContainer} />
         <Route exact path="/contact" component={ContactContainer} />
         {/* <Route exact path="/admin" component={AdminPage} /> */}
         <Route exact path="/" component={Home} />

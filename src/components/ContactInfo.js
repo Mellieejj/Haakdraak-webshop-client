@@ -1,15 +1,8 @@
 import React from "react";
 import Accordion from "./Accordion";
-import {orderInfo, sendInfo} from '../data/info'
-
-// import OrderInfo from "./OrderInfo";
-// import SendInfo from "./SendInfo";
+import { orderInfo, sendInfo } from "../data/info";
 
 export default function ContactInfo() {
-  
-
- 
-
   return (
     <div className="box">
       <h2 className="box__title">Bestellingen</h2>
