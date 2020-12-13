@@ -66,7 +66,7 @@ export default function AddProduct({onSubmit, values, onChange, buttonName}) {
         <option value="Overige">Overige</option>
       </select>
 
-      <button className="btn" type="submit">
+      <button className="" type="submit">
         {buttonName}
       </button>
     </form>

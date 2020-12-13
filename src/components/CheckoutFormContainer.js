@@ -68,24 +68,23 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
       totalPrice,
     };
 
-    // console.log(formOrder);
-    // emailjs
-    //   .send(
-    //     "smtp_server",
-    //     "bestel_form",
-    //     formOrder,
-    //     "user_4XE8EaLYpu2i37GtsnZ5k"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log("SUCCESS!", result.status, result.text);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   )
-      // .then(setFields(initialFields))
-      // .then(clearCart());
+    emailjs
+      .send(
+        "smtp_server",
+        "bestel_form",
+        formOrder,
+        "user_4XE8EaLYpu2i37GtsnZ5k"
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.status, result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      )
+      .then(setFields(initialFields))
+      .then(clearCart());
   };
 
   const reset = () => setFields(initialFields);

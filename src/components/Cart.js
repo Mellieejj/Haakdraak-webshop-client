@@ -23,7 +23,6 @@ export default function Cart(props) {
       ) : (
         <div className="cart">
           {cartItems.map((item) => {
-            console.log(item);
             return (
               <div className="cart__item" key={item.id}>
                 <div className="cart__item-row">

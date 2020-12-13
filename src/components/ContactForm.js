@@ -55,27 +55,27 @@ export default function ContactForm() {
 
     setErrorMessage();
     setSendMessage("Bericht wordt verzonden, even geduld.");
-    // emailjs
-    //   .sendForm(
-    //     "smtp_server",
-    //     "contact_form",
-    //     event.target,
-    //     "user_4XE8EaLYpu2i37GtsnZ5k"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       setSendMessage();
-    //       setSuccesMessage("Bedankt voor je bericht!");
-    //       console.log("SUCCESS!", result.status, result.text);
-    //     },
-    //     (error) => {
-    //       setSendMessage();
-    //       setErrorMessage(
-    //         `Er is iets misgegaan, je kunt een mail sturen naar melanie@haakdraak.nl.`
-    //       );
-    //       console.log(error.text);
-    //     }
-    //   );
+    emailjs
+      .sendForm(
+        "smtp_server",
+        "contact_form",
+        event.target,
+        "user_4XE8EaLYpu2i37GtsnZ5k"
+      )
+      .then(
+        (result) => {
+          setSendMessage();
+          setSuccesMessage("Bedankt voor je bericht!");
+          console.log("SUCCESS!", result.status, result.text);
+        },
+        (error) => {
+          setSendMessage();
+          setErrorMessage(
+            `Er is iets misgegaan, je kunt een mail sturen naar melanie@haakdraak.nl.`
+          );
+          console.log(error.text);
+        }
+      );
 
     event.target.reset();
   };

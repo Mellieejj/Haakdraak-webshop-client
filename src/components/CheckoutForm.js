@@ -144,14 +144,14 @@ export default function CheckoutForm(props) {
           <div className="c-form-group__left">
             <button className="formButton" onClick={() => reset}>
               <i className="fas fa-times"></i>
-              Wis alles
+              {" "}Wis alles
             </button>
           </div>
           <div className="c-form-group__right">
             <input
               className="formButton"
               type="submit"
-              value="Bestel"
+              value="Bestellen"
               disabled={
                 cartItems.length === 0
                   ? true

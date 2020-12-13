@@ -18,7 +18,7 @@ export default function ProductBox ({products, clickHandler}){
               </Link>
               <div className="product-card__bottom">
                 <Link to={`/producten/${product.id}`}>
-                  <h3>{product.name}</h3>
+                  <h3 className="product-card__title">{product.name}</h3>
                 </Link>
                 <p className="prijs">
                   € {product.price}

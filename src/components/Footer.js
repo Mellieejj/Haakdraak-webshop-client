@@ -28,7 +28,7 @@ export default function Footer() {
         </a>
       </div>
       <div className="foot-nav__box">
-        <p className="foot-nav__box-text">E-mail: Melanie@haakdraak.nl</p>
+        <p className="foot-nav__box-text">E-mail: <a href="mailto:melanie@haakdraak.nl">Melanie@haakdraak.nl</a></p>
       </div>
     </div>
   );
