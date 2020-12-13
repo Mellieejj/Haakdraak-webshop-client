@@ -26,7 +26,7 @@ export default function CheckoutForm(props) {
     <div className="box">
       <h2 className="box__title">Bestelformulier</h2>
       {errors && <p className="error">{errors}</p>}
-      <form className="c-form" onSubmit={onSubmit}>
+      <form className="c-form" onSubmit={onSubmit} onReset={reset}>
         <div className="c-form-group">
           <div className="c-form-group__left">Voornaam:</div>
           <div className="c-form-group__right">
@@ -142,7 +142,7 @@ export default function CheckoutForm(props) {
           </div> */}
         <div className="c-form-group">
           <div className="c-form-group__left">
-            <button className="formButton" onClick={() => reset}>
+            <button className="formButton" type="reset">
               <i className="fas fa-times"></i>
               {" "}Wis alles
             </button>

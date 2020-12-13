@@ -87,7 +87,10 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
       .then(clearCart());
   };
 
-  const reset = () => setFields(initialFields);
+  const reset = (event) => {
+    event.preventDefault();
+    setFields(initialFields);
+  }
 
   return (
     <CheckoutForm
