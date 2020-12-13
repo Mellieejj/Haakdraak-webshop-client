@@ -15,7 +15,7 @@ import OrderDetailsContainer from "./components/adminComponents/OrderDetailsCont
 import AdminPage from "./components/adminComponents/AdminPage";
 import OrdersContainer from "./components/adminComponents/OrdersContainer";
 
-import "./App.css";
+import "./style/global.scss";
 
 export default function App() {
   // useEffect(()=> {
@@ -27,20 +27,12 @@ export default function App() {
       <div className="wrapper">
         <Route path="/" component={NavBar} />
         <Route exact path="/producten" component={ProductsListContainer} />
-        <Route
-          exact
-          path="/producten/:productId"
-          component={ProductDetailsContainer}
-        />
-        <Route exact path="/admin/orders" component={OrdersContainer} />
-        <Route
-          exact
-          path="/admin/orders/:orderId"
-          component={OrderDetailsContainer}
-        />
+        <Route exact path="/producten/:productId" component={ProductDetailsContainer} />
+        {/* <Route exact path="/admin/orders" component={OrdersContainer} /> */}
+        {/* <Route exact path="/admin/orders/:orderId" component={OrderDetailsContainer} /> */}
         <Route exact path="/cart" component={CartContainer} />
         <Route exact path="/contact" component={ContactContainer} />
-        <Route exact path="/admin" component={AdminPage} />
+        {/* <Route exact path="/admin" component={AdminPage} /> */}
         <Route exact path="/" component={Home} />
         <Route path="/" component={Footer} />
       </div>

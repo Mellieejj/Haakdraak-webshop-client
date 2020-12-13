@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-export default function OrderDetails(props) {
+export default function OrderDetails({order, history, }) {
   const {
     firstName,
     lastName,
@@ -13,7 +13,7 @@ export default function OrderDetails(props) {
     email,
     createdAt,
     products,
-  } = props.order;
+  } = order;
 
   const totalPrice = !products
     ? null
@@ -29,7 +29,7 @@ export default function OrderDetails(props) {
       <div
         style={{ float: "left", marginTop: "auto" }}
         className="formButton"
-        onClick={() => props.history.goBack()}
+        onClick={() => history.goBack()}
       >
         <i className="far fa-hand-point-left"></i>Terug
       </div>

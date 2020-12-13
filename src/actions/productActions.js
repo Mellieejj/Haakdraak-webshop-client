@@ -1,6 +1,6 @@
 import request from "superagent";
 
-const baseUrl = "http://localhost:4000";
+const baseUrl = "http://192.168.2.13:4000";
 // const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
 
 //all products
@@ -49,7 +49,6 @@ export const loadProduct = (productId) => (dispatch) => {
 export const CART_ADDED = "CART_ADDED";
 
 export function cartAdd(id) {
-  // console.log("cartAdd id: ", id);
   return {
     type: CART_ADDED,
     payload: id,

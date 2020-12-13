@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
 // import { ReCaptcha } from "react-recaptcha-google";
 
 export default function ContactForm() {
+  const [errorMessage, setErrorMessage] = useState();
+  const [succesMessage, setSuccesMessage] = useState();
+  const [sendMessage, setSendMessage] = useState();
+
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -24,6 +28,33 @@ export default function ContactForm() {
 
   const sendEmail = (event) => {
     event.preventDefault();
+    const name = event.target.user_name.value;
+    const email = event.target.user_email.value;
+    const message = event.target.message.value;
+
+    setSuccesMessage();
+    if (!name && !email && !message) {
+      setErrorMessage("Vul de velden in.");
+      return;
+    }
+
+    if (!name) {
+      setErrorMessage("Vul je naam in.");
+      return;
+    }
+
+    if (!email) {
+      setErrorMessage("Vul je email in.");
+      return;
+    }
+
+    if (!message) {
+      setErrorMessage("Vul een bericht in.");
+      return;
+    }
+
+    setErrorMessage();
+    setSendMessage("Bericht wordt verzonden, even geduld.");
     emailjs
       .sendForm(
         "smtp_server",
@@ -33,9 +64,15 @@ export default function ContactForm() {
       )
       .then(
         (result) => {
+          setSendMessage();
+          setSuccesMessage("Bedankt voor je bericht!");
           console.log("SUCCESS!", result.status, result.text);
         },
         (error) => {
+          setSendMessage();
+          setErrorMessage(
+            `Er is iets misgegaan, je kunt een mail sturen naar melanie@haakdraak.nl.`
+          );
           console.log(error.text);
         }
       );
@@ -43,74 +80,92 @@ export default function ContactForm() {
     event.target.reset();
   };
 
+  const message = errorMessage || succesMessage || sendMessage;
+  const messageClass = errorMessage
+    ? "error"
+    : succesMessage
+    ? "succes"
+    : sendMessage
+    ? "sending"
+    : null;
+
   return (
     <div className="box">
-      <h3>Contact Formulier</h3>
-      <div>
-        <form className="contact-form" onSubmit={sendEmail}>
-          <table>
-            <tbody>
-              <tr>
-                <td>Naam: </td>
-                <td>
-                  <input type="text" name="user_name" />
-                </td>
-              </tr>
-              <tr>
-                <td>Email: </td>
-                <td>
-                  <input type="email" name="user_email" />
-                </td>
-              </tr>
-              <tr>
-                <td>Vraag / Bestelling: </td>
-                <td>
-                  <input type="radio" name="vraag-order" value="vraag" />
-                  Vraag
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-                  <input type="radio" name="vraag-order" value="bestelling" />
-                  Bestelling
-                </td>
-              </tr>
-              <tr>
-                <td>Bericht:</td>
-                <td>
-                  <textarea name="message" />
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td></td>
-                <td>
-                  {/* <ReCaptcha
-                      ref={el => {
-                        this.captchaDemo = el;
-                      }}
-                      size="normal"
-                      render="explicit"
-                      sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
-                      onloadCallback={this.onLoadRecaptcha}
-                      verifyCallback={this.verifyCallback}
-                    /> */}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="reset" value="Reset" />
-                </td>
-                <td>
-                  <input type="submit" value="Send" />
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </form>
-      </div>
+      <h2 className="box__title">Contact Formulier</h2>
+      {message && <div className={messageClass}>{message}</div>}
+
+      <form className="c-form" onSubmit={sendEmail}>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Naam:</div>
+          <div className="c-form-group__right">
+            <input className="o-input__field" type="text" name="user_name" />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">E-mail:</div>
+          <div className="c-form-group__right">
+            <input className="o-input__field" type="email" name="user_email" />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Vraag / Bestelling:</div>
+          <div className="c-form-group__right">
+            <label className="o-input__radio-label">
+              <input
+                className="o-input__radio"
+                type="radio"
+                name="vraag-order"
+                value="vraag"
+              />
+              Vraag
+            </label>
+            <label className="o-input__radio-label">
+              <input
+                className="o-input__radio"
+                type="radio"
+                name="vraag-order"
+                value="bestelling"
+              />
+              Bestelling
+            </label>
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Bericht:</div>
+          <div className="c-form-group__right">
+            <textarea className="o-input__textarea" rows={10} name="message" />
+          </div>
+        </div>
+
+        {/* <div className="c-form-group">
+            <div className="c-form-group__left"></div>
+            <div className="c-form-group__right">
+              <ReCaptcha
+              ref={el => {
+                this.captchaDemo = el;
+              }}
+              size="normal"
+              render="explicit"
+              sitekey="6Leof-UUAAAAANo8PrVrmrDcZRqPhxNrNLFM-BjP"
+              onloadCallback={this.onLoadRecaptcha}
+              verifyCallback={this.verifyCallback}
+              /> 
+            </div>
+        </div> */}
+
+        <div className="c-form-group c-form-group__buttons">
+          <div className="c-form-group__left">
+            <button type="reset" className="formButton" value="Reset">
+              Reset
+            </button>
+          </div>
+          <div className="c-form-group__right">
+            <button type="submit" className="formButton" value="Send">
+              Verzenden
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

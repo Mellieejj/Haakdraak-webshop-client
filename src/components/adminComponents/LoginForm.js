@@ -1,21 +1,21 @@
 import React from "react";
 
-export default function LoginForm (props) {
+export default function LoginForm ({onSubmit, values, onChange}) {
     return (
       <div className="box">
-        <form id="login" onSubmit={props.onSubmit}>
+        <form id="login" onSubmit={onSubmit}>
           <input
             placeholder="name"
             type="text"
-            value={props.values.name}
-            onChange={props.onChange}
+            value={values.name}
+            onChange={onChange}
             name="name"
           ></input>
           <input
             placeholder="password"
             type="password"
-            value={props.values.password}
-            onChange={props.onChange}
+            value={values.password}
+            onChange={onChange}
             name="password"
           ></input>
           <button type="submit">Login</button>

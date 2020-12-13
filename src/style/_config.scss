@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Chewy|Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+//colors
+$blue: #32a093;
+$grey: #555555;
+$light-grey: #ececec;
+$white: #ffffff;
+$error: #e54545;
+$error-bg: #ffe5e5;
+$succes: #1f801f;
+$succes-bg: #c1f0c1;
+$dark: #333;
+$shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+
+$disabled-bg: #ececec;
+$disabled: #bbbbbb;
+$link: $blue;
+$active: #0a201d;
+$hover: #1e6058;
+
+//fonts
+$ff-patrick: Patrick Hand;
+$ff-chewy: Chewy;
+$ff-montserrat: Montserrat;
+
+//border-radius
+$radius: 4px;
+$radius-toggle-icon: 3px;
+
+//media breakpoints
+$mobile: 480px;
+$tablet: 760px;
+$desktop: 960px;

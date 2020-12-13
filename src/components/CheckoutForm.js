@@ -1,9 +1,8 @@
 import React from "react";
 // import { ReCaptcha } from "react-recaptcha-google";
-import OrderInfo from "./OrderInfo";
-import SendInfo from "./SendInfo";
 
-export default function CheckoutForm (props) {
+export default function CheckoutForm(props) {
+  const { errors, onSubmit, values, onChange, cartItems, reset } = props;
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -23,109 +22,113 @@ export default function CheckoutForm (props) {
   //   this.setState("recaptchaResponse", recaptchaToken);
   // }
 
-    return (
-      <div className="box">
-        <h3>Bestel Formulier</h3>
-        <div>
-          {props.errors ? (
-            <p className="error">{props.errors}</p>
-          ) : null}
-          <form onSubmit={props.onSubmit}>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Voornaam:</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={props.values.firstName}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Achternaam:</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={props.values.lastName}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Email:</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="email"
-                      value={props.values.email}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Straat:</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="street"
-                      value={props.values.street}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Huisnummer:</td>
-                  <td>
-                    <input
-                      type="number"
-                      name="housenr"
-                      value={props.values.housenr}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Postcode:</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="postcode"
-                      // pattern="[0-9]{4}[A_Z]{2}"
-                      value={props.values.postcode}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Woonplaats:</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="city"
-                      value={props.values.city}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Opmerkingen:</td>
-                  <td>
-                    <textarea
-                      type="text"
-                      name="opmerkingen"
-                      style={{ minHeight: "4.5rem" }}
-                      value={props.values.opmerkingen}
-                      onChange={props.onChange}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            {/* <ReCaptcha
+  return (
+    <div className="box">
+      <h2 className="box__title">Bestelformulier</h2>
+      {errors && <p className="error">{errors}</p>}
+      <form className="c-form" onSubmit={onSubmit}>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Voornaam:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="text"
+              name="firstName"
+              value={values.firstName}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Achternaam:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="text"
+              name="lastName"
+              value={values.lastName}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Email:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Straat:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="text"
+              name="street"
+              value={values.street}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Huisnummer:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="number"
+              name="housenr"
+              value={values.housenr}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Postcode:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="text"
+              name="postcode"
+              // pattern="[0-9]{4}[A_Z]{2}"
+              value={values.postcode}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Woonplaats:</div>
+          <div className="c-form-group__right">
+            <input
+              className="o-input__field"
+              type="text"
+              name="city"
+              value={values.city}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="c-form-group">
+          <div className="c-form-group__left">Opmerkingen:</div>
+          <div className="c-form-group__right">
+            <textarea
+              type="text"
+              className="o-input__textarea"
+              name="opmerkingen"
+              rows={10}
+              value={values.opmerkingen}
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        {/* <div className="c-form-group">
+            <div className="c-form-group__left"></div>
+            <div className="c-form-group__right">
+            <ReCaptcha
               ref={el => {
                 this.captchaDemo = el;
               }}
@@ -134,26 +137,38 @@ export default function CheckoutForm (props) {
               sitekey="6LfwkeUUAAAAAEh1d4t9raRkM4oie6emRi4fiIDI"
               onloadCallback={this.onLoadRecaptcha}
               verifyCallback={this.verifyCallback}
-            /> */}
+            />
+            </div>
+          </div> */}
+        <div className="c-form-group">
+          <div className="c-form-group__left">
+            <button className="formButton" onClick={() => reset}>
+              <i className="fas fa-times"></i>
+              {" "}Wis alles
+            </button>
+          </div>
+          <div className="c-form-group__right">
             <input
-              style={{ marginLeft: "125px"}}
               className="formButton"
               type="submit"
-              value="Bestel"
+              value="Bestellen"
               disabled={
-                props.cartItems.length === 0 ? true :( !props.values.firstName || !props.values.lastName || !props.values.street || !props.values.housenr || !props.values.city || !props.values.postcode || !props.values.email)
+                cartItems.length === 0
                   ? true
-                  : false 
-                }
+                  : !values.firstName ||
+                    !values.lastName ||
+                    !values.street ||
+                    !values.housenr ||
+                    !values.city ||
+                    !values.postcode ||
+                    !values.email
+                  ? true
+                  : false
+              }
             />
-            <button className="formButton" onClick={() => props.reset}>
-              <i className="fas fa-times"></i> Wis alles
-            </button>
-          </form>
+          </div>
         </div>
-        <OrderInfo />
-        <SendInfo />
-      </div>
-    );
-  }
-
+      </form>
+    </div>
+  );
+}

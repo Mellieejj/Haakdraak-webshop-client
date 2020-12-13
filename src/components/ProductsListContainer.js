@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, cartAdd, filterSearch } from "../actions/productActions";
+import { getProducts, cartAdd } from "../actions/productActions";
 import { Pacman } from "react-pure-loaders";
 
 import ProductBox from "./ProductBox";
+import SelectFilter from "./SelectFilter";
 
 export default function ProductListContainer() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(16);
+  const [productsPerPage] = useState(16);
 
-  const { products, filter } = useSelector((state) => state.products);
+  const { products, filter } = useSelector(({products}) => products);
 
   const dispatch = useDispatch();
 
@@ -22,17 +23,6 @@ export default function ProductListContainer() {
     dispatch(cartAdd(id));
   };
 
-  const handleFilter = (event) => {
-    if (event.target.value === "all") {
-      dispatch(getProducts());
-      setCategoryFilter("all");
-      setCurrentPage(1);
-    } else {
-      dispatch(filterSearch(event.target.value));
-      setCategoryFilter(event.target.value);
-      setCurrentPage(1);
-    }
-  };
   const firstPage = () => {
     if (currentPage > 1) {
       setCurrentPage(1);
@@ -66,36 +56,22 @@ export default function ProductListContainer() {
 
   const lastIndex = currentPage * productsPerPage;
   const firstIndex = lastIndex - productsPerPage;
-  const currentProducts = productsList
-    ? productsList.slice(firstIndex, lastIndex)
-    : null;
+  const currentProducts = productsList && productsList.slice(firstIndex, lastIndex);
 
-  const totalPages = products
-    ? Math.ceil(productsList.length / productsPerPage)
-    : null;
+  const totalPages = products && Math.ceil(productsList.length / productsPerPage);
 
   return (
-    <section className="top-product">
-      <div className="pagina-naam">
+    <section>
+      <div className="page-title">
         <h2>Producten</h2>
       </div>
-      <span className="filter">
-        <label>Filter producten:</label>
 
-        <select id="category" onChange={handleFilter}>
-          <option value="all">Alle Producten</option>
-          <option value={"Bijtringen & Rammelaars"}>
-            {"Bijtringen & Rammelaars"}
-          </option>
-          <option value="Baby Overige">Baby Overige</option>
-          <option value="Knuffels">Knuffels</option>
-          <option value="Sleutelhangers">Sleutelhangers</option>
-          <option value="Overige">Overige</option>
-        </select>
-      </span>
+      <div className="page-title">
+        <SelectFilter setCategoryFilter={setCategoryFilter} dispatch={dispatch} setCurrentPage={setCurrentPage} />
+      </div>
 
       <div>
-        {!currentProducts ? (
+        {currentProducts.length === 0 ? (
           <div className="load">
             <Pacman loading="true" color={"#32a093"} />
           </div>

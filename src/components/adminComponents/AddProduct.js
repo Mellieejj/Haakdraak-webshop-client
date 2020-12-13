@@ -1,60 +1,60 @@
 import React from "react";
 
-export default function AddProduct(props) {
+export default function AddProduct({onSubmit, values, onChange, buttonName}) {
   return (
-    <form onSubmit={props.onSubmit}>
+    <form onSubmit={onSubmit}>
       <input
-        className="form-control form-control-lg custom-form"
+        className=""
         type="text"
         placeholder="Product Naam"
         name="name"
-        value={props.values.name}
-        onChange={props.onChange}
+        value={values.name}
+        onChange={onChange}
       />
       <input
-        className="form-control form-control-lg custom-form"
+        className=""
         type="text"
         placeholder="Prijs"
         name="price"
-        value={props.values.price}
-        onChange={props.onChange}
+        value={values.price}
+        onChange={onChange}
       />
       <textarea
-        className="form-control form-control-lg custom-form"
+        className=""
         type="text"
         placeholder="Beschrijving"
         name="description"
-        value={props.values.description}
-        onChange={props.onChange}
+        value={values.description}
+        onChange={onChange}
       />
       <input
-        className="form-control form-control-lg custom-form"
+        className=""
         type="text"
         placeholder="Formaat"
         name="size"
-        value={props.values.size}
-        onChange={props.onChange}
+        value={values.size}
+        onChange={onChange}
       />
       <input
-        className="form-control form-control-lg custom-form"
+        className=""
         type="text"
         placeholder="Optionele opties"
         name="optional"
-        value={props.values.optional}
-        onChange={props.onChange}
+        value={values.optional}
+        onChange={onChange}
       />
       <input
-        className="form-control form-control-lg custom-form"
+        className=""
         type="number"
         placeholder="Voorraad"
         name="stock"
-        value={props.values.stock}
-        onChange={props.onChange}
+        value={values.stock}
+        onChange={onChange}
       />
       <select
         name="category"
-        value={props.values.category}
-        onChange={props.onChange}
+        value={values.category}
+        onChange={onChange}
       >
         <option value="">Kies category</option>
         <option value={"Bijtringen & Rammelaars"}>
@@ -66,8 +66,8 @@ export default function AddProduct(props) {
         <option value="Overige">Overige</option>
       </select>
 
-      <button className="btn btn-outline-default btn-lg btn-dark" type="submit">
-        {props.buttonName}
+      <button className="" type="submit">
+        {buttonName}
       </button>
     </form>
   );

@@ -20,7 +20,7 @@ export default function FotoBox() {
   });
   return (
     <div className="box">
-      <div className="grid" style={{ marginTop: "20%" }}>
+      <div className="photo-grid">
         {imagesgrid}
       </div>
     </div>

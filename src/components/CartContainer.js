@@ -5,19 +5,19 @@ import CheckoutFormContainer from "./CheckoutFormContainer";
 import { cartAdd, cartSubtract, clearCart } from "../actions/productActions";
 
 export default function CartContainer() {
-  const errors = useSelector((state) => state.errors);
-  const cart = useSelector(state => state.products.cart)
-  const dispatch = useDispatch()
+  const errors = useSelector(({errors}) => errors);
+  const cart = useSelector(({products}) => products.cart);
+  const dispatch = useDispatch();
 
   const addToCartHandler = (id) => {
     dispatch(cartAdd(id));
   };
 
- const subtractFromCartHandler = (id) => {
+  const subtractFromCartHandler = (id) => {
     dispatch(cartSubtract(id));
   };
 
- const resetCart = () => {
+  const resetCart = () => {
     dispatch(clearCart());
   };
 

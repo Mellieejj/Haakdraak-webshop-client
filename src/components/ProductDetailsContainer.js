@@ -6,7 +6,7 @@ import { loadProduct, cartAdd } from "../actions/productActions";
 import ProductDetails from "./ProductDetails";
 
 export default function ProductDetailsContainer() {
-  const product = useSelector((state) => state.product);
+  const product = useSelector(({product}) => product);
   const dispatch = useDispatch();
   const history = useHistory();
   const routeParameter = useParams();
