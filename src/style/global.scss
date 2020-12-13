@@ -703,6 +703,7 @@ img {
   width: 100%;
   background: $white;
   margin-top: 25px;
+  border-radius: $radius;
 
   @include desktop {
     display: flex;
@@ -782,7 +783,7 @@ img {
   border-radius: $radius;
   padding: 25px;
   font-weight: bold;
-  margin: 25px 0 0;
+  margin: 0 0 25px;
 }
 
 .error {

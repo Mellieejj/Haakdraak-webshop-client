@@ -107,8 +107,8 @@ export default function ProductDetails({product, history, clickHandler}) {
               <i
                 className="fas fa-cart-plus"
                 >
-                {" "}
               </i>
+              {" "}
               Toevoegen aan winkelwagentje
             </button>
           </p>
