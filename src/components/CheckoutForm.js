@@ -144,7 +144,7 @@ export default function CheckoutForm(props) {
           <div className="c-form-group__left">
             <button className="formButton" type="reset">
               <i className="fas fa-times"></i>
-              {" "}Wis alles
+              {" "}Reset
             </button>
           </div>
           <div className="c-form-group__right">
