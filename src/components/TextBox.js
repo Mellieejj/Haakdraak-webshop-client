@@ -20,7 +20,7 @@ export default function TextBox() {
           href="http://www.instagram.com/haakdraakie"
           rel="noopener noreferrer"
         >
-          instagram
+          Instagram
         </a>{" "}
         staan nog meer foto's van mijn gehaakte beestenboel en bestellingen van
         andere klanten. Deze kunnen ook speciaal voor je jou gehaakt worden.

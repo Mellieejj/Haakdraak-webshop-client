@@ -10,7 +10,7 @@ import {
 } from "react-share";
 import { Pacman } from "react-pure-loaders";
 
-const BackArrow = ({previousImage}) => (
+const BackArrow = ({ previousImage }) => (
   <i
     className="fa fa-angle-left"
     aria-hidden="true"
@@ -19,7 +19,7 @@ const BackArrow = ({previousImage}) => (
   ></i>
 );
 
-const NextArrow = ({nextImage}) => (
+const NextArrow = ({ nextImage }) => (
   <i
     className="fa fa-angle-right"
     aria-hidden="true"
@@ -28,7 +28,7 @@ const NextArrow = ({nextImage}) => (
   ></i>
 );
 
-export default function ProductDetails({product, history, clickHandler}) {
+export default function ProductDetails({ product, history, clickHandler }) {
   const [slideCount, setSlideCount] = useState(0);
 
   const nextImage = () => {
@@ -50,7 +50,7 @@ export default function ProductDetails({product, history, clickHandler}) {
           <i className="far fa-hand-point-left"></i>Terug
         </button>
         <div>
-        <h2>{product.name}</h2>
+          <h2>{product.name}</h2>
         </div>
       </div>
 
@@ -61,7 +61,11 @@ export default function ProductDetails({product, history, clickHandler}) {
             .map((image, i) => {
               if (images.indexOf(image) === slideCount) {
                 return (
-                  <div className="product-details__image" style={{ textAlign: "center" }} key={image.id}>
+                  <div
+                    className="product-details__image"
+                    style={{ textAlign: "center" }}
+                    key={image.id}
+                  >
                     <img src={image.url} alt={product.name} />
                     <div>
                       {slideCount !== 0 ? (
@@ -86,84 +90,99 @@ export default function ProductDetails({product, history, clickHandler}) {
           </div>
         )}
         <div className="product-details__content">
-            
           <p className="product-details__description">
-            <span className="product-details__description-subtitle">Beschrijving:</span>
+            <span className="product-details__description-subtitle">
+              Beschrijving:
+            </span>
             <br /> {product.description}
           </p>
 
           <p className="product-details__description">
-            <span className="product-details__description-subtitle">Optionele variaties:</span> <br />
+            <span className="product-details__description-subtitle">
+              Optionele variaties:
+            </span>{" "}
+            <br />
             {product.optional}
           </p>
 
           <p className="product-details__description product-details__prijs">
             € {product.price}{" "}
-            <button 
+            <button
               className="form-button product-details__add-button"
               id="addToCart"
               onClick={() => clickHandler(product.id)}
             >
-              <i
-                className="fas fa-cart-plus"
-                >
-              </i>
-              {" "}
-              Toevoegen aan winkelwagentje
+              <i className="fas fa-cart-plus"></i> Toevoegen aan winkelwagentje
             </button>
           </p>
 
           <p className="product-details__description">
-            <span className="product-details__description-subtitle">Op voorraad:</span> {product.stock}
+            <span className="product-details__description-subtitle">
+              Op voorraad:
+            </span>{" "}
+            {product.stock <= 0 ? "Niet op voorraad" : product.stock}
           </p>
 
           {product.stock === 0 ? (
             <p className="product-details__description">
-              <span className="product-details__description-subtitle">Levertijd:</span> <br />
+              <span className="product-details__description-subtitle">
+                Levertijd:
+              </span>{" "}
+              <br />
               Kijk op de <Link to="/contact">contactpagina</Link> bij informatie
               verzenden.
             </p>
           ) : null}
 
           <p className="product-details__description">
-            <span className="product-details__description-subtitle">Formaat:</span> +/- {product.size}
+            <span className="product-details__description-subtitle">
+              Formaat:
+            </span>{" "}
+            +/- {product.size}
           </p>
 
           <p className="product-details__description">
-            <span className="product-details__description-subtitle"> Category:</span>{" "}
+            <span className="product-details__description-subtitle">
+              {" "}
+              Category:
+            </span>{" "}
             {product.category ? product.category.name : null}
           </p>
         </div>
       </div>
-      
+
       <div className="socialmedia">
         <p>Dit product delen op: </p>
+        <span className="socialmedia__btn">
+          <FacebookShareButton
+            children={product.name}
+            url={`https://www.haakdraak.nl/producten/${product.id}`}
+            quote={product.name}
+            hashtag="#haakdraak"
+          >
+            <FacebookIcon round="true" size="2rem" />
+          </FacebookShareButton>
+        </span>
 
-        <FacebookShareButton
-          children={product.name}
-          url={`https://www.haakdraak.nl/producten/${product.id}`}
-          quote={product.name}
-          hashtag="#haakdraak"
-        >
-          <FacebookIcon round="true" size="2rem" />
-        </FacebookShareButton>
-
-        <TwitterShareButton
-          children={product.name}
-          url={`https://www.haakdraak.nl/producten/${product.id}`}
-          hashtags={["haakdraak"]}
-          title={product.name}
-        >
-          <TwitterIcon size="2rem" round="true" />
-        </TwitterShareButton>
-
-        <WhatsappShareButton
-          children={product.name}
-          url={`https://www.haakdraak.nl/producten/${product.id}`}
-          title={product.name}
-        >
-          <WhatsappIcon round="true" size="2rem" />
-        </WhatsappShareButton>
+        <span className="socialmedia__btn">
+          <TwitterShareButton
+            children={product.name}
+            url={`https://www.haakdraak.nl/producten/${product.id}`}
+            hashtags={["haakdraak"]}
+            title={product.name}
+          >
+            <TwitterIcon size="2rem" round="true" />
+          </TwitterShareButton>
+        </span>
+        <span className="socialmedia__btn">
+          <WhatsappShareButton
+            children={product.name}
+            url={`https://www.haakdraak.nl/producten/${product.id}`}
+            title={product.name}
+          >
+            <WhatsappIcon round="true" size="2rem" />
+          </WhatsappShareButton>
+        </span>
       </div>
     </section>
   );

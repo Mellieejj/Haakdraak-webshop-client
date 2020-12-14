@@ -316,6 +316,7 @@ img {
 .c-main-photo {
   display: grid;
   grid-template-areas: "foto foto" "foto foto";
+  margin-bottom: 20px; 
 
   &__img {
     grid-area: foto;
@@ -895,6 +896,10 @@ img {
   text-align: center;
   margin-top: 25px;
   border-radius: $radius;
+
+  &__btn {
+    margin-right: 8px;
+  }
 }
 
 .load {
