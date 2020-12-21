@@ -3,7 +3,7 @@ import React from "react";
 export default function TextBox() {
   return (
     <div className="box">
-      <h3>Welkom!</h3>
+      <h3 className="box__title">Welkom!</h3>
       <p>Gehaakte knuffels, kraamcadeautjes en meer.</p>
       <p>
         Ik vind haken naast mijn sportieve hobby een heerlijke ontspanning.

@@ -58,7 +58,7 @@ export default function ProductDetails({ product, history, clickHandler }) {
         {product.images ? (
           images
             .filter((image) => image.thumbnail === false)
-            .map((image, i) => {
+            .map((image) => {
               if (images.indexOf(image) === slideCount) {
                 return (
                   <div
@@ -100,13 +100,13 @@ export default function ProductDetails({ product, history, clickHandler }) {
           <p className="product-details__description">
             <span className="product-details__description-subtitle">
               Optionele variaties:
-            </span>{" "}
+            </span>
             <br />
             {product.optional}
           </p>
 
           <p className="product-details__description product-details__prijs">
-            € {product.price}{" "}
+            € {product.price}
             <button
               className="form-button product-details__add-button"
               id="addToCart"
@@ -127,7 +127,7 @@ export default function ProductDetails({ product, history, clickHandler }) {
             <p className="product-details__description">
               <span className="product-details__description-subtitle">
                 Levertijd:
-              </span>{" "}
+              </span>
               <br />
               Kijk op de <Link to="/contact">contactpagina</Link> bij informatie
               verzenden.
@@ -143,8 +143,7 @@ export default function ProductDetails({ product, history, clickHandler }) {
 
           <p className="product-details__description">
             <span className="product-details__description-subtitle">
-              {" "}
-              Category:
+              Categorie:
             </span>{" "}
             {product.category ? product.category.name : null}
           </p>
