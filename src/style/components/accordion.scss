@@ -1,0 +1,41 @@
+@import "../config";
+@import "../mediaqueries";
+
+.c-accordion {
+  $el: ".c-accordion";
+  font-weight: bold;
+  padding-top: 24px;
+
+  &__title {
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__description {
+    font-weight: normal;
+  }
+
+  &__description-par {
+    margin-top: 1rem;
+  }
+
+  i {
+    padding-right: 10px;
+  }
+
+  &[open] #{$el}__title {
+    color: $blue;
+    font-weight: bold;
+
+    i {
+      padding-right: 5px;
+    }
+  }
+
+  :focus {
+    outline-color: $blue;
+  }
+}

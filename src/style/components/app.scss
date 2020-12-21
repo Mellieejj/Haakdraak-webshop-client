@@ -1,0 +1,10 @@
+@import "../config";
+@import "../mediaqueries";
+
+
+.wrapper {
+  display: grid;
+  margin: 0 auto;
+  background: $blue;
+  max-width: 1150px;
+}
