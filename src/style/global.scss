@@ -312,69 +312,6 @@ img {
   }
 }
 
-/* top container */
-.c-main-photo {
-  display: grid;
-  grid-template-areas: "foto foto" "foto foto";
-  margin-bottom: 20px; 
-
-  &__img {
-    grid-area: foto;
-    background: url("https://www.haakdraak.nl/afbeeldingen/48-2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 25px;
-    min-height: 250px;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: $shadow;
-
-    @include mobile {
-      min-height: 300px;
-    }
-
-    @media (min-width: 620px) {
-      min-height: 375px;
-    }
-
-    @include desktop {
-      min-height: 512px;
-      background-size: cover;
-      padding: 3rem;
-    }
-  }
-
-  &__title {
-    margin-bottom: 0;
-    color: $white;
-
-    @media (min-width: 620px) {
-      font-size: 2.5rem;
-    }
-
-    @include desktop {
-      font-size: 4rem;
-    }
-  }
-
-  &__text {
-    margin-top: 0;
-    color: $white;
-    text-align: center;
-
-    @media (min-width: 620px) {
-      font-size: 24px;
-    }
-
-    @include desktop {
-      font-size: 28px;
-    }
-  }
-}
-
 .page-title {
   display: flex;
   align-items: center;
@@ -573,65 +510,6 @@ img {
   }
 }
 
-.product-card {
-  margin-top: 10px;
-  padding: 10px;
-  max-height: 500px;
-  background: $white;
-  box-shadow: $shadow;
-  border-radius: $radius;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 100%;
-
-  img {
-    max-width: 174px;
-    max-height: 235px;
-    border: none;
-    border-radius: $radius;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 auto;
-  }
-
-  &__title {
-    text-align: center;
-  }
-}
-
-.prijs {
-  font-size: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 25px 10px;
-
-  i {
-    border-radius: $radius;
-    padding: 15px;
-
-    &:hover {
-      background: $blue;
-      color: $white;
-    }
-  }
-
-  @include tablet {
-    justify-content: space-evenly;
-  }
-
-  @include desktop {
-    justify-content: space-around;
-    padding: 0 10px 10px;
-  }
-}
-
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -700,46 +578,6 @@ img {
   &__textarea {
     resize: none;
     width: 100%;
-  }
-}
-
-.footer {
-  width: 100%;
-  background: $white;
-  margin-top: 25px;
-  border-radius: $radius;
-
-  @include desktop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 25px;
-    max-width: 100%;
-    height: 100px;
-    margin: 25px auto;
-  }
-
-  &__box {
-    max-width: 100%;
-    text-align: center;
-    padding: 5px;
-  }
-
-  i {
-    font-size: 24px;
-
-    @include desktop {
-      font-size: 42px;
-    }
-  }
-
-  &__link {
-    color: $grey;
-
-    &:hover {
-      color: $grey;
-      text-decoration: underline;
-    }
   }
 }
 

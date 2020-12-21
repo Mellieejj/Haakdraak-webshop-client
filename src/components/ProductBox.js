@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../style/components/productBox.scss'
 
 export default function ProductBox ({products, clickHandler}){
     return (
@@ -20,7 +21,7 @@ export default function ProductBox ({products, clickHandler}){
                 <Link to={`/producten/${product.id}`}>
                   <h3 className="product-card__title">{product.name}</h3>
                 </Link>
-                <p className="prijs">
+                <p className="product-card__prijs">
                   € {product.price}
                   <i
                     id="addToCart"
