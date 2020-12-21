@@ -24,14 +24,14 @@ export const removeError = () => {
 
 export const NEW_ORDER = "NEW_ORDER";
 
-function newOrder(payload) {
+const newOrder = (payload) => {
   return {
     type: NEW_ORDER,
     payload,
   };
 }
 
-export function createOrder(data) {
+export const createOrder = (data) => {
   return async function (dispatch, getState) {
     try {
       const response = await request.post(`${baseUrl}/orders`).send(data);
@@ -56,7 +56,7 @@ export function createOrder(data) {
 
 export const ALL_ORDERS = "ALL_ORDERS";
 
-function allOrders(payload) {
+const allOrders = (payload) => {
   return {
     type: ALL_ORDERS,
     payload,

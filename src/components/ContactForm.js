@@ -91,7 +91,7 @@ export default function ContactForm() {
 
   return (
     <div className="box">
-      <h2 className="box__title">Contact Formulier</h2>
+      <h2 className="box__title">Contactformulier</h2>
       {message && <div className={messageClass}>{message}</div>}
 
       <form className="c-form" onSubmit={sendEmail}>

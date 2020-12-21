@@ -11,7 +11,7 @@ export default function ProductListContainer() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(16);
 
-  const { products, filter } = useSelector(({products}) => products);
+  const { products, filter } = useSelector(({ products }) => products);
 
   const dispatch = useDispatch();
 
@@ -56,9 +56,11 @@ export default function ProductListContainer() {
 
   const lastIndex = currentPage * productsPerPage;
   const firstIndex = lastIndex - productsPerPage;
-  const currentProducts = productsList && productsList.slice(firstIndex, lastIndex);
+  const currentProducts =
+    productsList && productsList.slice(firstIndex, lastIndex);
 
-  const totalPages = products && Math.ceil(productsList.length / productsPerPage);
+  const totalPages =
+    products && Math.ceil(productsList.length / productsPerPage);
 
   return (
     <section>
@@ -67,7 +69,11 @@ export default function ProductListContainer() {
       </div>
 
       <div className="page-title">
-        <SelectFilter setCategoryFilter={setCategoryFilter} dispatch={dispatch} setCurrentPage={setCurrentPage} />
+        <SelectFilter
+          setCategoryFilter={setCategoryFilter}
+          dispatch={dispatch}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
 
       <div>
@@ -82,26 +88,32 @@ export default function ProductListContainer() {
 
       <div className="pagination">
         Pagina {currentPage} van {totalPages}
-      </div>
-      <div className="pagination">
-        <button disabled={currentPage === 1 ? true : false} onClick={firstPage}>
-          <i className="fas fa-angle-double-left"></i>
-        </button>
-        <button disabled={currentPage === 1 ? true : false} onClick={prevPage}>
-          <i className="fas fa-angle-left"></i>
-        </button>
-        <button
-          disabled={currentPage === totalPages ? true : false}
-          onClick={nextPage}
-        >
-          <i className="fas fa-angle-right"></i>
-        </button>
-        <button
-          disabled={currentPage === totalPages ? true : false}
-          onClick={lastPage}
-        >
-          <i className="fas fa-angle-double-right"></i>
-        </button>
+        <div className="pagination-btns">
+          <button
+            disabled={currentPage <= 1 ? true : false}
+            onClick={firstPage}
+          >
+            <i className="fas fa-angle-double-left fa-lg"></i>
+          </button>
+          <button
+            disabled={currentPage <= 1 ? true : false}
+            onClick={prevPage}
+          >
+            <i className="fas fa-angle-left fa-lg"></i>
+          </button>
+          <button
+            disabled={currentPage >= totalPages ? true : false}
+            onClick={nextPage}
+          >
+            <i className="fas fa-angle-right fa-lg"></i>
+          </button>
+          <button
+            disabled={currentPage >= totalPages ? true : false}
+            onClick={lastPage}
+          >
+            <i className="fas fa-angle-double-right fa-lg"></i>
+          </button>
+        </div>
       </div>
     </section>
   );

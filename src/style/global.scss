@@ -316,6 +316,7 @@ img {
 .c-main-photo {
   display: grid;
   grid-template-areas: "foto foto" "foto foto";
+  margin-bottom: 20px; 
 
   &__img {
     grid-area: foto;
@@ -517,6 +518,9 @@ img {
     padding: 32px;
   }
 
+  &-photo {
+    justify-content: center;
+  }
   &__title {
     margin-bottom: 24px;
     text-align: center;
@@ -699,7 +703,7 @@ img {
   }
 }
 
-.foot-nav {
+.footer {
   width: 100%;
   background: $white;
   margin-top: 25px;
@@ -729,8 +733,13 @@ img {
     }
   }
 
-  a {
+  &__link {
     color: $grey;
+
+    &:hover {
+      color: $grey;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -864,6 +873,8 @@ img {
 }
 
 .pagination {
+  padding-top: 25px;
+
   button {
     display: inline-block;
     background: $white;
@@ -871,7 +882,7 @@ img {
     cursor: pointer;
     text-align: center;
     border: none;
-    // font-size: 28px;
+    padding: 4px;
     margin: 5px;
 
     &:hover {
@@ -880,8 +891,7 @@ img {
     }
 
     &:disabled {
-      background-color: $blue;
-      color: $blue;
+      display: none;
     }
   }
 }
@@ -895,13 +905,16 @@ img {
   text-align: center;
   margin-top: 25px;
   border-radius: $radius;
+
+  &__btn {
+    margin-right: 8px;
+  }
 }
 
 .load {
   background: $white;
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 50%;
+  border-radius: $radius;
+  padding: 2rem 45%;
   box-shadow: $shadow;
 }

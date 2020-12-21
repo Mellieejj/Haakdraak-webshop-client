@@ -1,12 +1,12 @@
 import request from "superagent";
 
-// const baseUrl = "http://192.168.2.13:4000";
+// const baseUrl = "http://localhost:4000";
 const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
 
 //all products
 export const ALL_PRODUCTS = "ALL_PRODUCTS";
 
-function allProducts(payload) {
+const allProducts = (payload) => {
   return {
     type: ALL_PRODUCTS,
     payload,
@@ -48,7 +48,7 @@ export const loadProduct = (productId) => (dispatch) => {
 
 export const CART_ADDED = "CART_ADDED";
 
-export function cartAdd(id) {
+export const cartAdd = (id) => {
   return {
     type: CART_ADDED,
     payload: id,
@@ -57,7 +57,7 @@ export function cartAdd(id) {
 
 export const CART_SUBTRACTED = "CART_SUBTRACTED";
 
-export function cartSubtract(id) {
+export const cartSubtract = (id) => {
   return {
     type: CART_SUBTRACTED,
     payload: id,
@@ -66,7 +66,7 @@ export function cartSubtract(id) {
 
 export const CLEAR_CART = "CLEAR_CART";
 
-export function clearCart() {
+export const clearCart = () => {
   return {
     type: CLEAR_CART,
   };
@@ -75,7 +75,7 @@ export function clearCart() {
 //filter
 export const FITLER_SEARCH = "FITLER_SEARCH";
 
-export function filterSearch(filterCategory) {
+export const filterSearch = (filterCategory) => {
   return {
     type: FITLER_SEARCH,
     payload: filterCategory,

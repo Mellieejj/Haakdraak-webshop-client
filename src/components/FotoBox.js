@@ -19,7 +19,7 @@ export default function FotoBox() {
     return <img key={i} src={image} alt="" />;
   });
   return (
-    <div className="box">
+    <div className="box box-photo">
       <div className="photo-grid">
         {imagesgrid}
       </div>

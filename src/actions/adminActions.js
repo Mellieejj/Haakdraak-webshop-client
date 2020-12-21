@@ -13,7 +13,7 @@ const loginUser = payload => {
   };
 };
 
-export function login(data) {
+export const login = (data) => {
   return async function(dispatch) {
     try {
       const response = await request.post(`${baseUrl}/login`).send(data);
@@ -31,14 +31,14 @@ export function login(data) {
 
 export const NEW_PRODUCT = "NEW_PRODUCT";
 
-function newProduct(payload) {
+const newProduct = (payload) => {
   return {
     type: NEW_PRODUCT,
     payload,
   };
 }
 
-export function createProduct(data) {
+export const createProduct = (data) => {
   return async function (dispatch, getState) {
     try {
       console.log("data", data);

@@ -3,7 +3,7 @@ import React from "react";
 export default function TextBox() {
   return (
     <div className="box">
-      <h3>Welkom!</h3>
+      <h3 className="box__title">Welkom!</h3>
       <p>Gehaakte knuffels, kraamcadeautjes en meer.</p>
       <p>
         Ik vind haken naast mijn sportieve hobby een heerlijke ontspanning.
@@ -20,7 +20,7 @@ export default function TextBox() {
           href="http://www.instagram.com/haakdraakie"
           rel="noopener noreferrer"
         >
-          instagram
+          Instagram
         </a>{" "}
         staan nog meer foto's van mijn gehaakte beestenboel en bestellingen van
         andere klanten. Deze kunnen ook speciaal voor je jou gehaakt worden.
