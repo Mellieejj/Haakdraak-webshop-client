@@ -275,49 +275,6 @@ img {
   }
 }
 
-.cart {
-  &__item {
-    box-shadow: inset 0 0 0 2px $light-grey;
-    border-radius: $radius;
-    padding: 12px;
-    margin-top: 12px;
-  }
-
-  &__item-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  &__item-row--price {
-    padding: 8px;
-  }
-
-  &__item-title {
-    font-weight: bold;
-    color: $blue;
-  }
-
-  &__item-btn {
-    padding: 0 4px;
-
-    &:hover {
-      background: $blue;
-      color: $white;
-    }
-  }
-
-  &__row--total {
-    padding-top: 12px;
-
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-}
-
 .succes,
 .sending,
 .error {
@@ -345,43 +302,8 @@ img {
   box-shadow: inset 0 0 0 2px $blue;
 }
 
-.pagination {
-  padding-top: 25px;
-
-  button {
-    display: inline-block;
-    background: $white;
-    color: $grey;
-    cursor: pointer;
-    text-align: center;
-    border: none;
-    padding: 4px;
-    margin: 5px;
-
-    &:hover {
-      background: $blue;
-      color: $white;
-    }
-
-    &:disabled {
-      display: none;
-    }
-  }
-}
-
 #login {
   text-align: center;
-}
-
-.socialmedia {
-  background-color: $white;
-  text-align: center;
-  margin-top: 25px;
-  border-radius: $radius;
-
-  &__btn {
-    margin-right: 8px;
-  }
 }
 
 .load {

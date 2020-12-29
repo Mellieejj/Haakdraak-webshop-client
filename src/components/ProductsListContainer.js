@@ -6,6 +6,8 @@ import { Pacman } from "react-pure-loaders";
 import ProductBox from "./ProductBox";
 import SelectFilter from "./SelectFilter";
 
+import '../style/components/pagination.scss'
+
 export default function ProductListContainer() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,0 +1,45 @@
+@import "../config";
+@import "../mediaqueries";
+
+.cart {
+  &__item {
+    box-shadow: inset 0 0 0 2px $light-grey;
+    border-radius: $radius;
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  &__item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__item-row--price {
+    padding: 8px;
+  }
+
+  &__item-title {
+    font-weight: bold;
+    color: $blue;
+  }
+
+  &__item-btn {
+    padding: 0 4px;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+  }
+
+  &__row--total {
+    padding-top: 12px;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
