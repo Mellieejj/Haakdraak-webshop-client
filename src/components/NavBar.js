@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import '../style/components/navBar.scss'
 
 export default function NavBar() {
   const [checkboxState, setCheckboxState] = useState(false);

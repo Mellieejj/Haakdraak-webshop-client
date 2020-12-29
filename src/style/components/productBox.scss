@@ -1,0 +1,75 @@
+@import "../config";
+@import "../mediaqueries";
+
+.product-boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+
+  @include desktop {
+    margin: 10px 0;
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}
+
+.product-card {
+  margin-top: 10px;
+  padding: 10px;
+  max-height: 500px;
+  background: $white;
+  box-shadow: $shadow;
+  border-radius: $radius;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+
+  img {
+    max-width: 174px;
+    max-height: 235px;
+    border: none;
+    border-radius: $radius;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__prijs {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 25px 10px;
+
+    i {
+      border-radius: $radius;
+      padding: 15px;
+
+      &:hover {
+        background: $blue;
+        color: $white;
+      }
+    }
+
+    @include tablet {
+      justify-content: space-evenly;
+    }
+
+    @include desktop {
+      justify-content: space-around;
+      padding: 0 10px 10px;
+    }
+  }
+}

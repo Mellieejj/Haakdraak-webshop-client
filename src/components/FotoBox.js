@@ -1,4 +1,5 @@
 import React from "react";
+import "../style/components/fotoBox.scss";
 
 export default function FotoBox() {
   const url = "https://www.haakdraak.nl/afbeeldingen";
@@ -20,9 +21,7 @@ export default function FotoBox() {
   });
   return (
     <div className="box box-photo">
-      <div className="photo-grid">
-        {imagesgrid}
-      </div>
+      <div className="photo-grid">{imagesgrid}</div>
     </div>
   );
 }

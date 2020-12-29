@@ -1,0 +1,26 @@
+@import "../config";
+@import "../mediaqueries";
+
+.pagination {
+  padding-top: 25px;
+
+  button {
+    display: inline-block;
+    background: $white;
+    color: $grey;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    padding: 4px;
+    margin: 5px;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+
+    &:disabled {
+      display: none;
+    }
+  }
+}
