@@ -44,7 +44,7 @@ export default function NavBar() {
         <Link to="/">
           <div className="main-nav__nav-item">Home</div>
         </Link>
-        <Link to="/producten">
+        <Link to="/producten?page=1">
           <div className="main-nav__nav-item">Producten</div>
         </Link>
         <Link to="/contact">

@@ -873,25 +873,36 @@ img {
 }
 
 .pagination {
-  padding-top: 25px;
-
-  button {
+  button,
+  .pagination-button {
     display: inline-block;
-    background: $white;
+    background-color: $white;
     color: $grey;
     cursor: pointer;
     text-align: center;
     border: none;
-    padding: 4px;
-    margin: 5px;
+    padding: 16px;
+    margin: 2px;
+    opacity: 1;
 
     &:hover {
       background: $blue;
       color: $white;
     }
-
+    
     &:disabled {
-      display: none;
+      opacity: 0;
+    }
+  }
+
+  .active {
+    background-color: lightblue;
+    cursor: default;
+    font-weight: bold;
+
+    &:hover {
+      background: lightblue;
+      color: $grey;
     }
   }
 }
