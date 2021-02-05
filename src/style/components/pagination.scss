@@ -1,0 +1,36 @@
+@import "../config";
+@import "../mediaqueries";
+
+.pagination {
+  .pagination-button {
+    display: inline-block;
+    background-color: $white;
+    color: $grey;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    padding: 16px;
+    margin: 2px;
+    opacity: 1;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+    
+    &:disabled {
+      opacity: 0;
+    }
+  }
+
+  .active {
+    background-color: lightblue;
+    cursor: default;
+    font-weight: bold;
+
+    &:hover {
+      background: lightblue;
+      color: $grey;
+    }
+  }
+}

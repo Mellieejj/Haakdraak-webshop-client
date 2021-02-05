@@ -1,0 +1,13 @@
+@import "../config";
+@import "../mediaqueries";
+
+.socialmedia {
+  background-color: $white;
+  text-align: center;
+  margin-top: 25px;
+  border-radius: $radius;
+
+  &__btn {
+    margin-right: 8px;
+  }
+}

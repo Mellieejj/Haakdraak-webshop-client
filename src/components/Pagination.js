@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
+import '../style/components/pagination.scss'
 export default function Pagination({
   currentPage,
   totalProducts,

@@ -8,6 +8,8 @@ import ProductBox from "./ProductBox";
 // import SelectFilter from "./SelectFilter";
 import Pagination from "./Pagination";
 
+import '../style/components/pagination.scss'
+
 export default function ProductListContainer() {
   // const [categoryFilter, setCategoryFilter] = useState("all");
   const dispatch = useDispatch();

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import '../style/components/productDetails.scss'
+import '../style/components/socialMediaButton.scss'
 import {
   FacebookShareButton,
   FacebookIcon,
