@@ -6,13 +6,13 @@ import {
   FITLER_SEARCH,
 } from "../actions/productActions";
 
-const initialState = { products: [], cart: [], filter: [] };
+const initialState = { products: [], cart: [], filter: [], totalProducts: 0 };
 
 export default function (state = initialState, action = {}) {
   const { products, cart } = state
   switch (action.type) {
     case ALL_PRODUCTS: {
-      return { ...state, products: action.payload };
+      return { ...state, products: action.payload.product, totalProducts: action.payload.total };
     }
 
     case FITLER_SEARCH: {

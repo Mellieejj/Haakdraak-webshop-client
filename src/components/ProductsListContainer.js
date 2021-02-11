@@ -1,68 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { getProducts, cartAdd } from "../actions/productActions";
 import { Pacman } from "react-pure-loaders";
 
 import ProductBox from "./ProductBox";
-import SelectFilter from "./SelectFilter";
-
+// import SelectFilter from "./SelectFilter";
+import Pagination from "./Pagination";
 import '../style/components/pagination.scss'
 
 export default function ProductListContainer() {
-  const [categoryFilter, setCategoryFilter] = useState("all");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(16);
-
-  const { products, filter } = useSelector(({ products }) => products);
-
+  // const [categoryFilter, setCategoryFilter] = useState("all");
   const dispatch = useDispatch();
+  const location = useLocation();
+  const [currentPage, setCurrentPage] = useState(location.search.substr(location.search.length - 1) | 1);
+  const { products, totalProducts, filter } = useSelector(
+    ({ products }) => products
+  );
+  // console.log(filter, "filter");
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    setCurrentPage(location.search.substr(location.search.length - 1));
+    dispatch(getProducts(location.search.substr(location.search.length - 1)));
+  }, [location.search, dispatch, currentPage]);
 
   const clickHandler = (id) => {
     dispatch(cartAdd(id));
   };
 
-  const firstPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const lastPage = () => {
-    const productsList = categoryFilter === "all" ? products : filter;
-
-    if (currentPage < Math.ceil(productsList.length / productsPerPage)) {
-      setCurrentPage(Math.ceil(productsList.length / productsPerPage));
-    }
-  };
-
-  const nextPage = () => {
-    const productsList = categoryFilter === "all" ? products : filter;
-
-    if (currentPage < Math.ceil(productsList.length / productsPerPage)) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  //pagination
-  const productsList = categoryFilter === "all" ? products : filter;
-
-  const lastIndex = currentPage * productsPerPage;
-  const firstIndex = lastIndex - productsPerPage;
-  const currentProducts =
-    productsList && productsList.slice(firstIndex, lastIndex);
-
-  const totalPages =
-    products && Math.ceil(productsList.length / productsPerPage);
+  //todo:pagination with filter
+  //old variables maybe still needed when filter is back
+  // const productsList = categoryFilter === "all" ? products : filter;
+  // const currentProducts =
+  // productsList && productsList.slice(firstIndex, lastIndex);
 
   return (
     <section>
@@ -70,53 +40,38 @@ export default function ProductListContainer() {
         <h2>Producten</h2>
       </div>
 
-      <div className="page-title">
+      {/* <div className="page-title">
         <SelectFilter
           setCategoryFilter={setCategoryFilter}
           dispatch={dispatch}
           setCurrentPage={setCurrentPage}
         />
-      </div>
+      </div> */}
+
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalProducts={totalProducts}
+      />
 
       <div>
-        {currentProducts.length === 0 ? (
+        {products.length === 0 ? (
           <div className="load">
             <Pacman loading="true" color={"#32a093"} />
           </div>
         ) : (
-          <ProductBox products={currentProducts} clickHandler={clickHandler} />
+          <ProductBox products={products} clickHandler={clickHandler} />
         )}
       </div>
 
-      <div className="pagination">
-        Pagina {currentPage} van {totalPages}
-        <div className="pagination-btns">
-          <button
-            disabled={currentPage <= 1 ? true : false}
-            onClick={firstPage}
-          >
-            <i className="fas fa-angle-double-left fa-lg"></i>
-          </button>
-          <button
-            disabled={currentPage <= 1 ? true : false}
-            onClick={prevPage}
-          >
-            <i className="fas fa-angle-left fa-lg"></i>
-          </button>
-          <button
-            disabled={currentPage >= totalPages ? true : false}
-            onClick={nextPage}
-          >
-            <i className="fas fa-angle-right fa-lg"></i>
-          </button>
-          <button
-            disabled={currentPage >= totalPages ? true : false}
-            onClick={lastPage}
-          >
-            <i className="fas fa-angle-double-right fa-lg"></i>
-          </button>
-        </div>
+      <div style={{ paddingTop: "25px" }}>
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalProducts={totalProducts}
+        />
       </div>
+    
     </section>
   );
 }

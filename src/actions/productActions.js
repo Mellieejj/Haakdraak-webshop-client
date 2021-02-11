@@ -1,7 +1,7 @@
 import request from "superagent";
 
-// const baseUrl = "http://localhost:4000";
-const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
+const baseUrl = "http://localhost:4000";
+// const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
 
 //all products
 export const ALL_PRODUCTS = "ALL_PRODUCTS";
@@ -11,20 +11,20 @@ const allProducts = (payload) => {
     type: ALL_PRODUCTS,
     payload,
   };
-}
+};
 
-export const getProducts = () => (dispatch, getState) => {
-  const state = getState();
-  const { products } = state;
-
-  if (!products.length) {
-    request(`${baseUrl}/products`)
-      .then((response) => {
-        const action = allProducts(response.body);
-        dispatch(action);
-      })
-      .catch(console.error);
+export const getProducts = (page) => (dispatch, getState) => {
+  // const state = getState();
+  // const { products } = state;
+  if (!page) {
+    page = 1;
   }
+  request(`${baseUrl}/products?page=${page}`)
+    .then((response) => {
+      const action = allProducts(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
 };
 
 export const ONE_PRODUCT = "ONE_PRODUCT";
@@ -53,7 +53,7 @@ export const cartAdd = (id) => {
     type: CART_ADDED,
     payload: id,
   };
-}
+};
 
 export const CART_SUBTRACTED = "CART_SUBTRACTED";
 
@@ -62,7 +62,7 @@ export const cartSubtract = (id) => {
     type: CART_SUBTRACTED,
     payload: id,
   };
-}
+};
 
 export const CLEAR_CART = "CLEAR_CART";
 
@@ -70,7 +70,7 @@ export const clearCart = () => {
   return {
     type: CLEAR_CART,
   };
-}
+};
 
 //filter
 export const FITLER_SEARCH = "FITLER_SEARCH";
@@ -80,4 +80,4 @@ export const filterSearch = (filterCategory) => {
     type: FITLER_SEARCH,
     payload: filterCategory,
   };
-}
+};
