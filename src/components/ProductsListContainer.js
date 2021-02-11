@@ -7,16 +7,13 @@ import { Pacman } from "react-pure-loaders";
 import ProductBox from "./ProductBox";
 // import SelectFilter from "./SelectFilter";
 import Pagination from "./Pagination";
-
 import '../style/components/pagination.scss'
 
 export default function ProductListContainer() {
   // const [categoryFilter, setCategoryFilter] = useState("all");
   const dispatch = useDispatch();
   const location = useLocation();
-  const [currentPage, setCurrentPage] = useState(
-    location.search.substr(location.search.length - 1) | 1
-  );
+  const [currentPage, setCurrentPage] = useState(location.search.substr(location.search.length - 1) | 1);
   const { products, totalProducts, filter } = useSelector(
     ({ products }) => products
   );
@@ -32,7 +29,7 @@ export default function ProductListContainer() {
   };
 
   //todo:pagination with filter
-  //old variables maybe still needed when filter is back 
+  //old variables maybe still needed when filter is back
   // const productsList = categoryFilter === "all" ? products : filter;
   // const currentProducts =
   // productsList && productsList.slice(firstIndex, lastIndex);
@@ -54,7 +51,6 @@ export default function ProductListContainer() {
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        // pageClick={pageClick}
         totalProducts={totalProducts}
       />
 
@@ -67,17 +63,15 @@ export default function ProductListContainer() {
           <ProductBox products={products} clickHandler={clickHandler} />
         )}
       </div>
+
       <div style={{ paddingTop: "25px" }}>
-        {/* <Pagination
+        <Pagination
           currentPage={currentPage}
-          totalPages={totalPages}
-          firstPage={firstPage}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          lastPage={lastPage}
-          pageClick={pageClick}
-        /> */}
+          setCurrentPage={setCurrentPage}
+          totalProducts={totalProducts}
+        />
       </div>
+    
     </section>
   );
 }
