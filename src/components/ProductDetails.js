@@ -118,14 +118,15 @@ export default function ProductDetails({ product, history, clickHandler }) {
             </button>
           </p>
 
-          <p className="product-details__description">
+          {/* <p className="product-details__description">
             <span className="product-details__description-subtitle">
               Op voorraad:
             </span>{" "}
             {product.stock <= 0 ? "Niet op voorraad" : product.stock}
-          </p>
+            Niet op voorraad
+          </p> */}
 
-          {product.stock === 0 ? (
+          {/* {product.stock !== 0 ? ( */}
             <p className="product-details__description">
               <span className="product-details__description-subtitle">
                 Levertijd:
@@ -134,7 +135,7 @@ export default function ProductDetails({ product, history, clickHandler }) {
               Kijk op de <Link to="/contact">contactpagina</Link> bij informatie
               verzenden.
             </p>
-          ) : null}
+          {/* ) : null} */}
 
           <p className="product-details__description">
             <span className="product-details__description-subtitle">
