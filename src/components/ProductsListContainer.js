@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { getProducts, cartAdd } from "../actions/productActions";
-import { Pacman } from "react-pure-loaders";
+import React, {useEffect, useState} from "react";
+import {Pacman} from "react-pure-loaders";
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router-dom";
+import {cartAdd, getProducts} from "../actions/productActions";
 
 import ProductBox from "./ProductBox";
 // import SelectFilter from "./SelectFilter";
+import "../style/components/pagination.scss";
 import Pagination from "./Pagination";
-import '../style/components/pagination.scss'
 
 export default function ProductListContainer() {
   // const [categoryFilter, setCategoryFilter] = useState("all");
   const dispatch = useDispatch();
   const location = useLocation();
-  const [currentPage, setCurrentPage] = useState(location.search.substr(location.search.length - 1) | 1);
-  const { products, totalProducts, filter } = useSelector(
-    ({ products }) => products
+  const [currentPage, setCurrentPage] = useState(
+    location.search.substr(location.search.length - 1) | 1
+  );
+  const {products, totalProducts, filter} = useSelector(
+    ({products}) => products
   );
   // console.log(filter, "filter");
 
@@ -64,14 +66,13 @@ export default function ProductListContainer() {
         )}
       </div>
 
-      <div style={{ paddingTop: "25px" }}>
+      <div style={{paddingTop: "25px"}}>
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalProducts={totalProducts}
         />
       </div>
-    
     </section>
   );
 }

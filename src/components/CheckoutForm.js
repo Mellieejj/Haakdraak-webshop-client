@@ -2,7 +2,7 @@ import React from "react";
 // import { ReCaptcha } from "react-recaptcha-google";
 
 export default function CheckoutForm(props) {
-  const { errors, onSubmit, values, onChange, cartItems, reset } = props;
+  const {errors, onSubmit, values, onChange, cartItems, reset, sent} = props;
   // componentDidMount() {
   //   if (this.captchaDemo) {
   //     console.log("started, just a second...");
@@ -21,6 +21,20 @@ export default function CheckoutForm(props) {
   //   console.log(recaptchaToken, "<= your recaptcha token");
   //   this.setState("recaptchaResponse", recaptchaToken);
   // }
+
+  if (sent) {
+    return (
+      <div className="box">
+        <h2 className="box__title">Bestelformulier</h2>
+        <div className="box__content">
+          <p>
+            De bestelling is verstuurd, bedankt! <br /> Ik neem zo snel mogelijk
+            contact op over de bestelling.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="box">
@@ -143,8 +157,7 @@ export default function CheckoutForm(props) {
         <div className="c-form-group">
           <div className="c-form-group__left">
             <button className="formButton" type="reset">
-              <i className="fas fa-times"></i>
-              {" "}Reset
+              <i className="fas fa-times"></i> Reset
             </button>
           </div>
           <div className="c-form-group__right">

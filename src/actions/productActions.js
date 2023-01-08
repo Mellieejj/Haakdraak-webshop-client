@@ -1,7 +1,6 @@
-import request from "superagent";
-
+import {products} from "../data/products";
 // const baseUrl = "http://localhost:4000";
-const baseUrl = "https://cherry-crumble-89582.herokuapp.com";
+const baseUrl = "";
 
 //all products
 export const ALL_PRODUCTS = "ALL_PRODUCTS";
@@ -13,18 +12,23 @@ const allProducts = (payload) => {
   };
 };
 
-export const getProducts = (page) => (dispatch, getState) => {
+export const getProducts = (p) => (dispatch, getState) => {
   // const state = getState();
   // const { products } = state;
-  if (!page) {
-    page = 1;
+  try {
+    if (!p) {
+      p = 1;
+    }
+
+    const action = allProducts({
+      product: products.filter((product) => product.page === parseInt(p)),
+      total: products.length,
+    });
+
+    dispatch(action);
+  } catch (e) {
+    console.error(e);
   }
-  request(`${baseUrl}/products?page=${page}`)
-    .then((response) => {
-      const action = allProducts(response.body);
-      dispatch(action);
-    })
-    .catch(console.error);
 };
 
 export const ONE_PRODUCT = "ONE_PRODUCT";
@@ -37,13 +41,14 @@ const productFetched = (product) => {
 };
 
 export const loadProduct = (productId) => (dispatch) => {
-  request
-    .get(`${baseUrl}/products/${productId}`)
-    .send(productId)
-    .then((response) => {
-      dispatch(productFetched(response.body));
-    })
-    .catch(console.error);
+  try {
+    const product = products.find(
+      (product) => product.id === parseInt(productId)
+    );
+    dispatch(productFetched(product));
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export const CART_ADDED = "CART_ADDED";

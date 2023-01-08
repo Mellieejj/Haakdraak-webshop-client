@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import emailjs from "emailjs-com";
-import { createOrder } from "../actions/orderActions";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
 import CheckoutForm from "./CheckoutForm";
 
-export default function CheckoutFormContainer({ cartItems, clearCart, errors }) {
+export default function CheckoutFormContainer({cartItems, clearCart, errors}) {
   const initialFields = {
     firstName: "",
     lastName: "",
@@ -17,11 +16,11 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
   };
 
   const [fields, setFields] = useState(initialFields);
-
+  const [sent, setSent] = useState(false);
   const dispatch = useDispatch();
 
   const onChange = (event) => {
-    setFields({ ...fields, [event.target.name]: event.target.value });
+    setFields({...fields, [event.target.name]: event.target.value});
   };
 
   const onSubmit = (event) => {
@@ -35,12 +34,12 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
         return (Number(priceQuantity) + Number(prevValue)).toFixed(2);
       }, 0);
 
-    dispatch(
-      createOrder({
-        form: fields,
-        items: cartItems,
-      })
-    );
+    // dispatch(
+    //   createOrder({
+    //     form: fields,
+    //     items: cartItems,
+    //   })
+    // );
 
     const {
       firstName,
@@ -52,7 +51,7 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
       city,
       opmerkingen,
     } = fields;
-    
+
     const formOrder = {
       firstName,
       lastName,
@@ -83,6 +82,7 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
           console.log(error.text);
         }
       )
+      .then(setSent(true))
       .then(setFields(initialFields))
       .then(clearCart());
   };
@@ -90,7 +90,8 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
   const reset = (event) => {
     event.preventDefault();
     setFields(initialFields);
-  }
+    setSent(false);
+  };
 
   return (
     <CheckoutForm
@@ -100,6 +101,7 @@ export default function CheckoutFormContainer({ cartItems, clearCart, errors }) 
       reset={reset}
       errors={errors}
       cartItems={cartItems}
+      sent={sent}
     />
   );
 }
