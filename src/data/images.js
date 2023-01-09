@@ -1118,4 +1118,190 @@ export const images = [
     thumbnail: false,
     productId: 52,
   },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/bijtring-kira/bijt-kira.jpg",
+    thumbnail: true,
+    productId: 64,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/bijtring-kira/bijt-kira_size.jpg",
+    thumbnail: false,
+    productId: 64,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/bijtring-luipaard/bijt-luipaard.jpg",
+    thumbnail: true,
+    productId: 65,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/bijtring-luipaard/bijt-luipaard_size.jpg",
+    thumbnail: false,
+    productId: 65,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/bijtring-kitten/bijt-kitten.jpg",
+    thumbnail: true,
+    productId: 66,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/bijtring-kitten/bijt-kitten_size.jpg",
+    thumbnail: false,
+    productId: 66,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/speenknuffel-leeuw/speen-leeuw.jpg",
+    thumbnail: true,
+    productId: 67,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/speenknuffel-leeuw/speen-leeuw_size.jpg",
+    thumbnail: false,
+    productId: 67,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/speenknuffel-leeuw/speen-leeuw_size1.jpg",
+    thumbnail: false,
+    productId: 67,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/kubus-krokodil/kubus-krokodil.jpg",
+    thumbnail: true,
+    productId: 68,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/kubus-krokodil/kubus-krokodil_size.jpg",
+    thumbnail: false,
+    productId: 68,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/kubus-krokodil/kubus-krokodil_size1.jpg",
+    thumbnail: false,
+    productId: 68,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/kubus-krokodil/kubus-krokodil_size2.jpg",
+    thumbnail: false,
+    productId: 68,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/kubus-krokodil/kubus-krokodil_size3.jpg",
+    thumbnail: false,
+    productId: 68,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/kubus-krokodil/kubus-krokodil_size4.jpg",
+    thumbnail: false,
+    productId: 68,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/knuf-rode-panda/knuf-rode-panda.jpg",
+    thumbnail: true,
+    productId: 69,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/knuf-rode-panda/knuf-rode-panda_size.jpg",
+    thumbnail: false,
+    productId: 69,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-snack/sleutel-spekje.jpg",
+    thumbnail: true,
+    productId: 70,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/sleutel-snack/sleutel-spekje_size.jpg",
+    thumbnail: false,
+    productId: 70,
+  },
+  {
+    url: "https://www.haakdraak.nl/afbeeldingen/sleutel-snack/sleutel-spekje_size1.jpg",
+    thumbnail: false,
+    productId: 70,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-snack/sleutel-dubbellikker.jpg",
+    thumbnail: true,
+    productId: 71,
+  },
+
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-snack/sleutel-dubbellikker_size.jpg",
+    thumbnail: false,
+    productId: 71,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-fruit/sleutel-watermeloen.jpg",
+    thumbnail: true,
+    productId: 72,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-fruit/sleutel-watermeloen_size.jpg",
+    thumbnail: false,
+    productId: 72,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-giraf/sleutel-giraf.jpg",
+    thumbnail: true,
+    productId: 73,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-giraf/sleutel-giraf_size.jpg",
+    thumbnail: false,
+    productId: 73,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-kriebelbij/sleutel-kriebelbij.jpg",
+    thumbnail: true,
+    productId: 74,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-kriebelbij/sleutel-kriebelbij_size.jpg",
+    thumbnail: false,
+    productId: 74,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-eenhoorn/sleutel-geluks-eenhoorn.jpg",
+    thumbnail: true,
+    productId: 75,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-eenhoorn/sleutel-geluks-eenhoorn_size.jpg",
+    thumbnail: false,
+    productId: 75,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-eenhoorn/sleutel-geluks-eenhoorn_size1.jpg",
+    thumbnail: false,
+    productId: 75,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/sleutel-eenhoorn/sleutel-geluks-eenhoorn_size2.jpg",
+    thumbnail: false,
+    productId: 75,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/muts/muts-koptelefoon.jpg",
+    thumbnail: true,
+    productId: 76,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/muts/muts-koptelefoon_size.jpg",
+    thumbnail: false,
+    productId: 76,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/muts/muts-koptelefoon_size1.jpg",
+    thumbnail: false,
+    productId: 76,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/muts/muts-koptelefoon_size2.jpg",
+    thumbnail: false,
+    productId: 76,
+  },
+  {
+    url: "https://haakdraak.nl/afbeeldingen/muts/muts-koptelefoon_size3.jpg",
+    thumbnail: false,
+    productId: 76,
+  },
 ];
